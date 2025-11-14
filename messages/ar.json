@@ -82,11 +82,11 @@
       },
       "initiatives": {
         "value": "50+",
-        "label": "نشاط منظم"
+        "label": "أنشطة منظمة"
       },
       "volunteers": {
         "value": "500+",
-        "label": "شخص مستفيد"
+        "label": "أشخاص مستفيدون"
       }
     }
   },

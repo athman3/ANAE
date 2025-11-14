@@ -135,9 +135,11 @@ export default function Footer() {
             {/* Bottom Bar */}
             <div className="bg-gray-950 border-t border-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-                        <div className="text-sm text-gray-400">
-                            © {currentYear} ANAE - {t("copyright")}
+                    <div className={`flex flex-col lg:flex-row items-center justify-between gap-4 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
+                        <div className="flex items-center gap-3 text-sm text-gray-400">
+                            <span>جميع الحقوق محفوظة</span>
+                            <span className="hidden lg:inline">-</span>
+                            <span>© {currentYear} ANAE</span>
                         </div>
                         
                         {/* Developer Credit - Centered */}
@@ -156,7 +158,7 @@ export default function Footer() {
                             </span>
                         </div>
                         
-                        <div className="flex items-center space-x-4 text-sm text-gray-400">
+                        <div className="flex items-center space-x-4 rtl:space-x-reverse text-sm text-gray-400">
                             <span>{t("registration")}</span>
                             <span>•</span>
                             <span>{t("taxId")}</span>

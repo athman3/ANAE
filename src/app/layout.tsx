@@ -5,10 +5,7 @@ import { generateOrganizationJsonLd } from "@/lib/metadata";
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org'),
-    title: {
-        default: "ANAE - Asociación Nacional de Argelinos en España",
-        template: "%s | ANAE",
-    },
+    title: "ANAE - Asociación Nacional de Argelinos en España",
     description: "La Asociación Nacional de Argelinos en España (ANAE) trabaja incansablemente para construir puentes de esperanza, empoderar a las personas y crear cambios duraderos en nuestras comunidades.",
     keywords: ["ANAE", "Asociación", "Argelinos", "España", "Cultura", "Comunidad", "Zaragoza", "Integración", "Mediación sociocultural"],
     authors: [{ name: "ANAE" }],
