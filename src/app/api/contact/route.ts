@@ -3,6 +3,13 @@ import nodemailer from 'nodemailer';
 import { sanitizeHtml, sanitizeEmailContent } from '@/lib/utils/sanitizeHtml';
 import { checkRateLimit, getClientIP } from '@/lib/utils/rateLimit';
 
+// Interface for Nodemailer errors
+interface NodemailerError extends Error {
+  code?: string;
+  command?: string;
+  response?: string;
+}
+
 // Field length limits
 const MAX_NAME_LENGTH = 100;
 const MAX_SUBJECT_LENGTH = 200;
@@ -10,39 +17,39 @@ const MAX_MESSAGE_LENGTH = 5000;
 
 // Validate and get environment variables
 function getEmailConfig() {
-  const smtpUser = process.env.ZOHO_SMTP_USER;
+  const smtpUser = process.env.SMTP_USER;
 
   const requiredVars = {
-    smtpHost: process.env.ZOHO_SMTP_HOST,
-    smtpPort: process.env.ZOHO_SMTP_PORT,
+    smtpHost: process.env.SMTP_HOST,
+    smtpPort: process.env.SMTP_PORT,
     smtpUser: smtpUser,
-    smtpPass: process.env.ZOHO_SMTP_PASS,
-    toEmail: process.env.ZOHO_TO_EMAIL,
+    smtpPass: process.env.SMTP_PASS,
+    toEmail: process.env.CONTACT_TO_EMAIL,
   };
 
-  // Validate SMTP host (must be Zoho SMTP)
-  if (!requiredVars.smtpHost || !/^smtp\.zoho\.(com|eu)$/.test(requiredVars.smtpHost)) {
-    throw new Error('Invalid or missing ZOHO_SMTP_HOST');
+  // Validate SMTP host
+  if (!requiredVars.smtpHost) {
+    throw new Error('Missing SMTP_HOST');
   }
 
   // Validate SMTP port (587 for TLS, 465 for SSL)
   const port = parseInt(requiredVars.smtpPort || '', 10);
   if (!requiredVars.smtpPort || (port !== 587 && port !== 465)) {
-    throw new Error('ZOHO_SMTP_PORT must be 587 (TLS) or 465 (SSL)');
+    throw new Error('SMTP_PORT must be 587 (TLS) or 465 (SSL)');
   }
 
   // Validate email format
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!requiredVars.smtpUser || !emailRegex.test(requiredVars.smtpUser)) {
-    throw new Error('Invalid ZOHO_SMTP_USER email format');
+    throw new Error('Invalid SMTP_USER email format');
   }
 
   if (!requiredVars.smtpPass) {
-    throw new Error('Missing ZOHO_SMTP_PASS');
+    throw new Error('Missing SMTP_PASS');
   }
 
   if (!requiredVars.toEmail || !emailRegex.test(requiredVars.toEmail)) {
-    throw new Error('Invalid ZOHO_TO_EMAIL format');
+    throw new Error('Invalid CONTACT_TO_EMAIL format');
   }
 
   return {
@@ -57,7 +64,7 @@ function getEmailConfig() {
       rejectUnauthorized: true, // Reject unauthorized certificates
       minVersion: 'TLSv1.2',
     } : undefined,
-    fromEmail: requiredVars.smtpUser, // Use SMTP_USER as sender (required for Zoho Mail)
+    fromEmail: requiredVars.smtpUser, // Use SMTP_USER as sender
     toEmail: requiredVars.toEmail,
   };
 }
@@ -268,12 +275,13 @@ export async function POST(request: NextRequest) {
       );
     } catch (emailError) {
       // Log detailed error server-side only
+      const nodemailerError = emailError as NodemailerError;
       const errorDetails = {
-        message: emailError instanceof Error ? emailError.message : 'Unknown error',
-        code: emailError instanceof Error && 'code' in emailError ? emailError.code : undefined,
-        stack: emailError instanceof Error ? emailError.stack : undefined,
-        command: emailError instanceof Error && 'command' in emailError ? emailError.command : undefined,
-        response: emailError instanceof Error && 'response' in emailError ? emailError.response : undefined,
+        message: nodemailerError.message || 'Unknown error',
+        code: nodemailerError.code,
+        stack: nodemailerError.stack,
+        command: nodemailerError.command,
+        response: nodemailerError.response,
       };
       if (process.env.NODE_ENV === 'development') {
         console.error('Email sending error:', JSON.stringify(errorDetails, null, 2));
