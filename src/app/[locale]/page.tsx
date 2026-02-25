@@ -45,7 +45,7 @@ export default function Home() {
             badge: tHero("badge"),
             headline: tHero("headline"),
             subheadline: tHero("subheadline"),
-            primaryCta: { href: "/contact", label: tHero("primaryCta") },
+            primaryCta: { href: "/support-us", label: tHero("primaryCta") },
             secondaryCta: { href: "/about/gallery", label: tHero("secondaryCta") },
             scrollHint: tHero("scrollHint"),
         }),

@@ -134,15 +134,15 @@ export default function ContactSection() {
   }, [formData]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white">
+    <section className="relative min-h-screen overflow-hidden bg-background">
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-black sm:text-5xl md:text-6xl">
+          <h2 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl md:text-6xl">
             {t("title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 md:text-xl">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
             {t("subtitle")}
           </p>
         </div>
@@ -175,7 +175,7 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-black">
+                    <label className="mb-2 block text-sm font-medium text-foreground">
                       {t("form.fields.name")}
                     </label>
                     <Input
@@ -185,12 +185,12 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="h-12 w-full border border-gray-200 bg-white text-black placeholder:text-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-300"
+                      className="h-12 w-full border border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary"
                       placeholder={t("form.placeholders.name")}
                     />
                   </div>
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-black">
+                    <label className="mb-2 block text-sm font-medium text-foreground">
                       {t("form.fields.email")}
                     </label>
                     <Input
@@ -200,14 +200,14 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="h-12 w-full border border-gray-200 bg-white text-black placeholder:text-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-300"
+                      className="h-12 w-full border border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary"
                       placeholder={t("form.placeholders.email")}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-black">
+                  <label className="mb-2 block text-sm font-medium text-foreground">
                     {t("form.fields.subject")}
                   </label>
                   <Input
@@ -217,13 +217,13 @@ export default function ContactSection() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="h-12 w-full border border-gray-200 bg-white text-black placeholder:text-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-300"
+                    className="h-12 w-full border border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary"
                     placeholder={t("form.placeholders.subject")}
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-black">
+                  <label className="mb-2 block text-sm font-medium text-foreground">
                     {t("form.fields.message")}
                   </label>
                   <textarea
@@ -233,7 +233,7 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full border border-gray-200 bg-white px-4 py-3 text-black placeholder:text-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-300 focus:outline-none resize-none"
+                    className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none resize-none"
                     placeholder={t("form.placeholders.message")}
                   />
                 </div>
@@ -241,7 +241,7 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative h-14 w-full bg-black text-base font-semibold text-white transition-all duration-300 hover:bg-gray-800"
+                  className="group relative h-14 w-full bg-primary text-base font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center space-x-2">
@@ -270,16 +270,16 @@ export default function ContactSection() {
                   <div className="flex items-start space-x-4">
                     {/* Icon Container */}
                     <div className="flex-shrink-0 p-3">
-                      <info.icon className="h-6 w-6 text-black" />
+                      <info.icon className="h-6 w-6 text-foreground" />
                     </div>
                     
                     {/* Content */}
                     <div className="flex-1">
-                      <h4 className="mb-1 text-lg font-semibold text-black">
+                      <h4 className="mb-1 text-lg font-semibold text-foreground">
                         {info.title}
                       </h4>
                       <div className="mb-1 flex items-center gap-2">
-                        <p className="text-base font-medium text-black">
+                        <p className="text-base font-medium text-foreground">
                           {info.value}
                         </p>
                         {/* Copy Button for Email and Phone */}
@@ -292,7 +292,7 @@ export default function ContactSection() {
                                 : info.value;
                               handleCopy(valueToCopy, info.title);
                             }}
-                            className="flex-shrink-0 p-1.5 text-gray-500 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                            className="flex-shrink-0 p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50"
                             aria-label={`Copy ${info.title}`}
                             title={`Copy ${info.title}`}
                           >
@@ -331,10 +331,10 @@ export default function ContactSection() {
         {/* Social Media Section - Full width below */}
         <div className="mt-16 w-full">
           <div className="text-center">
-            <h4 className="mb-4 text-center text-lg font-semibold text-black">
+            <h4 className="mb-4 text-center text-lg font-semibold text-foreground">
               {t("social.title")}
             </h4>
-            <p className="mb-4 text-center text-sm text-gray-600">
+            <p className="mb-4 text-center text-sm text-muted-foreground">
               {t("social.description")}
             </p>
             <div className="flex items-center justify-center space-x-3 rtl:space-x-reverse">
@@ -344,7 +344,7 @@ export default function ContactSection() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-gray-700 ${hoverColorMap[label]} hover:scale-110 transition-all duration-200`}
+                  className={`text-muted-foreground ${hoverColorMap[label]} hover:scale-110 transition-all duration-200`}
                   aria-label={label}
                 >
                   <Icon className="h-8 w-8" />

@@ -1,3 +1,4 @@
+import { SOCIAL_LINKS } from '@/lib/constants/socialLinks';
 import type { Metadata } from 'next';
 
 // Configuration de base
@@ -157,11 +158,7 @@ export function generateOrganizationJsonLd() {
       email: 'contacto@asociacionanae.org',
       availableLanguage: ['Spanish', 'Arabic', 'French', 'English'],
     },
-    sameAs: [
-      'https://www.facebook.com/AsociacionANAE',
-      'https://www.youtube.com/@AsociacionANAE',
-      'https://www.instagram.com/asociacion_anae',
-    ],
+    sameAs: SOCIAL_LINKS.filter(link => link.label !== 'WhatsApp').map(link => link.href),
     taxID: 'G01968437',
   };
 }

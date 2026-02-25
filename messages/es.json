@@ -1,8 +1,4 @@
 {
-  "metadata": {
-    "title": "ANAE - Asociación Nacional de Argelinos en España",
-    "description": "La Asociación Nacional de Argelinos en España (ANAE) trabaja incansablemente para construir puentes de esperanza, empoderar a las personas y crear cambios duraderos en nuestras comunidades."
-  },
   "seo": {
     "home": {
       "title": "ANAE - Asociación Nacional de Argelinos en España",
@@ -51,6 +47,12 @@
       "description": "Descubre los momentos destacados de nuestros eventos culturales, actividades e iniciativas comunitarias a través de nuestra galería de fotos y vídeos.",
       "keywords": "galería anae, fotos eventos, vídeos actividades, eventos culturales",
       "imageAlt": "Galería de Eventos ANAE"
+    },
+    "supportUs": {
+      "title": "Apóyanos - ANAE | Haz una Donación",
+      "description": "Apoya a la comunidad argelina en España. Tu donación ayuda a financiar eventos culturales, apoyo comunitario y programas de integración.",
+      "keywords": "donar anae, apoyar comunidad argelina, donación, apóyanos, anae",
+      "imageAlt": "Apoya a ANAE - Haz una Donación"
     }
   },
   "language": {
@@ -62,17 +64,19 @@
     "association": {
       "title": "La Asociación",
       "about": "Acerca de",
-      "gallery": "Galería"
+      "gallery": "Galería",
+      "supportUs": "Apóyanos"
     },
     "contact": "Contacto",
     "blog": "Blog",
-    "donate": "Donar"
+    "donate": "Donar",
+    "supportUs": "Más información"
   },
   "hero": {
     "badge": "Esperanza en acción",
     "headline": "Construyendo puentes de esperanza entre comunidades",
     "subheadline": "Empoderando a las personas, fomentando la integración y creando cambios duraderos a través de la acción compasiva y el apoyo comunitario.",
-    "primaryCta": "Únete a nosotros",
+    "primaryCta": "Apóyanos",
     "secondaryCta": "Ver la galería",
     "summaryCta": "Ve nuestro impacto",
     "scrollHint": "Descubre el poder de la comunidad",
@@ -99,7 +103,6 @@
     "quickLinks": {
       "title": "Enlaces rápidos",
       "about": "Acerca de nosotros",
-      "events": "Eventos",
       "blog": "Blog",
       "news": "Noticias",
       "faq": "Preguntas Frecuentes"
@@ -111,14 +114,7 @@
     "legal": {
       "title": "Legal",
       "privacy": "Política de privacidad",
-      "terms": "Términos y condiciones",
-      "cookies": "Política de cookies",
-      "transparency": "Transparencia"
-    },
-    "certifications": {
-      "secure": "Pagos seguros",
-      "certified": "Organización certificada",
-      "transparency": "Transparencia total en el uso de fondos"
+      "cookies": "Política de cookies"
     },
     "copyright": "Todos los derechos reservados",
     "registration": "Registro Nacional de Asociaciones",
@@ -144,11 +140,11 @@
         }
       },
       "sepa": {
-        "title": "Transferencia SEPA",
+        "title": "Transferencia bancaria",
         "description": "Transferencia bancaria tradicional",
         "button": "Ver detalles",
         "details": {
-          "title": "Detalles de la transferencia SEPA",
+          "title": "Detalles de la transferencia bancaria",
           "iban": "IBAN: ES81 0049 0401 1122 1027 2614",
           "beneficiary": "Beneficiario: Asociación Nacional de Argelinos en España"
         }
@@ -379,23 +375,19 @@
     "sections": {
       "whatWeDo": {
         "title": "Lo que hacemos",
-        "description": "Nuestra asociación trabaja para fortalecer los vínculos dentro de la comunidad argelina en España y promover la integración cultural. Creamos espacios de encuentro, intercambio y solidaridad.",
-        "illustrationPlaceholder": "Ilustración próximamente"
+        "description": "Nuestra asociación trabaja para fortalecer los vínculos dentro de la comunidad argelina en España y promover la integración cultural. Creamos espacios de encuentro, intercambio y solidaridad."
       },
       "culturalEvents": {
         "title": "Eventos Culturales",
-        "description": "Organizamos regularmente eventos culturales para promover la rica cultura argelina en España. Exposiciones de arte, conciertos de música tradicional, conferencias sobre la historia y la literatura argelinas, así como talleres de gastronomía permiten compartir nuestro patrimonio con la comunidad española y fortalecer los vínculos interculturales.",
-        "illustrationPlaceholder": "Ilustración próximamente"
+        "description": "Organizamos regularmente eventos culturales para promover la rica cultura argelina en España. Exposiciones de arte, conciertos de música tradicional, conferencias sobre la historia y la literatura argelinas, así como talleres de gastronomía permiten compartir nuestro patrimonio con la comunidad española y fortalecer los vínculos interculturales."
       },
       "ramadanIftar": {
         "title": "Iftar de Ramadán",
-        "description": "Cada año, nuestra asociación organiza un iftar de ramadán para ayudar a las personas en dificultades que no pueden vivir y comer en las condiciones del ramadán. Gracias a la generosidad de nuestros contribuidores y donantes, ofrecemos comidas y apoyo esencial a quienes más lo necesitan durante este período tradicional argelino. Es un momento de solidaridad y compartir que fortalece los vínculos comunitarios y perpetúa nuestros valores de ayuda mutua.",
-        "illustrationPlaceholder": "Ilustración próximamente"
+        "description": "Cada año, nuestra asociación organiza un iftar de ramadán para ayudar a las personas en dificultades que no pueden vivir y comer en las condiciones del ramadán. Gracias a la generosidad de nuestros contribuidores y donantes, ofrecemos comidas y apoyo esencial a quienes más lo necesitan durante este período tradicional argelino. Es un momento de solidaridad y compartir que fortalece los vínculos comunitarios y perpetúa nuestros valores de ayuda mutua."
       },
       "services": {
         "title": "Servicios y Coordinación",
-        "description": "Nuestra asociación asegura la coordinación con el consulado de Argelia y las autoridades españolas para facilitar los trámites administrativos de la comunidad argelina. Servimos como intermediario y punto de contacto para las cuestiones relacionadas con documentos, legalización, formalidades de residencia y otros procedimientos administrativos necesarios para la integración en España.",
-        "illustrationPlaceholder": "Ilustración próximamente"
+        "description": "Nuestra asociación asegura la coordinación con el consulado de Argelia y las autoridades españolas para facilitar los trámites administrativos de la comunidad argelina. Servimos como intermediario y punto de contacto para las cuestiones relacionadas con documentos, legalización, formalidades de residencia y otros procedimientos administrativos necesarios para la integración en España."
       }
     }
   },
@@ -476,6 +468,104 @@
         "email": "Correo electrónico: contacto@asociacionanae.org",
         "phone": "Teléfono: +34 674 748 699"
       }
+    }
+  },
+  "supportUs": {
+    "hero": {
+      "badge": "Cada contribución cuenta",
+      "title": "Apoya a Nuestra Comunidad",
+      "subtitle": "Tu generosidad nos ayuda a construir puentes de esperanza, empoderar a la comunidad argelina en España y crear cambios duraderos para las familias necesitadas.",
+      "cta": "Elige tu impacto"
+    },
+    "mission": {
+      "title": "Por Qué Tu Apoyo Es Importante",
+      "description": "ANAE es una asociación sin ánimo de lucro que depende enteramente de la generosidad de personas como tú. Cada donación, por pequeña que sea, apoya directamente a la comunidad argelina en España y nos ayuda a continuar nuestra misión de promoción cultural, integración social y solidaridad comunitaria.",
+      "cards": {
+        "cultural": {
+          "title": "Eventos Culturales",
+          "description": "Organizamos exposiciones, conciertos, conferencias y talleres para preservar y compartir el patrimonio argelino."
+        },
+        "support": {
+          "title": "Apoyo Comunitario",
+          "description": "Ayudamos a familias en dificultad, especialmente durante el Ramadán, proporcionando comidas y apoyo esencial a quienes lo necesitan."
+        },
+        "admin": {
+          "title": "Asistencia Administrativa",
+          "description": "Coordinamos con el consulado argelino y las autoridades españolas para ayudar con documentos, residencia y procedimientos de integración."
+        },
+        "mediation": {
+          "title": "Mediación Sociocultural",
+          "description": "Ofrecemos servicios de orientación y mediación para fomentar el diálogo intercultural y la cohesión social entre comunidades."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Voces de Nuestra Comunidad"
+    },
+    "donation": {
+      "title": "Elige Tu Impacto",
+      "subtitle": "Descubre cómo tu donación puede ayudar concretamente a nuestra comunidad",
+      "amounts": {
+        "meal": {
+          "value": "6",
+          "label": "Una comida",
+          "description": "Ofrece una comida completa a una persona necesitada"
+        },
+        "supplies": {
+          "value": "15",
+          "label": "Tres comidas",
+          "description": "Alimenta a tres personas de nuestra comunidad en una sola comida"
+        },
+        "transport": {
+          "value": "25",
+          "label": "Viaje administrativo",
+          "description": "Financia el viaje de un argelino al consulado para sus trámites administrativos"
+        },
+        "family": {
+          "value": "50",
+          "label": "Una semana de comida",
+          "description": "Cubre una semana de compras para una familia necesitada"
+        },
+        "emergency": {
+          "value": "100",
+          "label": "Apoyo de emergencia",
+          "description": "Cubre los gastos de emergencia de un miembro de la comunidad en crisis"
+        },
+        "custom": {
+          "label": "Monto personalizado",
+          "description": "Elige tu propio monto para contribuir",
+          "placeholder": "Introduce el monto"
+        }
+      },
+      "currency": "€",
+      "paymentTitle": "Métodos de Pago",
+      "paymentSubtitle": "Elige tu método preferido para completar tu donación",
+      "secure": "Pagos 100% seguros",
+      "transparency": "Transparencia total en el uso de fondos",
+      "taxInfo": "ANAE es una asociación sin ánimo de lucro registrada (NIF: G01968437). Tu donación puede ser deducible de impuestos."
+    },
+    "otherWays": {
+      "title": "Otras formas de ayudarnos",
+      "description": "El apoyo financiero no es la única forma de contribuir a nuestra causa. Tu tiempo, tus habilidades y tu energía son igual de valiosos para ANAE.",
+      "cards": {
+        "volunteer": {
+          "title": "Hazte Voluntario",
+          "description": "Dona tu tiempo en nuestros eventos culturales, participa en la distribución de comidas durante el Ramadán o acompaña a los recién llegados en sus trámites."
+        },
+        "skills": {
+          "title": "Voluntariado Profesional",
+          "description": "Ofrece tu experiencia profesional: traducción, clases de idiomas, asesoramiento legal, diseño gráfico o asistencia administrativa."
+        },
+        "inkind": {
+          "title": "Donaciones en Especie",
+          "description": "Contribuye con alimentos para los Iftars, ropa para familias necesitadas o material para nuestras actividades asociativas."
+        },
+        "partner": {
+          "title": "Hazte Socio",
+          "description": "¿Tienes un negocio? Colabora con nosotros patrocinando nuestros eventos culturales u ofreciendo beneficios a los miembros de la comunidad."
+        }
+      },
+      "cta": "Contáctanos para ayudar"
     }
   },
   "faq": {

@@ -16,7 +16,7 @@ We aim to organize cultural events, workshops, and social gatherings to showcase
 
 ## About this Project
 
-This project is the official landing page for the ANAE. It is built with [Next.js](https://nextjs.org) and serves as a central hub for information about the association, our events, and how to get involved.
+This project is the official landing page for the ANAE. It is built with [Next.js 15](https://nextjs.org) (App Router) and [React 19](https://react.dev), using TypeScript, Tailwind CSS, and [next-intl](https://next-intl.dev) for internationalization. It serves as a central hub for information about the association, our events, and how to get involved.
 
 ### Getting Started with Development
 
@@ -36,16 +36,16 @@ cp .env.example .env.local
 
 3. **Run the development server:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev          # Standard dev server
+npm run dev:turbo    # Faster dev server with Turbopack
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+4. **Lint the project:**
+```bash
+npm run lint
+```
 
 ### Environment Variables
 
@@ -107,6 +107,7 @@ All routes are available in 4 languages: **Arabic (ar)**, **Spanish (es)**, **Fr
 - `/{locale}/about/gallery` - Photo gallery
 - `/{locale}/blog` - Blog listing page
 - `/{locale}/blog/[slug]` - Individual blog post (dynamic route)
+- `/{locale}/support-us` - Support the association (donations)
 - `/{locale}/contact` - Contact form
 - `/{locale}/faq` - Frequently Asked Questions
 - `/{locale}/privacy` - Privacy policy

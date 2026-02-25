@@ -23,7 +23,6 @@ export const metadata: Metadata = {
         ],
         apple: '/images/logos/logo.svg',
     },
-    manifest: '/site.webmanifest',
     verification: {
         google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },

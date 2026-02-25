@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: FAQPageProps): Promise<Metada
   });
 }
 
-export default async function FAQPage({ params }: FAQPageProps) {
-  await params; // locale is used in generateMetadata, not needed here
+export default async function FAQPage(props: FAQPageProps) {
+  await props.params; // locale is used in generateMetadata, not needed here
   const t = await getTranslations('faq');
   
   // Construire les données FAQ pour le JSON-LD

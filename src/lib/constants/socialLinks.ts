@@ -21,13 +21,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: "Facebook"
   },
   {
-    href: "https://youtube.com",
+    href: "https://www.youtube.com/@anae_asociacion",
     icon: Youtube,
     hoverColor: "hover:text-red-400",
     label: "YouTube"
   },
   {
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/anae_asociacion/",
     icon: Instagram,
     hoverColor: "hover:text-pink-500",
     label: "Instagram"

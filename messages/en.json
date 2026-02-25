@@ -1,8 +1,4 @@
 {
-  "metadata": {
-    "title": "ANAE - National Association of Algerians in Spain",
-    "description": "The National Association of Algerians in Spain (ANAE) works tirelessly to build bridges of hope, empower people, and create lasting change in our communities."
-  },
   "seo": {
     "home": {
       "title": "ANAE - National Association of Algerians in Spain",
@@ -51,6 +47,12 @@
       "description": "Discover the highlights of our cultural events, activities and community initiatives through our gallery of photos and videos.",
       "keywords": "anae gallery, event photos, activity videos, cultural events",
       "imageAlt": "ANAE Events Gallery"
+    },
+    "supportUs": {
+      "title": "Support Us - ANAE | Make a Donation",
+      "description": "Support the Algerian community in Spain. Your donation helps fund cultural events, community support, and integration programs.",
+      "keywords": "donate anae, support algerian community, donation, support us, anae",
+      "imageAlt": "Support ANAE - Make a Donation"
     }
   },
   "language": {
@@ -62,17 +64,19 @@
     "association": {
       "title": "The Association",
       "about": "About",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "supportUs": "Support Us"
     },
     "contact": "Contact",
     "blog": "Blog",
-    "donate": "Donate"
+    "donate": "Donate",
+    "supportUs": "More information"
   },
   "hero": {
     "badge": "Hope in action",
     "headline": "Building bridges of hope across communities",
     "subheadline": "Empowering people, fostering integration, and creating lasting change through compassionate action and community support.",
-    "primaryCta": "Join us",
+    "primaryCta": "Support Us",
     "secondaryCta": "View gallery",
     "summaryCta": "See our impact",
     "scrollHint": "Discover the power of community",
@@ -99,7 +103,6 @@
     "quickLinks": {
       "title": "Quick links",
       "about": "About us",
-      "events": "Events",
       "blog": "Blog",
       "news": "News",
       "faq": "FAQ"
@@ -111,14 +114,7 @@
     "legal": {
       "title": "Legal",
       "privacy": "Privacy policy",
-      "terms": "Terms and conditions",
-      "cookies": "Cookie policy",
-      "transparency": "Transparency"
-    },
-    "certifications": {
-      "secure": "Secure payments",
-      "certified": "Certified organization",
-      "transparency": "Full transparency in fund usage"
+      "cookies": "Cookie policy"
     },
     "copyright": "All rights reserved",
     "registration": "National Association Registry",
@@ -144,11 +140,11 @@
         }
       },
       "sepa": {
-        "title": "SEPA Transfer",
+        "title": "Bank Transfer",
         "description": "Traditional bank transfer",
         "button": "View details",
         "details": {
-          "title": "SEPA transfer details",
+          "title": "Bank transfer details",
           "iban": "IBAN: ES81 0049 0401 1122 1027 2614",
           "beneficiary": "Beneficiary: Asociación Nacional de Argelinos en España"
         }
@@ -379,23 +375,19 @@
     "sections": {
       "whatWeDo": {
         "title": "What We Do",
-        "description": "Our association works to strengthen bonds within the Algerian community in Spain and promote cultural integration. We create spaces for meeting, exchange, and solidarity.",
-        "illustrationPlaceholder": "Illustration coming soon"
+        "description": "Our association works to strengthen bonds within the Algerian community in Spain and promote cultural integration. We create spaces for meeting, exchange, and solidarity."
       },
       "culturalEvents": {
         "title": "Cultural Events",
-        "description": "We regularly organize cultural events to promote the rich Algerian culture in Spain. Art exhibitions, traditional music concerts, conferences on Algerian history and literature, as well as gastronomy workshops allow us to share our heritage with the Spanish community and strengthen intercultural ties.",
-        "illustrationPlaceholder": "Illustration coming soon"
+        "description": "We regularly organize cultural events to promote the rich Algerian culture in Spain. Art exhibitions, traditional music concerts, conferences on Algerian history and literature, as well as gastronomy workshops allow us to share our heritage with the Spanish community and strengthen intercultural ties."
       },
       "ramadanIftar": {
         "title": "Ramadan Iftar",
-        "description": "Every year, our association organizes a Ramadan iftar to help people in difficulty who cannot live and eat in the conditions of Ramadan. Thanks to the generosity of our contributors and donors, we provide meals and essential support to those most in need during this traditional Algerian period. It is a moment of solidarity and sharing that strengthens community bonds and perpetuates our values of mutual aid.",
-        "illustrationPlaceholder": "Illustration coming soon"
+        "description": "Every year, our association organizes a Ramadan iftar to help people in difficulty who cannot live and eat in the conditions of Ramadan. Thanks to the generosity of our contributors and donors, we provide meals and essential support to those most in need during this traditional Algerian period. It is a moment of solidarity and sharing that strengthens community bonds and perpetuates our values of mutual aid."
       },
       "services": {
         "title": "Services & Coordination",
-        "description": "Our association ensures coordination with the Algerian consulate and Spanish authorities to facilitate the administrative procedures of the Algerian community. We serve as an intermediary and point of contact for matters related to documents, legalization, residency formalities, and other administrative procedures necessary for integration in Spain.",
-        "illustrationPlaceholder": "Illustration coming soon"
+        "description": "Our association ensures coordination with the Algerian consulate and Spanish authorities to facilitate the administrative procedures of the Algerian community. We serve as an intermediary and point of contact for matters related to documents, legalization, residency formalities, and other administrative procedures necessary for integration in Spain."
       }
     }
   },
@@ -476,6 +468,104 @@
         "email": "Email: contacto@asociacionanae.org",
         "phone": "Phone: +34 674 748 699"
       }
+    }
+  },
+  "supportUs": {
+    "hero": {
+      "badge": "Every contribution counts",
+      "title": "Support Our Community",
+      "subtitle": "Your generosity helps us build bridges of hope, empower the Algerian community in Spain, and create lasting change for families in need.",
+      "cta": "Choose your impact"
+    },
+    "mission": {
+      "title": "Why Your Support Matters",
+      "description": "ANAE is a non-profit association that relies entirely on the generosity of people like you. Every donation, no matter how small, directly supports the Algerian community in Spain and helps us continue our mission of cultural promotion, social integration, and community solidarity.",
+      "cards": {
+        "cultural": {
+          "title": "Cultural Events",
+          "description": "We organize exhibitions, concerts, conferences, and workshops to preserve and share Algerian heritage."
+        },
+        "support": {
+          "title": "Community Support",
+          "description": "We help families in difficulty, especially during Ramadan, by providing meals and essential support to those in need."
+        },
+        "admin": {
+          "title": "Administrative Assistance",
+          "description": "We coordinate with the Algerian consulate and Spanish authorities to help with documents, residency, and integration procedures."
+        },
+        "mediation": {
+          "title": "Sociocultural Mediation",
+          "description": "We offer guidance and mediation services to foster intercultural dialogue and social cohesion between communities."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Voices from Our Community"
+    },
+    "donation": {
+      "title": "Choose Your Impact",
+      "subtitle": "Discover how your donation can concretely help our community",
+      "amounts": {
+        "meal": {
+          "value": "6",
+          "label": "A meal",
+          "description": "Offer a complete meal to a person in need"
+        },
+        "supplies": {
+          "value": "15",
+          "label": "Three meals",
+          "description": "Feed three people from our community for a single meal"
+        },
+        "transport": {
+          "value": "25",
+          "label": "Administrative trip",
+          "description": "Fund an Algerian's travel to the consulate for their administrative procedures"
+        },
+        "family": {
+          "value": "50",
+          "label": "A week of food",
+          "description": "Cover a week of groceries for a family in need"
+        },
+        "emergency": {
+          "value": "100",
+          "label": "Emergency support",
+          "description": "Cover emergency expenses for a community member in crisis"
+        },
+        "custom": {
+          "label": "Custom amount",
+          "description": "Choose your own amount to contribute",
+          "placeholder": "Enter amount"
+        }
+      },
+      "currency": "€",
+      "paymentTitle": "Payment Methods",
+      "paymentSubtitle": "Choose your preferred method to complete your donation",
+      "secure": "100% secure payments",
+      "transparency": "Full transparency in fund usage",
+      "taxInfo": "ANAE is a registered non-profit (NIF: G01968437). Your donation may be tax-deductible."
+    },
+    "otherWays": {
+      "title": "Other ways to help",
+      "description": "Financial support isn't the only way to contribute to our cause. Your time, skills, and energy are equally valuable to ANAE.",
+      "cards": {
+        "volunteer": {
+          "title": "Become a Volunteer",
+          "description": "Give your time at our cultural events, help distribute meals during Ramadan, or assist newcomers with their paperwork."
+        },
+        "skills": {
+          "title": "Pro-bono Skills",
+          "description": "Offer your professional expertise: translation, language classes, legal advice, graphic design, or administrative help."
+        },
+        "inkind": {
+          "title": "In-kind Donations",
+          "description": "Contribute food for Iftars, clothing for families in need, or materials for our association's activities."
+        },
+        "partner": {
+          "title": "Become a Partner",
+          "description": "Do you own a business? Collaborate with us by sponsoring our cultural events or offering benefits to community members."
+        }
+      },
+      "cta": "Contact us to help"
     }
   },
   "faq": {

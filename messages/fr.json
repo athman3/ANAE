@@ -1,8 +1,4 @@
 {
-  "metadata": {
-    "title": "ANAE - Association Nationale des Algériens en Espagne",
-    "description": "L'Association Nationale des Algériens en Espagne (ANAE) travaille sans relâche pour construire des ponts d'espoir, autonomiser les personnes et créer des changements durables dans nos communautés."
-  },
   "seo": {
     "home": {
       "title": "ANAE - Association Nationale des Algériens en Espagne",
@@ -51,6 +47,12 @@
       "description": "Découvrez les moments forts de nos événements culturels, activités et initiatives communautaires à travers notre galerie de photos et vidéos.",
       "keywords": "galerie anae, photos événements, vidéos activités, événements culturels",
       "imageAlt": "Galerie d'Événements ANAE"
+    },
+    "supportUs": {
+      "title": "Soutenez-nous - ANAE | Faire un Don",
+      "description": "Soutenez la communauté algérienne en Espagne. Votre don aide à financer des événements culturels, le soutien communautaire et les programmes d'intégration.",
+      "keywords": "donner anae, soutenir communauté algérienne, don, soutenez-nous, anae",
+      "imageAlt": "Soutenez ANAE - Faire un Don"
     }
   },
   "language": {
@@ -62,17 +64,19 @@
     "association": {
       "title": "L'Association",
       "about": "À propos",
-      "gallery": "Galerie"
+      "gallery": "Galerie",
+      "supportUs": "Soutenez-nous"
     },
     "contact": "Contact",
     "blog": "Blog",
-    "donate": "Faire un don"
+    "donate": "Faire un don",
+    "supportUs": "Plus d'informations"
   },
   "hero": {
     "badge": "Espoir en action",
     "headline": "Construire des ponts d'espoir entre les communautés",
     "subheadline": "Autonomiser les personnes, favoriser l'intégration et créer des changements durables grâce à l'action compassionnelle et au soutien communautaire.",
-    "primaryCta": "Nous rejoindre",
+    "primaryCta": "Soutenez-nous",
     "secondaryCta": "Voir la galerie",
     "summaryCta": "Voir notre impact",
     "scrollHint": "Découvrez le pouvoir de la communauté",
@@ -99,7 +103,6 @@
     "quickLinks": {
       "title": "Liens rapides",
       "about": "À propos de nous",
-      "events": "Événements",
       "blog": "Blog",
       "news": "Actualités",
       "faq": "Questions Fréquentes"
@@ -111,14 +114,7 @@
     "legal": {
       "title": "Légal",
       "privacy": "Politique de confidentialité",
-      "terms": "Conditions d'utilisation",
-      "cookies": "Politique des cookies",
-      "transparency": "Transparence"
-    },
-    "certifications": {
-      "secure": "Paiements sécurisés",
-      "certified": "Organisation certifiée",
-      "transparency": "Transparence totale dans l'utilisation des fonds"
+      "cookies": "Politique des cookies"
     },
     "copyright": "Tous droits réservés",
     "registration": "Registre National des Associations",
@@ -144,11 +140,11 @@
         }
       },
       "sepa": {
-        "title": "Virement SEPA",
+        "title": "Virement bancaire",
         "description": "Virement bancaire traditionnel",
         "button": "Voir les détails",
         "details": {
-          "title": "Détails du virement SEPA",
+          "title": "Détails du virement bancaire",
           "iban": "IBAN: ES81 0049 0401 1122 1027 2614",
           "beneficiary": "Bénéficiaire: Asociación Nacional de Argelinos en España"
         }
@@ -379,23 +375,19 @@
     "sections": {
       "whatWeDo": {
         "title": "Ce que nous faisons",
-        "description": "Notre association œuvre pour renforcer les liens au sein de la communauté algérienne en Espagne et promouvoir l'intégration culturelle. Nous créons des espaces de rencontre, d'échange et de solidarité.",
-        "illustrationPlaceholder": "Illustration à venir"
+        "description": "Notre association œuvre pour renforcer les liens au sein de la communauté algérienne en Espagne et promouvoir l'intégration culturelle. Nous créons des espaces de rencontre, d'échange et de solidarité."
       },
       "culturalEvents": {
         "title": "Événements Culturels",
-        "description": "Nous organisons régulièrement des événements culturels pour promouvoir la riche culture algérienne en Espagne. Des expositions d'art, des concerts de musique traditionnelle, des conférences sur l'histoire et la littérature algériennes, ainsi que des ateliers de gastronomie permettent de partager notre patrimoine avec la communauté espagnole et de renforcer les liens interculturels.",
-        "illustrationPlaceholder": "Illustration à venir"
+        "description": "Nous organisons régulièrement des événements culturels pour promouvoir la riche culture algérienne en Espagne. Des expositions d'art, des concerts de musique traditionnelle, des conférences sur l'histoire et la littérature algériennes, ainsi que des ateliers de gastronomie permettent de partager notre patrimoine avec la communauté espagnole et de renforcer les liens interculturels."
       },
       "ramadanIftar": {
         "title": "Iftar de Ramadan",
-        "description": "Chaque année, notre association organise un iftar de ramadan pour venir en aide aux personnes en difficulté qui ne peuvent pas vivre et manger dans les conditions du ramadan. Grâce à la générosité de nos contributeurs et donateurs, nous offrons des repas et un soutien essentiel à ceux qui en ont le plus besoin pendant cette période traditionnelle algérienne. C'est un moment de solidarité et de partage qui renforce les liens communautaires et perpétue nos valeurs d'entraide.",
-        "illustrationPlaceholder": "Illustration à venir"
+        "description": "Chaque année, notre association organise un iftar de ramadan pour venir en aide aux personnes en difficulté qui ne peuvent pas vivre et manger dans les conditions du ramadan. Grâce à la générosité de nos contributeurs et donateurs, nous offrons des repas et un soutien essentiel à ceux qui en ont le plus besoin pendant cette période traditionnelle algérienne. C'est un moment de solidarité et de partage qui renforce les liens communautaires et perpétue nos valeurs d'entraide."
       },
       "services": {
         "title": "Services & Coordination",
-        "description": "Notre association assure la coordination avec le consulat d'Algérie et les autorités espagnoles pour faciliter les démarches administratives de la communauté algérienne. Nous servons d'intermédiaire et de point de contact pour les questions liées aux documents, à la légalisation, aux formalités de résidence et autres procédures administratives nécessaires à l'intégration en Espagne.",
-        "illustrationPlaceholder": "Illustration à venir"
+        "description": "Notre association assure la coordination avec le consulat d'Algérie et les autorités espagnoles pour faciliter les démarches administratives de la communauté algérienne. Nous servons d'intermédiaire et de point de contact pour les questions liées aux documents, à la légalisation, aux formalités de résidence et autres procédures administratives nécessaires à l'intégration en Espagne."
       }
     }
   },
@@ -476,6 +468,104 @@
         "email": "E-mail : contacto@asociacionanae.org",
         "phone": "Téléphone : +34 674 748 699"
       }
+    }
+  },
+  "supportUs": {
+    "hero": {
+      "badge": "Chaque contribution compte",
+      "title": "Soutenez Notre Communauté",
+      "subtitle": "Votre générosité nous aide à construire des ponts d'espoir, à autonomiser la communauté algérienne en Espagne et à créer un changement durable pour les familles dans le besoin.",
+      "cta": "Choisissez votre impact"
+    },
+    "mission": {
+      "title": "Pourquoi Votre Soutien Compte",
+      "description": "L'ANAE est une association à but non lucratif qui dépend entièrement de la générosité de personnes comme vous. Chaque don, aussi petit soit-il, soutient directement la communauté algérienne en Espagne et nous aide à poursuivre notre mission de promotion culturelle, d'intégration sociale et de solidarité communautaire.",
+      "cards": {
+        "cultural": {
+          "title": "Événements Culturels",
+          "description": "Nous organisons des expositions, concerts, conférences et ateliers pour préserver et partager le patrimoine algérien."
+        },
+        "support": {
+          "title": "Soutien Communautaire",
+          "description": "Nous aidons les familles en difficulté, surtout pendant le Ramadan, en fournissant des repas et un soutien essentiel aux plus démunis."
+        },
+        "admin": {
+          "title": "Assistance Administrative",
+          "description": "Nous coordonnons avec le consulat algérien et les autorités espagnoles pour aider aux démarches de documents, résidence et intégration."
+        },
+        "mediation": {
+          "title": "Médiation Socioculturelle",
+          "description": "Nous offrons des services d'orientation et de médiation pour favoriser le dialogue interculturel et la cohésion sociale entre les communautés."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Voix de Notre Communauté"
+    },
+    "donation": {
+      "title": "Choisissez Votre Impact",
+      "subtitle": "Découvrez comment votre don peut concrètement aider notre communauté",
+      "amounts": {
+        "meal": {
+          "value": "6",
+          "label": "Un repas",
+          "description": "Offrez un repas complet à une personne dans le besoin"
+        },
+        "supplies": {
+          "value": "15",
+          "label": "Trois repas",
+          "description": "Nourrissez trois personnes de notre communauté le temps d'un repas"
+        },
+        "transport": {
+          "value": "25",
+          "label": "Voyage administratif",
+          "description": "Financez le voyage d'un Algérien au consulat pour ses démarches administratives"
+        },
+        "family": {
+          "value": "50",
+          "label": "Une semaine de nourriture",
+          "description": "Couvrez une semaine de courses pour une famille dans le besoin"
+        },
+        "emergency": {
+          "value": "100",
+          "label": "Soutien d'urgence",
+          "description": "Couvrez les dépenses d'urgence d'un membre de la communauté en crise"
+        },
+        "custom": {
+          "label": "Montant personnalisé",
+          "description": "Choisissez votre propre montant pour contribuer",
+          "placeholder": "Entrez le montant"
+        }
+      },
+      "currency": "€",
+      "paymentTitle": "Méthodes de Paiement",
+      "paymentSubtitle": "Choisissez votre méthode préférée pour effectuer votre don",
+      "secure": "Paiements 100% sécurisés",
+      "transparency": "Transparence totale dans l'utilisation des fonds",
+      "taxInfo": "L'ANAE est une association à but non lucratif enregistrée (NIF: G01968437). Votre don peut être déductible d'impôts."
+    },
+    "otherWays": {
+      "title": "D'autres façons de nous aider",
+      "description": "Le soutien financier n'est pas le seul moyen de contribuer à notre cause. Votre temps, vos compétences et votre énergie sont tout aussi précieux pour l'ANAE.",
+      "cards": {
+        "volunteer": {
+          "title": "Devenir Bénévole",
+          "description": "Donnez de votre temps lors de nos événements culturels, participez à la distribution des repas pendant le Ramadan, ou accompagnez les nouveaux arrivants dans leurs démarches."
+        },
+        "skills": {
+          "title": "Mécénat de Compétences",
+          "description": "Offrez votre expertise professionnelle : traduction, cours de langues, conseils juridiques, design graphique ou aide administrative."
+        },
+        "inkind": {
+          "title": "Dons en Nature",
+          "description": "Contribuez avec des denrées alimentaires pour les Iftars, des vêtements pour les familles dans le besoin ou du matériel pour nos activités associatives."
+        },
+        "partner": {
+          "title": "Devenir Partenaire",
+          "description": "Vous avez une entreprise ? Collaborez avec nous en sponsorisant nos événements culturels ou en offrant des avantages aux membres de la communauté."
+        }
+      },
+      "cta": "Contactez-nous pour aider"
     }
   },
   "faq": {
