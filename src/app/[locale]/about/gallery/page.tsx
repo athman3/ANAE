@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: GalleryPageProps): Promise<Me
     description: t('description'),
     keywords: t('keywords'),
     path: '/about/gallery',
-    image: '/images/og/og-logo.png',
+    image: '/og',
     imageAlt: t('imageAlt'),
     type: 'website',
   });

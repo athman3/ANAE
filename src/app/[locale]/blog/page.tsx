@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps) {
     description: t('description'),
     keywords: t('keywords'),
     path: '/blog',
-    image: '/images/og/og-logo.png',
+    image: '/og',
     imageAlt: t('imageAlt'),
     type: 'website',
   });

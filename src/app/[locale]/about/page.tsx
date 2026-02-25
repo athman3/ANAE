@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
     description: t('description'),
     keywords: t('keywords'),
     path: '/about',
-    image: '/images/og/og-logo.png',
+    image: '/og',
     imageAlt: t('imageAlt'),
     type: 'website',
   });

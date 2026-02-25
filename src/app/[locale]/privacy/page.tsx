@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PrivacyPageProps): Promise<Me
     description: t('description'),
     keywords: t('keywords'),
     path: '/privacy',
-    image: '/images/og/og-logo.png',
+    image: '/og',
     imageAlt: t('imageAlt'),
     type: 'website',
     noIndex: false, // Privacy pages should be indexed

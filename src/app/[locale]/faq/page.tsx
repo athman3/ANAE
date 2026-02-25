@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: FAQPageProps): Promise<Metada
     description: t('description'),
     keywords: t('keywords'),
     path: '/faq',
-    image: '/images/og/og-logo.png',
+    image: '/og',
     imageAlt: t('imageAlt'),
     type: 'website',
   });

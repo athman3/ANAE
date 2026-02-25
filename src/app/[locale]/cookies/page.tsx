@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: CookiesPageProps): Promise<Me
     description: t('description'),
     keywords: t('keywords'),
     path: '/cookies',
-    image: '/images/og/og-logo.png',
+    image: '/og',
     imageAlt: t('imageAlt'),
     type: 'website',
     noIndex: false, // Cookie pages should be indexed

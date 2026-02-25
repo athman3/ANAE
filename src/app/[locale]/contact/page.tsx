@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
     description: t('description'),
     keywords: t('keywords'),
     path: '/contact',
-    image: '/images/og/og-logo.png',
+    image: '/og',
     imageAlt: t('imageAlt'),
     type: 'website',
   });

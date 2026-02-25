@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: SupportUsPageProps): Promise<
     description: t("description"),
     keywords: t("keywords"),
     path: "/support-us",
-    image: "/images/og/og-logo.png",
+    image: '/og',
     imageAlt: t("imageAlt"),
     type: "website",
   });
