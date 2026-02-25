@@ -328,11 +328,11 @@ export default function DonationModal({ isOpen, onClose }: DonationModalProps) {
         {/* Footer */}
         <div className="flex items-center justify-between p-6 lg:p-7 border-t border-gray-200 dark:border-gray-700">
           <Link 
-            href="/support-us" 
+            href="/contribute" 
             onClick={onClose}
             className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
           >
-            {tNav("supportUs")} &rarr;
+            {tNav("contribute")} &rarr;
           </Link>
           <Button variant="outline" onClick={onClose}>
             {t("close")}

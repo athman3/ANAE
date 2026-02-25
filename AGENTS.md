@@ -85,7 +85,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │       ├── cookies/page.tsx    # Cookies policy (Server Component, full i18n content)
     │       ├── faq/page.tsx        # FAQ page (Server Component, FAQSection, FAQ JSON-LD)
     │       ├── privacy/page.tsx    # Privacy policy (Server Component)
-    │       └── support-us/page.tsx # Support Us page (Server Component, 4 sections)
+     │       └── contribute/page.tsx # Contribute page (Server Component, 4 sections)
     ├── app/api/
     │   └── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, nodemailer SMTP
     ├── components/
@@ -95,7 +95,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   │   ├── Header.tsx          # Composes TopBar + Navigation; accepts is404 prop
     │   │   ├── TopBar.tsx          # "use client"; fixed dark bar (z-80); hides on scroll; social links; FAQ link; GitHub stars (cached in localStorage 1h)
     │   │   ├── Navigation.tsx      # "use client"; fixed nav (z-70); transparent on home hero, white on scroll; mobile hamburger; LanguageSelector; DonateButton
-    │   │   └── AssociationDropdown.tsx # Radix DropdownMenu; links: /about, /about/gallery, /support-us
+    │        │   └── AssociationDropdown.tsx # Radix DropdownMenu; links: /about, /about/gallery, /contribute
     │   ├── Hero/
     │   │   ├── HeroSection.tsx     # "use client"; fullscreen video hero
     │   │   ├── BackgroundLayer.tsx # memo'd; <video autoPlay muted loop playsInline> + gradient overlay
@@ -119,12 +119,12 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   │   └── Footer.tsx          # "use client" (usePathname for RTL); 4-column grid; social links reversed in RTL
     │   ├── NotFound/
     │   │   └── NotFoundSection.tsx # "use client"; 404 with home button
-    │   └── SupportUs/
-    │       ├── DonationSection.tsx # "use client"; impact cards + payment methods (SEPA/PayPal/Bizum) with copy buttons
-    │       ├── HeroSection.tsx
-    │       ├── MissionSection.tsx
-    │       ├── OtherWaysToHelpSection.tsx
-    │       └── TestimonialsSection.tsx # "use client"; infinite auto-scroll carousel with scale effect; data from src/data/testimonials.ts
+     │   └── Contribute/
+     │       ├── DonationSection.tsx # "use client"; impact cards + payment methods (SEPA/PayPal/Bizum) with copy buttons
+     │       ├── HeroSection.tsx
+     │       ├── MissionSection.tsx
+     │       ├── OtherWaysToHelpSection.tsx
+     │       └── TestimonialsSection.tsx # "use client"; infinite auto-scroll carousel with scale effect; data from src/data/testimonials.ts
     ├── components/ui/
     │   ├── badge.tsx               # shadcn Badge
     │   ├── button.tsx              # shadcn Button
@@ -309,7 +309,7 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | Namespace | Contents |
 |---|---|
 | `language` | `name`, `flag` emoji |
-| `nav` | `home`, `association.{title,about,gallery,supportUs}`, `contact`, `blog`, `donate`, `supportUs` |
+| `nav` | `home`, `association.{title,about,gallery,contribute}`, `contact`, `blog`, `donate`, `contribute` |
 | `hero` | `badge`, `headline`, `subheadline`, `primaryCta`, `secondaryCta`, `summaryCta`, `scrollHint`, `stats.{years,initiatives,volunteers}` |
 | `location` | `city`, `country` |
 | `footer` | `description`, `quickLinks`, `contact`, `legal`, `copyright`, `registration`, `taxId`, `developedBy` |
@@ -322,7 +322,7 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `home.sections` | `whatWeDo`, `culturalEvents`, `ramadanIftar`, `services` |
 | `privacy` | `title`, `lastUpdated`, `intro`, `sections.{controller,dataCollected,purposes,...}` |
 | `cookies` | `title`, `lastUpdated`, `intro`, `sections.{whatAre,types,purpose,...}` |
-| `supportUs` | `hero`, `mission`, `testimonials`, `donation.{amounts,currency,payment,...}`, `otherWays` |
+| `contribute` | `hero`, `mission`, `testimonials`, `donation.{amounts,currency,payment,...}`, `otherWays` |
 | `faq` | `title`, `intro`, `categories.{about,donations,volunteering,beneficiaries,contact}` |
 | `seo.home` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.about` | `title`, `description`, `keywords`, `imageAlt` |
@@ -332,7 +332,7 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `seo.privacy` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.cookies` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.gallery` | `title`, `description`, `keywords`, `imageAlt` |
-| `seo.supportUs` | `title`, `description`, `keywords`, `imageAlt` |
+| `seo.contribute` | `title`, `description`, `keywords`, `imageAlt` |
 
 ### Cleanup and Maintenance (IMPORTANT)
 **Whenever you delete code, components, or entire features**, you MUST proactively search the project to check if the removed code was using any translation keys. If it was, you must immediately delete those unused keys from ALL locale JSON files (`messages/*.json`) to keep the codebase clean.
@@ -636,17 +636,18 @@ NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
 2. **SEO Mandatory**: Every new page MUST have complete metadata + SEO translations in 4 languages
 3. **Title Convention**: Every page title MUST follow `ANAE - {Page Name}` format in all 4 locales — never `Page - ANAE`, never with pipes
 4. **i18n Navigation**: Always use `Link`, `useRouter`, `redirect` from `@/i18n/navigation`
-4. **No Startup/Tech Design**: Avoid startup-like or tech-style aesthetics
-5. **Consistent RTL Spacing**: Use `rtl:space-x-reverse` for all horizontal spacing
-6. **Translation Cleanup**: Delete unused translation keys from all 4 locale files when removing code
-7. **Semantic HTML**: Use proper HTML elements for accessibility
-8. **Semantic Translation Keys**: Use descriptive, nested keys (`nav.home` not `text1`)
-9. **Server vs Client Components**: Pages are Server Components; interactive sections are `"use client"`
-10. **Performance**: Use `React.memo` for expensive render-heavy components
-11. **Structured Data**: Add JSON-LD when applicable (FAQ, Contact, Articles)
-12. **Static Data**: Put static arrays/objects in `src/data/` or `src/lib/constants/`
-13. **Navigation Styles**: Extract nav style logic to `src/lib/utils/navigationStyles.ts`
-14. **Accessibility**: Include proper ARIA attributes and semantic HTML
+5. **Routes in English**: All route paths (URL segments) MUST be in English regardless of locale — e.g., `/contribute`, `/about`, `/blog`, `/contact`. Never translate URL slugs into other languages
+6. **No Startup/Tech Design**: Avoid startup-like or tech-style aesthetics
+7. **Consistent RTL Spacing**: Use `rtl:space-x-reverse` for all horizontal spacing
+8. **Translation Cleanup**: Delete unused translation keys from all 4 locale files when removing code
+9. **Semantic HTML**: Use proper HTML elements for accessibility
+10. **Semantic Translation Keys**: Use descriptive, nested keys (`nav.home` not `text1`)
+11. **Server vs Client Components**: Pages are Server Components; interactive sections are `"use client"`
+12. **Performance**: Use `React.memo` for expensive render-heavy components
+13. **Structured Data**: Add JSON-LD when applicable (FAQ, Contact, Articles)
+14. **Static Data**: Put static arrays/objects in `src/data/` or `src/lib/constants/`
+15. **Navigation Styles**: Extract nav style logic to `src/lib/utils/navigationStyles.ts`
+16. **Accessibility**: Include proper ARIA attributes and semantic HTML
 
 ## Key Files Reference
 

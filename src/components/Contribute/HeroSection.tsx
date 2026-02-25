@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
-  const t = useTranslations("supportUs.hero");
+  const t = useTranslations("contribute.hero");
 
   const scrollToDonation = () => {
     const element = document.getElementById("donation-section");

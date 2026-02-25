@@ -48,11 +48,11 @@
       "keywords": "galerie anae, photos événements, vidéos activités, événements culturels",
       "imageAlt": "Galerie d'Événements ANAE"
     },
-    "supportUs": {
-      "title": "ANAE - Soutenez-nous",
-      "description": "Soutenez la communauté algérienne en Espagne. Votre don aide à financer des événements culturels, le soutien communautaire et les programmes d'intégration.",
-      "keywords": "donner anae, soutenir communauté algérienne, don, soutenez-nous, anae",
-      "imageAlt": "Soutenez ANAE - Faire un Don"
+    "contribute": {
+      "title": "ANAE - Contribuer",
+      "description": "Contribuez à la communauté algérienne en Espagne. Votre don, bénévolat ou collaboration aide à financer des événements culturels, le soutien communautaire et les programmes d'intégration.",
+      "keywords": "contribuer anae, soutenir communauté algérienne, don, bénévolat, anae",
+      "imageAlt": "Contribuez à ANAE - Faire un Don"
     }
   },
   "language": {
@@ -65,18 +65,18 @@
       "title": "L'Association",
       "about": "À propos",
       "gallery": "Galerie",
-      "supportUs": "Soutenez-nous"
+      "contribute": "Contribuer"
     },
     "contact": "Contact",
     "blog": "Blog",
     "donate": "Faire un don",
-    "supportUs": "Plus d'informations"
+    "contribute": "Plus d'informations"
   },
   "hero": {
     "badge": "Espoir en action",
     "headline": "Construire des ponts d'espoir entre les communautés",
     "subheadline": "Autonomiser les personnes, favoriser l'intégration et créer des changements durables grâce à l'action compassionnelle et au soutien communautaire.",
-    "primaryCta": "Soutenez-nous",
+    "primaryCta": "Contribuer",
     "secondaryCta": "Voir la galerie",
     "summaryCta": "Voir notre impact",
     "scrollHint": "Découvrez le pouvoir de la communauté",
@@ -470,7 +470,7 @@
       }
     }
   },
-  "supportUs": {
+  "contribute": {
     "hero": {
       "badge": "Chaque contribution compte",
       "title": "Soutenez Notre Communauté",

@@ -17,6 +17,21 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
   },
   
+  async redirects() {
+    return [
+      {
+        source: '/support-us',
+        destination: '/contribute',
+        permanent: true,
+      },
+      {
+        source: '/:locale(ar|es|fr|en)/support-us',
+        destination: '/:locale/contribute',
+        permanent: true,
+      },
+    ];
+  },
+
   // Security Headers - Protect against common web vulnerabilities
   async headers() {
     return [

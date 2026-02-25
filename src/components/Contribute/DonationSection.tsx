@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const amountKeys = ["meal", "supplies", "transport", "family", "emergency"] as const;
 
 export default function DonationSection() {
-  const t = useTranslations("supportUs.donation");
+  const t = useTranslations("contribute.donation");
   const tDonation = useTranslations("donation");
   
   const [copiedField, setCopiedField] = useState<string | null>(null);

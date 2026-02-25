@@ -107,7 +107,7 @@ All routes are available in 4 languages: **Arabic (ar)**, **Spanish (es)**, **Fr
 - `/{locale}/about/gallery` - Photo gallery
 - `/{locale}/blog` - Blog listing page
 - `/{locale}/blog/[slug]` - Individual blog post (dynamic route)
-- `/{locale}/support-us` - Support the association (donations)
+- `/{locale}/contribute` - Contribute to the association (donations)
 - `/{locale}/contact` - Contact form
 - `/{locale}/faq` - Frequently Asked Questions
 - `/{locale}/privacy` - Privacy policy

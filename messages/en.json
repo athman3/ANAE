@@ -48,11 +48,11 @@
       "keywords": "anae gallery, event photos, activity videos, cultural events",
       "imageAlt": "ANAE Events Gallery"
     },
-    "supportUs": {
-      "title": "ANAE - Support Us",
-      "description": "Support the Algerian community in Spain. Your donation helps fund cultural events, community support, and integration programs.",
-      "keywords": "donate anae, support algerian community, donation, support us, anae",
-      "imageAlt": "Support ANAE - Make a Donation"
+    "contribute": {
+      "title": "ANAE - Contribute",
+      "description": "Contribute to the Algerian community in Spain. Your donation, volunteering or collaboration helps fund cultural events, community support, and integration programs.",
+      "keywords": "contribute anae, support algerian community, donation, volunteering, anae",
+      "imageAlt": "Contribute to ANAE - Make a Donation"
     }
   },
   "language": {
@@ -65,18 +65,18 @@
       "title": "The Association",
       "about": "About",
       "gallery": "Gallery",
-      "supportUs": "Support Us"
+      "contribute": "Contribute"
     },
     "contact": "Contact",
     "blog": "Blog",
     "donate": "Donate",
-    "supportUs": "More information"
+    "contribute": "More information"
   },
   "hero": {
     "badge": "Hope in action",
     "headline": "Building bridges of hope across communities",
     "subheadline": "Empowering people, fostering integration, and creating lasting change through compassionate action and community support.",
-    "primaryCta": "Support Us",
+    "primaryCta": "Contribute",
     "secondaryCta": "View gallery",
     "summaryCta": "See our impact",
     "scrollHint": "Discover the power of community",
@@ -470,7 +470,7 @@
       }
     }
   },
-  "supportUs": {
+  "contribute": {
     "hero": {
       "badge": "Every contribution counts",
       "title": "Support Our Community",

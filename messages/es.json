@@ -48,11 +48,11 @@
       "keywords": "galería anae, fotos eventos, vídeos actividades, eventos culturales",
       "imageAlt": "Galería de Eventos ANAE"
     },
-    "supportUs": {
-      "title": "ANAE - Apóyanos",
-      "description": "Apoya a la comunidad argelina en España. Tu donación ayuda a financiar eventos culturales, apoyo comunitario y programas de integración.",
-      "keywords": "donar anae, apoyar comunidad argelina, donación, apóyanos, anae",
-      "imageAlt": "Apoya a ANAE - Haz una Donación"
+    "contribute": {
+      "title": "ANAE - Contribuir",
+      "description": "Contribuye a la comunidad argelina en España. Tu donación, voluntariado o colaboración ayuda a financiar eventos culturales, apoyo comunitario y programas de integración.",
+      "keywords": "contribuir anae, apoyar comunidad argelina, donación, voluntariado, anae",
+      "imageAlt": "Contribuye a ANAE - Haz una Donación"
     }
   },
   "language": {
@@ -65,18 +65,18 @@
       "title": "La Asociación",
       "about": "Acerca de",
       "gallery": "Galería",
-      "supportUs": "Apóyanos"
+      "contribute": "Contribuir"
     },
     "contact": "Contacto",
     "blog": "Blog",
     "donate": "Donar",
-    "supportUs": "Más información"
+    "contribute": "Más información"
   },
   "hero": {
     "badge": "Esperanza en acción",
     "headline": "Construyendo puentes de esperanza entre comunidades",
     "subheadline": "Empoderando a las personas, fomentando la integración y creando cambios duraderos a través de la acción compasiva y el apoyo comunitario.",
-    "primaryCta": "Apóyanos",
+    "primaryCta": "Contribuir",
     "secondaryCta": "Ver la galería",
     "summaryCta": "Ve nuestro impacto",
     "scrollHint": "Descubre el poder de la comunidad",
@@ -470,7 +470,7 @@
       }
     }
   },
-  "supportUs": {
+  "contribute": {
     "hero": {
       "badge": "Cada contribución cuenta",
       "title": "Apoya a Nuestra Comunidad",

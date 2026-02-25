@@ -45,8 +45,8 @@ export function AssociationDropdown({ is404 = false }: AssociationDropdownProps)
       label: t('gallery'),
     },
     {
-      href: '/support-us',
-      label: t('supportUs'),
+      href: '/contribute',
+      label: t('contribute'),
     }
   ];
 

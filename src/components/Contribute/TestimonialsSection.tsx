@@ -6,7 +6,7 @@ import { Quote } from "lucide-react";
 import { communityTestimonials, type Testimonial } from "@/data/testimonials";
 
 export default function TestimonialsSection() {
-  const t = useTranslations("supportUs.testimonials");
+  const t = useTranslations("contribute.testimonials");
   const baseItems = communityTestimonials;
   // Create enough duplicates for smooth scrolling on wide screens
   // 4 sets ensures we always have enough content to scroll and wrap seamlessly
