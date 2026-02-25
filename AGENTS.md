@@ -398,10 +398,30 @@ return generateSEOMetadata({
 }
 ```
 
+### Page Title Convention (Mandatory)
+
+All page titles MUST follow the `ANAE - {Page Name}` format — `ANAE` first, then a dash, then the localized page name. This applies to every locale and every page.
+
+```
+ANAE - Contacto              ✅ correct
+ANAE - Contact               ✅ correct
+ANAE - اتصل بنا              ✅ correct
+
+Contacto - ANAE              ❌ wrong (ANAE not first)
+Contact - ANAE | Get in Touch ❌ wrong (ANAE not first, extra suffix)
+ANAE | Contact               ❌ wrong (use dash, not pipe)
+```
+
+For blog articles, prepend `ANAE - ` to the article title in code (not in frontmatter):
+```typescript
+const fullTitle = `ANAE - ${post.title}`;
+```
+
 ### Metadata Checklist
 Before creating a new page, ensure:
 - [ ] `generateMetadata()` function implemented
 - [ ] SEO translations added in all 4 languages (ar, es, fr, en)
+- [ ] Title follows the `ANAE - {Page Name}` convention in all 4 locales
 - [ ] Title is 50-60 characters
 - [ ] Description is 150-160 characters
 - [ ] Keywords are relevant and specific
@@ -614,7 +634,8 @@ NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
 
 1. **RTL First**: Always consider RTL when building new components — test `/ar/*` pages
 2. **SEO Mandatory**: Every new page MUST have complete metadata + SEO translations in 4 languages
-3. **i18n Navigation**: Always use `Link`, `useRouter`, `redirect` from `@/i18n/navigation`
+3. **Title Convention**: Every page title MUST follow `ANAE - {Page Name}` format in all 4 locales — never `Page - ANAE`, never with pipes
+4. **i18n Navigation**: Always use `Link`, `useRouter`, `redirect` from `@/i18n/navigation`
 4. **No Startup/Tech Design**: Avoid startup-like or tech-style aesthetics
 5. **Consistent RTL Spacing**: Use `rtl:space-x-reverse` for all horizontal spacing
 6. **Translation Cleanup**: Delete unused translation keys from all 4 locale files when removing code

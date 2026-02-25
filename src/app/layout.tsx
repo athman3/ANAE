@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     icons: {
         icon: [
             { url: '/favicon.ico' },
-            { url: '/images/logos/logo.svg', type: 'image/svg+xml' },
+            { url: '/images/logos/logo_color.svg', type: 'image/svg+xml' },
         ],
-        apple: '/images/logos/logo.svg',
+        apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
     },
     verification: {
         google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,

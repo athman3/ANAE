@@ -63,13 +63,15 @@ export async function generateMetadata({ params }: PageProps) {
     ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image.startsWith('/') ? post.image : `/${post.image}`}`)
     : null;
 
+  const fullTitle = `ANAE - ${post.title}`;
+
   return {
-    title: post.title,
+    title: fullTitle,
     description: post.description,
     keywords: keywords.split(',').map(k => k.trim()),
     authors: [{ name: post.author }],
     openGraph: {
-      title: post.title,
+      title: fullTitle,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
@@ -79,7 +81,7 @@ export async function generateMetadata({ params }: PageProps) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: fullTitle,
       description: post.description,
       images: imageUrl ? [imageUrl] : [],
     },
