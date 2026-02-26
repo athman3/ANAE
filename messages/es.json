@@ -53,6 +53,10 @@
       "description": "Apoya a la comunidad argelina en España. Tu donación o voluntariado ayuda a financiar eventos culturales, apoyo comunitario y programas de integración.",
       "keywords": "contribuir anae, apoyar comunidad argelina, donación, voluntariado, anae, colaborar asociación",
       "imageAlt": "Contribuye a ANAE - Haz una Donación"
+    },
+    "notFound": {
+      "title": "ANAE - Página No Encontrada",
+      "description": "La página que buscas no existe o ha sido movida. Vuelve a la página principal de ANAE para encontrar lo que necesitas."
     }
   },
   "language": {

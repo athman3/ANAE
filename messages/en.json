@@ -53,6 +53,10 @@
       "description": "Support the Algerian community in Spain. Your donation or volunteering helps fund cultural events, community support and integration programs in Zaragoza.",
       "keywords": "contribute anae, support algerian community, donation, volunteering, anae, collaborate association",
       "imageAlt": "Contribute to ANAE - Make a Donation"
+    },
+    "notFound": {
+      "title": "ANAE - Page Not Found",
+      "description": "The page you are looking for does not exist or has been moved. Return to the ANAE homepage to find what you need."
     }
   },
   "language": {

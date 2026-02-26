@@ -79,7 +79,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │       ├── not-found.tsx       # Locale 404 → <NotFoundSection />
     │       ├── page.tsx            # Home page ("use client", HeroSection + 4 home sections)
     │       ├── about/
-    │       │   ├── page.tsx        # About page (Server Component)
+     │       │   ├── page.tsx        # About page (Server Component, HeroSection + MissionSection + ValuesSection + JoinSection)
     │       │   └── gallery/page.tsx # Gallery - "Coming Soon" page
     │       ├── blog/
     │       │   ├── page.tsx        # Blog list (Server Component, getAllPosts, BlogCard grid)
@@ -126,6 +126,11 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   │   └── Footer.tsx          # "use client" (usePathname for RTL); 4-column grid; social links reversed in RTL
     │   ├── NotFound/
     │   │   └── NotFoundSection.tsx # "use client"; 404 with home button
+    │   ├── About/
+    │   │   ├── HeroSection.tsx     # title + intro, white background, no stats/badge
+    │   │   ├── MissionSection.tsx  # 3 cards (Palette/Users/CalendarClock), Contribute-style card layout, 3-column grid
+    │   │   ├── ValuesSection.tsx   # title + description paragraph, white background
+    │   │   └── JoinSection.tsx     # 2 CTAs: /contribute (primary btn) + /contact (outline btn)
      │   └── Contribute/
      │       ├── DonationSection.tsx # "use client"; impact cards + payment methods (SEPA/PayPal/Bizum) with copy buttons
      │       ├── HeroSection.tsx

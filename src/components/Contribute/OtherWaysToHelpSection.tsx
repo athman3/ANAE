@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { HeartHandshake, Briefcase, PackageOpen, Building2, ArrowRight } from "lucide-react";
-import { Link as LocaleLink } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
 
 const cardIcons = [HeartHandshake, Briefcase, PackageOpen, Building2];
 const cardKeys = ["volunteer", "skills", "inkind", "partner"] as const;
@@ -49,13 +50,12 @@ export default function OtherWaysToHelpSection() {
         </div>
 
         <div className="mt-16 flex justify-center">
-          <LocaleLink
-            href="/contact"
-            className="group inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary/90 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            {t("cta")}
-            <ArrowRight className="ml-2 h-4 w-4 rtl:ml-0 rtl:mr-2 rtl:-scale-x-100 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-          </LocaleLink>
+          <Button asChild size="lg" className="h-12 px-8 text-base">
+            <Link href="/contact">
+              {t("cta")}
+              <ArrowRight className="ml-2 h-5 w-5 rtl:mr-2 rtl:ml-0 rtl:rotate-180" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

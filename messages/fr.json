@@ -53,6 +53,10 @@
       "description": "Soutenez la communauté algérienne en Espagne. Votre don ou bénévolat aide à financer des événements culturels, le soutien communautaire et l'intégration.",
       "keywords": "contribuer anae, soutenir communauté algérienne, don, bénévolat, anae, collaborer association",
       "imageAlt": "Contribuez à ANAE - Faire un Don"
+    },
+    "notFound": {
+      "title": "ANAE - Page Non Trouvée",
+      "description": "La page que vous recherchez n'existe pas ou a été déplacée. Retournez à la page d'accueil d'ANAE pour trouver ce que vous cherchez."
     }
   },
   "language": {
