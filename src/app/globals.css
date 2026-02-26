@@ -124,3 +124,21 @@
 [dir="rtl"] {
   direction: rtl;
 }
+
+/* Pre-hydration scroll state: force white navbar and hide topbar when page is scrolled on reload */
+html[data-scrolled="true"] nav.fixed {
+  top: 0 !important;
+  background-color: rgb(255 255 255) !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+html[data-scrolled="true"] nav.fixed a,
+html[data-scrolled="true"] nav.fixed button {
+  color: rgb(31 41 55) !important;
+}
+
+html[data-scrolled="true"] #topbar {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+}

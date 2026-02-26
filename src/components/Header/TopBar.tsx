@@ -164,12 +164,14 @@ export default function TopBar() {
       }
     }
 
+    handleScroll()
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [scrolled])
 
   return (
-    <div className={`bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-slate-100 py-1 px-6 text-sm fixed top-0 left-0 right-0 z-[80] transition-all duration-300 ${
+    <div id="topbar" className={`bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-slate-100 py-1 px-6 text-sm fixed top-0 left-0 right-0 z-[80] transition-all duration-300 ${
       scrolled ? "transform -translate-y-full opacity-0" : "transform translate-y-0 opacity-100"
     }`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">

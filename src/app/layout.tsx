@@ -40,17 +40,24 @@ export default function RootLayout({
     return (
         <html suppressHydrationWarning>
             <head>
-                {/* Set RTL/LTR direction before React hydrates to prevent flash */}
+                {/* Set RTL/LTR direction and scroll state before React hydrates to prevent flash */}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
                             (function() {
-                                const pathname = window.location.pathname;
-                                const localeMatch = pathname.match(/^\\/(ar|es|fr|en)(\\/|$)/);
-                                const locale = localeMatch ? localeMatch[1] : 'es';
-                                const isRTL = locale === 'ar';
+                                var pathname = window.location.pathname;
+                                var localeMatch = pathname.match(/^\\/(ar|es|fr|en)(\\/|$)/);
+                                var locale = localeMatch ? localeMatch[1] : 'es';
+                                var isRTL = locale === 'ar';
                                 document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
                                 document.documentElement.lang = locale;
+                                function checkScroll() {
+                                    if (window.scrollY > 10) {
+                                        document.documentElement.setAttribute('data-scrolled', 'true');
+                                    }
+                                }
+                                checkScroll();
+                                window.addEventListener('scroll', checkScroll, { once: true });
                             })();
                         `,
                     }}
