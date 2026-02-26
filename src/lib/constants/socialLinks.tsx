@@ -1,14 +1,15 @@
-import { 
-  Facebook, 
-  Youtube, 
-  Instagram, 
-  MessageCircle,
-  LucideIcon 
-} from "lucide-react";
+import type { ComponentType } from "react";
+import {
+  IconBrandFacebook,
+  IconBrandYoutube,
+  IconBrandInstagram,
+  IconBrandWhatsapp,
+  IconBrandTiktok,
+} from "@tabler/icons-react";
 
 export interface SocialLink {
   href: string;
-  icon: LucideIcon;
+  icon: ComponentType<{ className?: string }>;
   hoverColor: string;
   label: string;
 }
@@ -16,25 +17,31 @@ export interface SocialLink {
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     href: "https://www.facebook.com/profile.php?id=100069908903496",
-    icon: Facebook,
+    icon: IconBrandFacebook,
     hoverColor: "hover:text-blue-500",
     label: "Facebook"
   },
   {
     href: "https://www.youtube.com/@anae_asociacion",
-    icon: Youtube,
+    icon: IconBrandYoutube,
     hoverColor: "hover:text-red-400",
     label: "YouTube"
   },
   {
     href: "https://www.instagram.com/anae_asociacion/",
-    icon: Instagram,
+    icon: IconBrandInstagram,
     hoverColor: "hover:text-pink-500",
     label: "Instagram"
   },
   {
+    href: "https://www.tiktok.com/@anae_asociacion",
+    icon: IconBrandTiktok,
+    hoverColor: "hover:text-[#69C9D0]",
+    label: "TikTok"
+  },
+  {
     href: "https://wa.me/34674748699",
-    icon: MessageCircle,
+    icon: IconBrandWhatsapp,
     hoverColor: "hover:text-emerald-400",
     label: "WhatsApp"
   }

@@ -147,7 +147,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   │   ├── mdx.ts              # getAllPosts, getPostBySlug, getAllTags, getPostsByTag, getAllSlugs, getRecentPosts; readingTime @ 200 wpm; sorted by date desc
     │   │   └── types.ts            # BlogPostMetadata, BlogPost, BlogPostSummary interfaces
     │   ├── constants/
-    │   │   └── socialLinks.ts      # SOCIAL_LINKS array (Facebook/YouTube/Instagram/WhatsApp); CONTACT_INFO object
+    │   │   └── socialLinks.tsx     # SOCIAL_LINKS array (Facebook/YouTube/Instagram/TikTok/WhatsApp) + custom SVG icons; CONTACT_INFO object
     │   ├── hooks/
     │   │   └── useIsHomePage.ts    # "use client"; matches pathname === '/' or /^\/[a-z]{2}$/
     │   ├── metadata/
@@ -630,6 +630,48 @@ NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
 - Ensure all interactive elements are keyboard-navigable
 - Provide `alt` text for all images
 
+## Social Links Sync (Critical)
+
+`src/lib/constants/socialLinks.tsx` is the **single source of truth** for all social network links and contact info. Any change — adding, removing, or updating a social network — MUST be applied consistently across **every** location where social links appear:
+
+| Location | What to update |
+|---|---|
+| `src/lib/constants/socialLinks.tsx` | Add/remove/update the entry in `SOCIAL_LINKS`; add custom SVG icon component if needed |
+| `src/components/Header/Navigation.tsx` | Verify social links render correctly |
+| `src/components/Footer/Footer.tsx` | Verify social links render correctly |
+| `src/components/ui/DonationModal.tsx` | Update if social links appear there |
+| `public/email/signature-anae.html` | Add/remove the `<td>` block with the icon `<img>` and correct URL |
+| `public/images/icons/social/` | Add PNG files: `{network}.png` (26×26) and `{network}@2x.png` (52×52) |
+
+### Icon style convention
+
+All social icons in the TopBar use **outline/stroke style** to match Lucide React icons. When adding a new network:
+- Prefer a Lucide icon if one exists
+- Otherwise, define a custom SVG component with `stroke="currentColor"` and `strokeWidth="1.5"` directly in `socialLinks.tsx`
+- Never use filled/gras icons from react-icons (they appear visually heavier than the rest)
+
+### Hover color convention
+
+Each entry in `SOCIAL_LINKS` carries its own `hoverColor` field. Use the network's brand color:
+- Standard Tailwind classes (e.g. `hover:text-blue-500`) must be added to the `safelist` in `tailwind.config.ts`
+- Arbitrary values (e.g. `hover:text-[#69C9D0]`) do NOT need safelisting
+
+### Adding a new social network — checklist
+
+- [ ] Add entry to `SOCIAL_LINKS` in `src/lib/constants/socialLinks.tsx` with `href`, `icon`, `hoverColor`, `label`
+- [ ] If no Lucide icon exists, add a custom SVG outline component in the same file
+- [ ] If `hoverColor` uses a standard Tailwind class, add it to the safelist in `tailwind.config.ts`
+- [ ] Generate `{network}.png` and `{network}@2x.png` in `public/images/icons/social/` (brand color, outline style, 26×26 and 52×52 px)
+- [ ] Add icon `<td>` block to `public/email/signature-anae.html` with the correct production URL
+- [ ] Verify all render locations display the new icon correctly
+
+### Removing a social network — checklist
+
+- [ ] Remove entry from `SOCIAL_LINKS` in `src/lib/constants/socialLinks.tsx`
+- [ ] Remove its hover color class from the Tailwind safelist if it was added there
+- [ ] Remove the `<td>` block from `public/email/signature-anae.html`
+- [ ] Delete `{network}.png` and `{network}@2x.png` from `public/images/icons/social/`
+
 ## Best Practices
 
 1. **RTL First**: Always consider RTL when building new components — test `/ar/*` pages
@@ -648,6 +690,7 @@ NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
 14. **Static Data**: Put static arrays/objects in `src/data/` or `src/lib/constants/`
 15. **Navigation Styles**: Extract nav style logic to `src/lib/utils/navigationStyles.ts`
 16. **Accessibility**: Include proper ARIA attributes and semantic HTML
+17. **Social Links Sync**: Any social network change MUST be applied everywhere — see the Social Links Sync section above
 
 ## Key Files Reference
 
@@ -663,7 +706,7 @@ NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
 - `src/app/og/route.tsx` — Dynamic OG image generation (Edge runtime)
 - `src/components/RTLProvider.tsx` — RTL detection + `html[dir]` management
 - `src/lib/metadata/index.ts` — SEO metadata + JSON-LD utility functions
-- `src/lib/constants/socialLinks.ts` — Shared social links and contact info
+- `src/lib/constants/socialLinks.tsx` — Shared social links and contact info
 - `src/lib/utils/navigationStyles.ts` — Navigation color/style logic
 - `src/lib/utils/rateLimit.ts` — In-memory rate limiter
 - `src/lib/utils/sanitizeHtml.ts` — Input sanitization utilities

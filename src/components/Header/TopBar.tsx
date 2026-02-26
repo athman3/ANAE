@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { Link } from "@/i18n/navigation"
-import { Phone, Mail, MapPin } from "lucide-react"
-import { FaGithub, FaStar } from "react-icons/fa"
+import { IconPhone, IconMail, IconMapPin, IconBrandGithubFilled, IconStarFilled } from "@tabler/icons-react"
 import { useTranslations } from "next-intl"
 import { SOCIAL_LINKS } from "@/lib/constants/socialLinks"
 
@@ -12,27 +11,17 @@ const SocialLinks = () => {
   const pathname = usePathname()
   const isRTL = pathname.startsWith('/ar')
   
-  // En RTL, on inverse l'ordre pour compenser le rtl:space-x-reverse
-  // afin que l'ordre visuel reste toujours : Facebook, YouTube, Instagram, WhatsApp
   const socialLinks = isRTL ? [...SOCIAL_LINKS].reverse() : SOCIAL_LINKS
-  
-  // Map pour les classes de hover - nécessaire car Tailwind ne peut pas générer de classes dynamiques
-  const hoverColorMap: Record<string, string> = {
-    'Facebook': 'hover:text-blue-500',
-    'YouTube': 'hover:text-red-400',
-    'Instagram': 'hover:text-pink-500',
-    'WhatsApp': 'hover:text-emerald-400'
-  }
   
   return (
     <div className="flex items-center space-x-3 rtl:space-x-reverse">
-      {socialLinks.map(({ href, icon: Icon, label }) => (
+      {socialLinks.map(({ href, icon: Icon, label, hoverColor }) => (
         <Link
           key={label}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`text-slate-100 ${hoverColorMap[label]} hover:scale-110 transition-all duration-200`}
+          className={`text-slate-100 ${hoverColor} hover:scale-110 transition-all duration-200`}
           aria-label={label}
         >
           <Icon className="h-4 w-4" />
@@ -45,19 +34,19 @@ const SocialLinks = () => {
 const ContactInfo = ({ t }: { t: (key: string) => string }) => {
   const contactItems = [
     {
-      icon: Phone,
+      icon: IconPhone,
       text: "+34 674 748 699",
       className: "hidden sm:flex",
-      dir: "ltr" // Force LTR for phone numbers
+      dir: "ltr"
     },
     {
-      icon: Mail,
+      icon: IconMail,
       text: "contacto@asociacionanae.org",
       className: "hidden lg:flex",
-      dir: "ltr" // Force LTR for email
+      dir: "ltr"
     },
     {
-      icon: MapPin,
+      icon: IconMapPin,
       text: `${t("city")}, ${t("country")}`,
       className: "hidden md:flex"
     }
@@ -136,31 +125,31 @@ const GitHubLink = () => {
       rel="noopener noreferrer"
       className="flex items-center space-x-2 rtl:space-x-reverse px-3 my-1"
     >
-      {isRTL ? (
+          {isRTL ? (
         <>
           {/* Stars section - first in RTL */}
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
             
             <span className="text-xs font-medium mt-0.5">{stars ?? ''}</span>
-            <FaStar className="h-3 w-3 text-yellow-400" />
+            <IconStarFilled className="h-3 w-3 text-yellow-400" />
           </div>
           {/* GitHub section - second in RTL, icon always left of text */}
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
             
             <span className="text-xs font-medium mt-0.5">GitHub</span>
-            <FaGithub className="h-6 w-6" />
+            <IconBrandGithubFilled className="h-5 w-5" />
           </div>
         </>
       ) : (
         <>
           {/* GitHub section - first in LTR, icon always left of text */}
           <div className="flex items-center space-x-2">
-            <FaGithub className="h-6 w-6" />
+            <IconBrandGithubFilled className="h-5 w-5" />
             <span className="text-xs font-medium mt-0.5">GitHub</span>
           </div>
           {/* Stars section - second in LTR */}
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
-            <FaStar className="h-3 w-3 text-yellow-400" />
+            <IconStarFilled className="h-3 w-3 text-yellow-400" />
             <span className="text-xs font-medium mt-0.5">{stars ?? ''}</span>
           </div>
         </>

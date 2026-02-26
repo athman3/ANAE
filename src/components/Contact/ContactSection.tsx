@@ -43,13 +43,7 @@ export default function ContactSection() {
     [isRTL]
   );
   
-  // Map pour les classes de hover (memoized as it's constant)
-  const hoverColorMap: Record<string, string> = useMemo(() => ({
-    'Facebook': 'hover:text-blue-500',
-    'YouTube': 'hover:text-red-400',
-    'Instagram': 'hover:text-pink-500',
-    'WhatsApp': 'hover:text-emerald-400'
-  }), []);
+
 
   const contactInfo: ContactInfo[] = useMemo(() => [
     {
@@ -338,13 +332,13 @@ export default function ContactSection() {
               {t("social.description")}
             </p>
             <div className="flex items-center justify-center space-x-3 rtl:space-x-reverse">
-              {socialLinks.map(({ href, icon: Icon, label }) => (
+              {socialLinks.map(({ href, icon: Icon, label, hoverColor }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-muted-foreground ${hoverColorMap[label]} hover:scale-110 transition-all duration-200`}
+                  className={`text-muted-foreground ${hoverColor} hover:scale-110 transition-all duration-200`}
                   aria-label={label}
                 >
                   <Icon className="h-8 w-8" />

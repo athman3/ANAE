@@ -15,6 +15,7 @@ export default {
     'hover:text-red-400',
     'hover:text-pink-500',
     'hover:text-emerald-400',
+    'hover:text-[#69C9D0]',
   ],
   theme: {
   	extend: {
