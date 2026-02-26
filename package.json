@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/cli": "^0.1.1",
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.0",
     "@types/react": "^19",
