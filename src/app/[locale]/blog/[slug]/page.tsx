@@ -10,7 +10,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import Image from 'next/image';
 import ReadingProgressBar from '@/components/Blog/ReadingProgressBar';
-import { generateArticleJsonLd, type Locale } from '@/lib/metadata';
+import { generateArticleJsonLd, generateMetadata as generateSEOMetadata, type Locale } from '@/lib/metadata';
 
 interface PageProps {
   params: Promise<{ 
@@ -39,8 +39,6 @@ export async function generateStaticParams() {
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps) {
   const { locale, slug: rawSlug } = await params;
-  // Decode the slug to handle Arabic characters properly
-  // Try to decode, but fallback to raw slug if it fails (already decoded)
   let slug: string;
   try {
     slug = decodeURIComponent(rawSlug);
@@ -51,41 +49,22 @@ export async function generateMetadata({ params }: PageProps) {
 
   if (!post) {
     return {
-      title: 'Post Not Found',
+      title: 'ANAE - Post Not Found',
     };
   }
 
-  const keywords = post.tags ? post.tags.join(', ') : '';
-  
-  // Construire l'URL absolue de l'image pour Open Graph
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org';
-  const imageUrl = post.image 
-    ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image.startsWith('/') ? post.image : `/${post.image}`}`)
-    : null;
-
-  const fullTitle = `ANAE - ${post.title}`;
-
-  return {
-    title: fullTitle,
+  return generateSEOMetadata({
+    locale: locale as Locale,
+    title: `ANAE - ${post.title}`,
     description: post.description,
-    keywords: keywords.split(',').map(k => k.trim()),
-    authors: [{ name: post.author }],
-    openGraph: {
-      title: fullTitle,
-      description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
-      images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: post.title }] : [],
-      locale: locale === 'ar' ? 'ar_DZ' : locale === 'es' ? 'es_ES' : locale === 'fr' ? 'fr_FR' : 'en_US',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: fullTitle,
-      description: post.description,
-      images: imageUrl ? [imageUrl] : [],
-    },
-  };
+    keywords: post.tags ? post.tags.join(', ') : undefined,
+    path: `/blog/${encodeURIComponent(slug)}`,
+    image: post.image || '/og',
+    imageAlt: post.title,
+    type: 'article',
+    author: post.author,
+    publishedTime: post.date,
+  });
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

@@ -7,10 +7,6 @@ import path from 'path';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org';
 
-/**
- * Recursively find all page.tsx files in a directory
- * Returns the routes relative to [locale] directory
- */
 function findPages(dir: string, basePath: string = ''): string[] {
   const routes: string[] = [];
   
@@ -25,16 +21,13 @@ function findPages(dir: string, basePath: string = ''): string[] {
     const routePath = basePath ? `${basePath}/${entry.name}` : `/${entry.name}`;
 
     if (entry.isDirectory()) {
-      // Skip dynamic route folders like [slug]
       if (entry.name.startsWith('[') && entry.name.endsWith(']')) {
         continue;
       }
       
-      // Recursively search in subdirectories
       const subRoutes = findPages(fullPath, routePath);
       routes.push(...subRoutes);
     } else if (entry.name === 'page.tsx') {
-      // Found a page, add the route
       routes.push(basePath || '');
     }
   }
@@ -42,15 +35,24 @@ function findPages(dir: string, basePath: string = ''): string[] {
   return routes;
 }
 
+async function buildAlternates(route: string): Promise<Record<string, string>> {
+  const languages: Record<string, string> = {};
+  for (const locale of locales) {
+    const pathname = await getPathname({ locale, href: route || '/' });
+    languages[locale] = `${SITE_URL}${pathname}`;
+  }
+  return languages;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemap: MetadataRoute.Sitemap = [];
   const localeDir = path.join(process.cwd(), 'src', 'app', '[locale]');
 
-  // Find all static pages
   const staticRoutes = findPages(localeDir);
 
-  // Add static routes for each locale using next-intl's getPathname
   for (const route of staticRoutes) {
+    const languages = await buildAlternates(route);
+
     for (const locale of locales) {
       const pathname = await getPathname({ locale, href: route || '/' });
       sitemap.push({
@@ -58,23 +60,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: new Date(),
         changeFrequency: route === '' ? 'daily' : 'weekly',
         priority: route === '' ? 1 : 0.8,
+        alternates: { languages },
       });
     }
   }
 
-  // Add dynamic blog routes for each locale
   for (const locale of locales) {
     const blogSlugs = await getAllSlugs(locale);
     for (const slug of blogSlugs) {
-      const pathname = await getPathname({ 
-        locale, 
-        href: `/blog/${slug}` 
-      });
+      const blogRoute = `/blog/${slug}`;
+      const pathname = await getPathname({ locale, href: blogRoute });
+
+      const blogLanguages: Record<string, string> = {};
+      for (const loc of locales) {
+        const altPathname = await getPathname({ locale: loc, href: blogRoute });
+        blogLanguages[loc] = `${SITE_URL}${altPathname}`;
+      }
+
       sitemap.push({
         url: `${SITE_URL}${pathname}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.7,
+        alternates: { languages: blogLanguages },
       });
     }
   }

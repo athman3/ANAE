@@ -2,56 +2,56 @@
   "seo": {
     "home": {
       "title": "ANAE - Asociación Nacional de Argelinos en España",
-      "description": "ANAE promueve la cultura argelina en España. Organizamos eventos culturales, mediación sociocultural y asistencia administrativa para la comunidad argelina.",
-      "keywords": "asociación argelina españa, cultura argelina, comunidad argelina zaragoza, eventos culturales, mediación sociocultural, ANAE",
+      "description": "ANAE promueve la cultura argelina en España desde Zaragoza. Organizamos eventos culturales, mediación sociocultural y asistencia administrativa comunitaria.",
+      "keywords": "asociación argelina españa, cultura argelina, comunidad argelina zaragoza, eventos culturales, mediación sociocultural, ANAE, argelinos en españa",
       "imageAlt": "ANAE - Asociación Nacional de Argelinos en España"
     },
     "about": {
-      "title": "ANAE - Nuestra Misión y Valores",
-      "description": "Descubre ANAE: promoción cultural, mediación sociocultural y apoyo a la comunidad argelina en España. Valores de solidaridad, respeto e inclusión.",
-      "keywords": "sobre anae, misión anae, valores anae, asociación argelina, promoción cultural argelina",
+      "title": "ANAE - Misión, Valores y Compromiso con la Comunidad",
+      "description": "Conoce la misión de ANAE: promoción cultural, mediación sociocultural y apoyo a la comunidad argelina en Zaragoza. Valores de solidaridad, respeto e inclusión.",
+      "keywords": "sobre anae, misión anae, valores anae, asociación argelina españa, promoción cultural argelina, zaragoza",
       "imageAlt": "Acerca de la Asociación Nacional de Argelinos en España"
     },
     "contact": {
-      "title": "ANAE - Contacto",
-      "description": "Contáctanos para cualquier pregunta o asistencia. Email: contacto@asociacionanae.org | Teléfono: +34 674 748 699 | Zaragoza, España",
-      "keywords": "contacto anae, email anae, teléfono anae, contactar asociación argelina",
+      "title": "ANAE - Contacta con la Asociación Argelina en España",
+      "description": "Escríbenos o llámanos para cualquier consulta. Email: contacto@asociacionanae.org | Teléfono: +34 674 748 699 | Sede en Zaragoza, España.",
+      "keywords": "contacto anae, email anae, teléfono anae, contactar asociación argelina, zaragoza, formulario contacto",
       "imageAlt": "Contacta con ANAE"
     },
     "blog": {
-      "title": "ANAE - Blog y Noticias",
-      "description": "Mantente informado con las últimas noticias, eventos y historias de la comunidad argelina en España. Blog oficial de ANAE.",
-      "keywords": "blog anae, noticias comunidad argelina, eventos culturales, noticias anae",
+      "title": "ANAE - Blog, Noticias y Eventos de la Comunidad Argelina",
+      "description": "Mantente informado con las últimas noticias, eventos culturales e historias de la comunidad argelina en España. Lee el blog oficial de la asociación ANAE.",
+      "keywords": "blog anae, noticias comunidad argelina, eventos culturales, noticias anae, artículos comunidad argelina españa",
       "imageAlt": "Blog y Noticias ANAE"
     },
     "faq": {
-      "title": "ANAE - Preguntas Frecuentes",
-      "description": "Encuentra respuestas a las preguntas más comunes sobre ANAE: donaciones, voluntariado, nuestras acciones y cómo unirte a nosotros.",
-      "keywords": "preguntas frecuentes anae, faq anae, donaciones, voluntariado, información anae",
+      "title": "ANAE - Preguntas Frecuentes sobre la Asociación",
+      "description": "Encuentra respuestas a las preguntas más comunes sobre ANAE: donaciones, voluntariado, nuestras acciones comunitarias y cómo participar con nosotros.",
+      "keywords": "preguntas frecuentes anae, faq anae, donaciones, voluntariado, información anae, cómo colaborar",
       "imageAlt": "Preguntas Frecuentes ANAE"
     },
     "privacy": {
-      "title": "ANAE - Política de Privacidad",
-      "description": "Política de privacidad de ANAE conforme al RGPD. Protección de datos personales, tus derechos y cómo utilizamos tu información.",
-      "keywords": "política privacidad anae, rgpd, protección datos, privacidad",
+      "title": "ANAE - Política de Privacidad y Protección de Datos",
+      "description": "Política de privacidad de ANAE conforme al RGPD. Conoce cómo protegemos tus datos personales, tus derechos y el tratamiento de tu información personal.",
+      "keywords": "política privacidad anae, rgpd, protección datos personales, derechos usuarios, privacidad asociación argelina",
       "imageAlt": "Política de Privacidad ANAE"
     },
     "cookies": {
-      "title": "ANAE - Política de Cookies",
-      "description": "Información sobre el uso de cookies en el sitio web de ANAE. Cookies técnicas esenciales y cómo gestionarlas.",
-      "keywords": "política cookies anae, cookies, gestión cookies",
+      "title": "ANAE - Política de Cookies y Preferencias de Privacidad",
+      "description": "Información detallada sobre el uso de cookies en el sitio web de ANAE. Conoce las cookies técnicas, analíticas y cómo gestionar tus preferencias.",
+      "keywords": "política cookies anae, cookies técnicas, google analytics cookies, gestión cookies, rgpd cookies, preferencias privacidad",
       "imageAlt": "Política de Cookies ANAE"
     },
     "gallery": {
-      "title": "ANAE - Galería de Eventos",
-      "description": "Descubre los momentos destacados de nuestros eventos culturales, actividades e iniciativas comunitarias a través de nuestra galería de fotos y vídeos.",
-      "keywords": "galería anae, fotos eventos, vídeos actividades, eventos culturales",
+      "title": "ANAE - Galería de Fotos y Vídeos de Eventos Culturales",
+      "description": "Descubre los momentos destacados de nuestros eventos culturales, actividades comunitarias e iniciativas de la asociación ANAE en Zaragoza a través de fotos y vídeos.",
+      "keywords": "galería anae, fotos eventos, vídeos actividades, eventos culturales, comunidad argelina zaragoza",
       "imageAlt": "Galería de Eventos ANAE"
     },
     "contribute": {
-      "title": "ANAE - Contribuir",
-      "description": "Contribuye a la comunidad argelina en España. Tu donación, voluntariado o colaboración ayuda a financiar eventos culturales, apoyo comunitario y programas de integración.",
-      "keywords": "contribuir anae, apoyar comunidad argelina, donación, voluntariado, anae",
+      "title": "ANAE - Contribuye y Apoya a la Comunidad Argelina",
+      "description": "Apoya a la comunidad argelina en España. Tu donación o voluntariado ayuda a financiar eventos culturales, apoyo comunitario y programas de integración.",
+      "keywords": "contribuir anae, apoyar comunidad argelina, donación, voluntariado, anae, colaborar asociación",
       "imageAlt": "Contribuye a ANAE - Haz una Donación"
     }
   },
@@ -224,20 +224,20 @@
     "title": "Acerca de ANAE",
     "intro": "La Asociación Nacional de Argelinos en España (ANAE) se erige como un faro de promoción cultural y mediación sociocultural para la comunidad argelina y las diversas culturas presentes en España. Nuestro compromiso se centra en la promoción de la cultura argelina, el fortalecimiento de la identidad de nuestros compatriotas y la construcción de puentes de entendimiento entre las distintas comunidades que conviven en este país.",
     "mission": {
-      "title": "Nuestra Misión",
-      "description": "La ANAE se esfuerza por ser un punto de encuentro y apoyo para los argelinos en España. Nuestros principales objetivos son:",
+      "title": "Nuestra Visión y Compromiso",
+      "description": "La ANAE se esfuerza por ser un pilar fundamental de la comunidad argelina en España, trabajando con una visión clara hacia el futuro.",
       "points": {
         "culture": {
-          "title": "Promover la Cultura Argelina",
-          "description": "Organizamos eventos culturales, exposiciones, proyecciones de películas, talleres y conferencias para difundir la rica herencia cultural de Argelia entre la comunidad argelina y el público español en general."
+          "title": "Preservación Identitaria",
+          "description": "Mantenemos vivas nuestras raíces, historia y tradiciones, asegurando que las nuevas generaciones conecten con su patrimonio mientras crecen en España."
         },
         "mediation": {
-          "title": "Mediación Sociocultural",
-          "description": "Ofrecemos servicios de orientación y mediación para facilitar la integración de los argelinos en la sociedad española. Además, promovemos el diálogo intercultural y la cohesión social entre las diferentes comunidades presentes en España."
+          "title": "Puente Intercultural",
+          "description": "Fomentamos el entendimiento y la convivencia armónica entre la comunidad argelina y la sociedad española, derribando prejuicios a través del diálogo."
         },
         "activities": {
-          "title": "Encuentros y Actividades",
-          "description": "Organizamos encuentros regulares donde los argelinos pueden reunirse, compartir experiencias, establecer redes de apoyo y participar en actividades recreativas y educativas."
+          "title": "Red de Apoyo Solidario",
+          "description": "Construimos una comunidad unida y resiliente, donde cada individuo encuentra orientación, respaldo y un sentido de pertenencia."
         }
       }
     },
