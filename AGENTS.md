@@ -68,7 +68,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
 │       └── screenshots/
 └── src/
     ├── app/
-    │   ├── layout.tsx              # Root layout: RTLProvider + inline script (RTL flash prevention) + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component
+    │   ├── layout.tsx              # Root layout: RTLProvider + inline script (RTL flash prevention) + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component + Google Ads gtag config
     │   ├── globals.css             # Tailwind + shadcn CSS vars (light + dark) + [dir="rtl"] { direction: rtl }
     │   ├── not-found.tsx           # Global 404 (NextIntlClientProvider + Header is404 + Footer)
     │   ├── robots.ts               # Disallows /api/, /_next/, /admin/, /private/
@@ -618,8 +618,11 @@ Defined in `.env.example`:
 # Site
 NEXT_PUBLIC_SITE_URL=https://asociacionanae.org
 
-# Google Analytics / Ads
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX   # Google Analytics 4 Measurement ID
+# Google Analytics 4
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX        # GA4 Measurement ID (starts with G-)
+
+# Google Ads Conversion Tracking
+NEXT_PUBLIC_GADS_ID=AW-XXXXXXXXXXX   # Google Ads Conversion ID (starts with AW-)
 
 # SMTP (Contact form)
 SMTP_HOST=smtp.gmail.com
@@ -764,7 +767,7 @@ When adding any feature that collects, processes, or stores user data:
 - `next.config.ts` — Next.js config with MDX and i18n plugins + security headers
 - `tailwind.config.ts` — Tailwind with shadcn/ui theme + safelisted dynamic colors
 - `mdx-components.tsx` — Custom MDX component renderers with RTL support
-- `src/app/layout.tsx` — Root layout: inline RTL script + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component
+- `src/app/layout.tsx` — Root layout: inline RTL script + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component + Google Ads gtag config
 - `src/middleware.ts` — Accept-Language detection + next-intl i18n routing
 - `src/i18n/routing.ts` — Locale configuration (`['ar','es','fr','en']`, default `'es'`)
 - `src/i18n/navigation.ts` — Locale-aware `Link`, `useRouter`, `usePathname`, `redirect`
