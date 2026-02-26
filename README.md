@@ -77,6 +77,31 @@ The project requires several environment variables. See [`.env.example`](./.env.
 - **TypeScript** - Full TypeScript support for type safety
 - **Modern UI** - Tailwind CSS with custom design system and Radix UI primitives
 
+## Email Signature
+
+Pre-built HTML email signatures for ANAE members are available in `public/email/`. There is one file per locale:
+
+| File | Language |
+|---|---|
+| `public/email/signature-es.html` | Spanish |
+| `public/email/signature-fr.html` | French |
+| `public/email/signature-en.html` | English |
+| `public/email/signature-ar.html` | Arabic (RTL) |
+
+### How to install the signature in Gmail
+
+1. Open the HTML file for your language in a browser
+2. Select all (`Ctrl+A` / `Cmd+A`) and copy (`Ctrl+C` / `Cmd+C`)
+3. In Gmail, go to **Settings → See all settings → General → Signature**
+4. Create a new signature and paste (`Ctrl+V` / `Cmd+V`) directly into the signature editor
+5. Save changes
+
+> The signature uses absolute URLs pointing to `asociacionanae.org` for all images (logo + social icons), so images load correctly in any email client without any attachments.
+
+### Updating the signature
+
+The social icons are served from `public/images/icons/social/` as PNG files (`{network}.png` and `{network}@2x.png` for retina). If a social network is added or removed, update all 4 signature files accordingly — see the **Social Links Sync** section in `AGENTS.md`.
+
 ## TODO
 
 - [ ] **Redis for email** - Rate limiting and email queue with Redis
