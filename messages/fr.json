@@ -264,7 +264,6 @@
   },
   "privacy": {
     "title": "Politique de Confidentialité",
-    "lastUpdated": "Dernière mise à jour",
     "intro": "La Asociación Nacional de Argelinos en España (ANAE) s'engage à protéger votre vie privée et à respecter le Règlement Général sur la Protection des Données (RGPD). Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.",
     "sections": {
       "controller": {
@@ -402,7 +401,6 @@
   },
   "cookies": {
     "title": "Politique des Cookies",
-    "lastUpdated": "Dernière mise à jour",
     "intro": "Cette page vous informe sur l'utilisation des cookies sur notre site web. Nous respectons votre vie privée et sommes transparents sur les cookies que nous utilisons.",
     "sections": {
       "whatAre": {

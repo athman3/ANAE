@@ -92,6 +92,7 @@ export default function Navigation({ is404 = false }: NavigationProps) {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`lg:hidden p-1.5 rounded-md transition-colors duration-300 sm:p-2 ${getHamburgerButtonClasses(styleOptions)}`}
             aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={20} className="sm:hidden" /> : <Menu size={20} className="sm:hidden" />}
             {mobileMenuOpen ? <X size={24} className="hidden sm:block" /> : <Menu size={24} className="hidden sm:block" />}

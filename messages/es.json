@@ -264,7 +264,6 @@
   },
   "privacy": {
     "title": "Política de Privacidad",
-    "lastUpdated": "Última actualización",
     "intro": "La Asociación Nacional de Argelinos en España (ANAE) se compromete a proteger su privacidad y cumplir con el Reglamento General de Protección de Datos (RGPD). Esta política explica cómo recopilamos, utilizamos y protegemos sus datos personales.",
     "sections": {
       "controller": {
@@ -402,7 +401,6 @@
   },
   "cookies": {
     "title": "Política de Cookies",
-    "lastUpdated": "Última actualización",
     "intro": "Esta página le informa sobre el uso de cookies en nuestro sitio web. Respetamos su privacidad y somos transparentes sobre las cookies que utilizamos.",
     "sections": {
       "whatAre": {
