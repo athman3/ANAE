@@ -66,7 +66,7 @@ const ContactInfo = ({ t }: { t: (key: string) => string }) => {
   return (
     <>
       {contactItems.map(({ icon: Icon, text, className, dir }, index) => (
-        <div key={index} className={`${className} items-center gap-2`} dir="ltr">
+        <div key={index} className={`${className} items-center gap-2 rtl:flex-row-reverse`} dir="ltr">
           <Icon className="h-4 w-4 shrink-0" />
           <span dir={dir}>{text}</span>
         </div>

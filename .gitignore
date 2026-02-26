@@ -50,5 +50,7 @@ next-env.d.ts
 
 # playwright
 
+.playwright
 .playwright-mcp
+.playwright-cli
 
