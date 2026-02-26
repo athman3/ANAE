@@ -2,56 +2,56 @@
   "seo": {
     "home": {
       "title": "ANAE - Association Nationale des Algériens en Espagne",
-      "description": "ANAE promeut la culture algérienne en Espagne. Nous organisons des événements culturels, médiation socioculturelle et assistance administrative pour la communauté algérienne.",
-      "keywords": "association algérienne espagne, culture algérienne, communauté algérienne saragosse, événements culturels, médiation socioculturelle, ANAE",
+      "description": "ANAE promeut la culture algérienne en Espagne depuis Saragosse. Nous organisons des événements culturels, médiation socioculturelle et assistance administrative.",
+      "keywords": "association algérienne espagne, culture algérienne, communauté algérienne saragosse, événements culturels, médiation socioculturelle, ANAE, algériens en espagne",
       "imageAlt": "ANAE - Association Nationale des Algériens en Espagne"
     },
     "about": {
-      "title": "ANAE - Notre Mission et Valeurs",
-      "description": "Découvrez ANAE : promotion culturelle, médiation socioculturelle et soutien à la communauté algérienne en Espagne. Valeurs de solidarité, respect et inclusion.",
-      "keywords": "à propos anae, mission anae, valeurs anae, association algérienne, promotion culturelle algérienne",
+      "title": "ANAE - Mission, Valeurs et Engagement Communautaire",
+      "description": "Découvrez la mission d'ANAE : promotion culturelle, médiation socioculturelle et soutien à la communauté algérienne à Saragosse. Solidarité, respect et inclusion.",
+      "keywords": "à propos anae, mission anae, valeurs anae, association algérienne espagne, promotion culturelle algérienne, saragosse",
       "imageAlt": "À Propos de l'Association Nationale des Algériens en Espagne"
     },
     "contact": {
-      "title": "ANAE - Contact",
-      "description": "Contactez-nous pour toute question ou assistance. Email : contacto@asociacionanae.org | Téléphone : +34 674 748 699 | Saragosse, Espagne",
-      "keywords": "contact anae, email anae, téléphone anae, contacter association algérienne",
+      "title": "ANAE - Contactez l'Association Algérienne en Espagne",
+      "description": "Contactez ANAE pour toute question ou assistance. Email : contacto@asociacionanae.org | Téléphone : +34 674 748 699 | Siège à Saragosse, Espagne.",
+      "keywords": "contact anae, email anae, téléphone anae, contacter association algérienne, saragosse, formulaire contact",
       "imageAlt": "Contactez ANAE"
     },
     "blog": {
-      "title": "ANAE - Blog et Actualités",
-      "description": "Restez informé avec les dernières nouvelles, événements et histoires de la communauté algérienne en Espagne. Blog officiel d'ANAE.",
-      "keywords": "blog anae, actualités communauté algérienne, événements culturels, nouvelles anae",
+      "title": "ANAE - Blog, Actualités et Événements Communautaires",
+      "description": "Restez informé avec les dernières nouvelles, événements culturels et histoires de la communauté algérienne en Espagne. Lisez le blog officiel de l'association ANAE.",
+      "keywords": "blog anae, actualités communauté algérienne, événements culturels, nouvelles anae, articles communauté algérienne espagne",
       "imageAlt": "Blog et Actualités ANAE"
     },
     "faq": {
-      "title": "ANAE - Questions Fréquentes",
-      "description": "Trouvez des réponses aux questions les plus courantes sur ANAE : dons, bénévolat, nos actions et comment nous rejoindre.",
-      "keywords": "faq anae, questions fréquentes anae, dons, bénévolat, informations anae",
+      "title": "ANAE - Questions Fréquentes sur l'Association",
+      "description": "Trouvez des réponses aux questions les plus courantes sur ANAE : dons, bénévolat, nos actions communautaires et comment participer à notre association.",
+      "keywords": "faq anae, questions fréquentes anae, dons, bénévolat, informations anae, comment aider",
       "imageAlt": "Questions Fréquentes ANAE"
     },
     "privacy": {
-      "title": "ANAE - Politique de Confidentialité",
-      "description": "Politique de confidentialité d'ANAE conforme au RGPD. Protection des données personnelles, vos droits et comment nous utilisons vos informations.",
-      "keywords": "politique confidentialité anae, rgpd, protection données, vie privée",
+      "title": "ANAE - Politique de Confidentialité et Protection des Données",
+      "description": "Politique de confidentialité d'ANAE conforme au RGPD. Découvrez comment nous protégeons vos données personnelles, vos droits et le traitement de vos informations.",
+      "keywords": "politique confidentialité anae, rgpd, protection données personnelles, droits utilisateurs, vie privée association algérienne",
       "imageAlt": "Politique de Confidentialité ANAE"
     },
     "cookies": {
-      "title": "ANAE - Politique des Cookies",
-      "description": "Informations sur l'utilisation des cookies sur le site web d'ANAE. Cookies techniques essentiels et comment les gérer.",
-      "keywords": "politique cookies anae, cookies, gestion cookies",
+      "title": "ANAE - Politique des Cookies et Préférences de Confidentialité",
+      "description": "Informations détaillées sur l'utilisation des cookies sur le site ANAE. Découvrez les cookies techniques, analytiques et comment gérer vos préférences.",
+      "keywords": "politique cookies anae, cookies techniques, google analytics cookies, gestion cookies, rgpd cookies, préférences confidentialité",
       "imageAlt": "Politique des Cookies ANAE"
     },
     "gallery": {
-      "title": "ANAE - Galerie d'Événements",
-      "description": "Découvrez les moments forts de nos événements culturels, activités et initiatives communautaires à travers notre galerie de photos et vidéos.",
-      "keywords": "galerie anae, photos événements, vidéos activités, événements culturels",
+      "title": "ANAE - Galerie Photos et Vidéos d'Événements Culturels",
+      "description": "Découvrez les moments forts de nos événements culturels, activités communautaires et initiatives de l'association ANAE à Saragosse à travers photos et vidéos.",
+      "keywords": "galerie anae, photos événements, vidéos activités, événements culturels, communauté algérienne saragosse",
       "imageAlt": "Galerie d'Événements ANAE"
     },
     "contribute": {
-      "title": "ANAE - Contribuer",
-      "description": "Contribuez à la communauté algérienne en Espagne. Votre don, bénévolat ou collaboration aide à financer des événements culturels, le soutien communautaire et les programmes d'intégration.",
-      "keywords": "contribuer anae, soutenir communauté algérienne, don, bénévolat, anae",
+      "title": "ANAE - Contribuez et Soutenez la Communauté Algérienne",
+      "description": "Soutenez la communauté algérienne en Espagne. Votre don ou bénévolat aide à financer des événements culturels, le soutien communautaire et l'intégration.",
+      "keywords": "contribuer anae, soutenir communauté algérienne, don, bénévolat, anae, collaborer association",
       "imageAlt": "Contribuez à ANAE - Faire un Don"
     }
   },
@@ -224,20 +224,20 @@
     "title": "À propos d'ANAE",
     "intro": "L'Association Nationale des Algériens en Espagne (ANAE) se dresse comme un phare de promotion culturelle et de médiation socioculturelle pour la communauté algérienne et les diverses cultures présentes en Espagne. Notre engagement se concentre sur la promotion de la culture algérienne, le renforcement de l'identité de nos compatriotes et la construction de ponts de compréhension entre les différentes communautés qui cohabitent dans ce pays.",
     "mission": {
-      "title": "Notre Mission",
-      "description": "L'ANAE s'efforce d'être un point de rencontre et de soutien pour les Algériens en Espagne. Nos principaux objectifs sont :",
+      "title": "Notre Vision et Engagement",
+      "description": "L'ANAE s'efforce d'être un pilier fondamental de la communauté algérienne en Espagne, travaillant avec une vision claire vers l'avenir.",
       "points": {
         "culture": {
-          "title": "Promouvoir la Culture Algérienne",
-          "description": "Nous organisons des événements culturels, des expositions, des projections de films, des ateliers et des conférences pour diffuser le riche patrimoine culturel de l'Algérie auprès de la communauté algérienne et du public espagnol en général."
+          "title": "Préservation Identitaire",
+          "description": "Nous maintenons vivantes nos racines, notre histoire et nos traditions, en veillant à ce que les nouvelles générations restent connectées à leur patrimoine tout en grandissant en Espagne."
         },
         "mediation": {
-          "title": "Médiation Socioculturelle",
-          "description": "Nous offrons des services d'orientation et de médiation pour faciliter l'intégration des Algériens dans la société espagnole. De plus, nous promouvons le dialogue interculturel et la cohésion sociale entre les différentes communautés présentes en Espagne."
+          "title": "Pont Interculturel",
+          "description": "Nous favorisons la compréhension et la cohabitation harmonieuse entre la communauté algérienne et la société espagnole, en brisant les préjugés par le dialogue."
         },
         "activities": {
-          "title": "Rencontres et Activités",
-          "description": "Nous organisons des rencontres régulières où les Algériens peuvent se réunir, partager des expériences, établir des réseaux de soutien et participer à des activités récréatives et éducatives."
+          "title": "Réseau de Solidarité",
+          "description": "Nous construisons une communauté unie et résiliente, où chaque individu trouve orientation, soutien et un sentiment d'appartenance."
         }
       }
     },

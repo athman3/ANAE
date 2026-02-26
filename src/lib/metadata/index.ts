@@ -60,11 +60,12 @@ export function generateMetadata({
   const imagePath = image.startsWith('/') ? image : `/${image}`;
   const imageUrl = image.startsWith('http') ? image : `${SITE_URL}${imagePath}`;
   
-  // Générer les liens alternates pour hreflang
+  // Générer les liens alternates pour hreflang (incluant x-default)
   const languages: Record<string, string> = {};
   locales.forEach((loc) => {
     languages[loc] = `${SITE_URL}/${loc}${path}`;
   });
+  languages['x-default'] = `${SITE_URL}/es${path}`;
 
   const metadata: Metadata = {
     title,
@@ -100,6 +101,9 @@ export function generateMetadata({
     openGraph: {
       type,
       locale: localeMapping[locale],
+      alternateLocale: locales
+        .filter((loc) => loc !== locale)
+        .map((loc) => localeMapping[loc]),
       url,
       siteName: SITE_NAME_FULL,
       title,

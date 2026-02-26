@@ -2,56 +2,56 @@
   "seo": {
     "home": {
       "title": "ANAE - National Association of Algerians in Spain",
-      "description": "ANAE promotes Algerian culture in Spain. We organize cultural events, sociocultural mediation and administrative assistance for the Algerian community.",
-      "keywords": "algerian association spain, algerian culture, algerian community zaragoza, cultural events, sociocultural mediation, ANAE",
+      "description": "ANAE promotes Algerian culture in Spain from Zaragoza. We organize cultural events, sociocultural mediation and administrative assistance for the community.",
+      "keywords": "algerian association spain, algerian culture, algerian community zaragoza, cultural events, sociocultural mediation, ANAE, algerians in spain",
       "imageAlt": "ANAE - National Association of Algerians in Spain"
     },
     "about": {
-      "title": "ANAE - Our Mission and Values",
-      "description": "Discover ANAE: cultural promotion, sociocultural mediation and support for the Algerian community in Spain. Values of solidarity, respect and inclusion.",
-      "keywords": "about anae, anae mission, anae values, algerian association, algerian cultural promotion",
+      "title": "ANAE - Our Mission, Values and Community Commitment",
+      "description": "Discover ANAE's mission: cultural promotion, sociocultural mediation and support for the Algerian community in Zaragoza, Spain. Built on solidarity and inclusion.",
+      "keywords": "about anae, anae mission, anae values, algerian association spain, algerian cultural promotion, zaragoza",
       "imageAlt": "About the National Association of Algerians in Spain"
     },
     "contact": {
-      "title": "ANAE - Contact",
-      "description": "Contact us for any questions or assistance. Email: contacto@asociacionanae.org | Phone: +34 674 748 699 | Zaragoza, Spain",
-      "keywords": "contact anae, anae email, anae phone, contact algerian association",
+      "title": "ANAE - Contact the Algerian Association in Spain",
+      "description": "Get in touch with ANAE for any questions or assistance. Email: contacto@asociacionanae.org | Phone: +34 674 748 699 | Based in Zaragoza, Spain.",
+      "keywords": "contact anae, anae email, anae phone, contact algerian association, zaragoza, contact form",
       "imageAlt": "Contact ANAE"
     },
     "blog": {
-      "title": "ANAE - Blog and News",
-      "description": "Stay informed with the latest news, events and stories from the Algerian community in Spain. Official ANAE blog.",
-      "keywords": "anae blog, algerian community news, cultural events, anae news",
+      "title": "ANAE - Blog, News and Events from the Algerian Community",
+      "description": "Stay informed with the latest news, cultural events and stories from the Algerian community in Spain. Read articles from the official ANAE association blog.",
+      "keywords": "anae blog, algerian community news, cultural events, anae news, algerian community spain articles",
       "imageAlt": "ANAE Blog and News"
     },
     "faq": {
-      "title": "ANAE - FAQ",
-      "description": "Find answers to the most common questions about ANAE: donations, volunteering, our actions and how to join us.",
-      "keywords": "anae faq, anae frequently asked questions, donations, volunteering, anae information",
+      "title": "ANAE - Frequently Asked Questions About the Association",
+      "description": "Find answers to the most common questions about ANAE: donations, volunteering, our community actions and how you can get involved with our association.",
+      "keywords": "anae faq, anae frequently asked questions, donations, volunteering, anae information, how to help",
       "imageAlt": "ANAE Frequently Asked Questions"
     },
     "privacy": {
-      "title": "ANAE - Privacy Policy",
-      "description": "ANAE privacy policy in compliance with GDPR. Personal data protection, your rights and how we use your information.",
-      "keywords": "anae privacy policy, gdpr, data protection, privacy",
+      "title": "ANAE - Privacy Policy and Personal Data Protection",
+      "description": "ANAE privacy policy in compliance with GDPR. Learn how we protect your personal data, your rights and how your information is processed securely.",
+      "keywords": "anae privacy policy, gdpr, personal data protection, user rights, privacy algerian association",
       "imageAlt": "ANAE Privacy Policy"
     },
     "cookies": {
-      "title": "ANAE - Cookie Policy",
-      "description": "Information about the use of cookies on the ANAE website. Essential technical cookies and how to manage them.",
-      "keywords": "anae cookie policy, cookies, cookie management",
+      "title": "ANAE - Cookie Policy and Privacy Preferences",
+      "description": "Detailed information about the use of cookies on the ANAE website. Learn about technical cookies, analytics cookies and how to manage your preferences.",
+      "keywords": "anae cookie policy, technical cookies, google analytics cookies, cookie management, gdpr cookies, privacy preferences",
       "imageAlt": "ANAE Cookie Policy"
     },
     "gallery": {
-      "title": "ANAE - Events Gallery",
-      "description": "Discover the highlights of our cultural events, activities and community initiatives through our gallery of photos and videos.",
-      "keywords": "anae gallery, event photos, activity videos, cultural events",
+      "title": "ANAE - Photo and Video Gallery of Cultural Events",
+      "description": "Discover highlights from our cultural events, community activities and association initiatives in Zaragoza through our gallery of photos and videos.",
+      "keywords": "anae gallery, event photos, activity videos, cultural events, algerian community zaragoza",
       "imageAlt": "ANAE Events Gallery"
     },
     "contribute": {
-      "title": "ANAE - Contribute",
-      "description": "Contribute to the Algerian community in Spain. Your donation, volunteering or collaboration helps fund cultural events, community support, and integration programs.",
-      "keywords": "contribute anae, support algerian community, donation, volunteering, anae",
+      "title": "ANAE - Contribute and Support the Algerian Community",
+      "description": "Support the Algerian community in Spain. Your donation or volunteering helps fund cultural events, community support and integration programs in Zaragoza.",
+      "keywords": "contribute anae, support algerian community, donation, volunteering, anae, collaborate association",
       "imageAlt": "Contribute to ANAE - Make a Donation"
     }
   },
@@ -224,20 +224,20 @@
     "title": "About ANAE",
     "intro": "The National Association of Algerians in Spain (ANAE) stands as a beacon of cultural promotion and sociocultural mediation for the Algerian community and the diverse cultures present in Spain. Our commitment focuses on promoting Algerian culture, strengthening the identity of our compatriots, and building bridges of understanding between the various communities living in this country.",
     "mission": {
-      "title": "Our Mission",
-      "description": "ANAE strives to be a meeting point and support for Algerians in Spain. Our main objectives are:",
+      "title": "Our Vision and Commitment",
+      "description": "ANAE strives to be a fundamental pillar of the Algerian community in Spain, working with a clear vision towards the future.",
       "points": {
         "culture": {
-          "title": "Promote Algerian Culture",
-          "description": "We organize cultural events, exhibitions, film screenings, workshops, and conferences to spread Algeria's rich cultural heritage among the Algerian community and the Spanish public in general."
+          "title": "Identity Preservation",
+          "description": "We keep our roots, history, and traditions alive, ensuring that new generations stay connected to their heritage while growing up in Spain."
         },
         "mediation": {
-          "title": "Sociocultural Mediation",
-          "description": "We offer guidance and mediation services to facilitate the integration of Algerians into Spanish society. Additionally, we promote intercultural dialogue and social cohesion among the different communities present in Spain."
+          "title": "Intercultural Bridge",
+          "description": "We foster mutual understanding and harmonious coexistence between the Algerian community and Spanish society, breaking down prejudices through dialogue."
         },
         "activities": {
-          "title": "Meetings and Activities",
-          "description": "We organize regular gatherings where Algerians can meet, share experiences, establish support networks, and participate in recreational and educational activities."
+          "title": "Solidarity Network",
+          "description": "We build a united and resilient community where every individual finds guidance, support, and a sense of belonging."
         }
       }
     },
