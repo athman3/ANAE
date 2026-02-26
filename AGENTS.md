@@ -2,6 +2,8 @@
 
 This document provides guidelines for AI coding agents working on the ANAE (Asociación Nacional de Argelinos en España) codebase — a non-profit Algerian cultural association website based in Zaragoza, Spain.
 
+> **IMPORTANT**: This file (`AGENTS.md`) is the single source of truth for the project architecture. You MUST keep it up to date after every significant modification (new feature, new component, new API route, new dependency, architecture change, new environment variable, etc.). Sections to update include: Project Structure, i18n Namespaces, API Routes, Environment Variables, Key Files Reference, and any relevant guidelines or checklists.
+
 ## Project Overview
 
 - **Framework**: Next.js 15 with App Router
@@ -13,6 +15,7 @@ This document provides guidelines for AI coding agents working on the ANAE (Asoc
 - **UI Components**: Radix UI primitives, Lucide icons
 - **Content**: MDX for blog posts (gray-matter, next-mdx-remote, remark-gfm, rehype-slug, rehype-autolink-headings)
 - **Email**: nodemailer via SMTP for contact form
+- **Analytics**: Google Analytics 4 + Google Ads via `@next/third-parties` (RGPD-compliant with Consent Mode v2)
 - **Theme**: next-themes (ThemeProvider exists, dark mode CSS vars defined, theme switching not wired up)
 
 ## Build/Lint/Test Commands
@@ -65,14 +68,14 @@ Note: This project does not have a test suite configured. If adding tests, use V
 │       └── screenshots/
 └── src/
     ├── app/
-    │   ├── layout.tsx              # Root layout: RTLProvider + inline script (RTL flash prevention) + Organization JSON-LD
+    │   ├── layout.tsx              # Root layout: RTLProvider + inline script (RTL flash prevention) + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component
     │   ├── globals.css             # Tailwind + shadcn CSS vars (light + dark) + [dir="rtl"] { direction: rtl }
     │   ├── not-found.tsx           # Global 404 (NextIntlClientProvider + Header is404 + Footer)
     │   ├── robots.ts               # Disallows /api/, /_next/, /admin/, /private/
     │   ├── sitemap.ts              # Auto-generates sitemap: static pages + blog slugs per locale
     │   ├── og/route.tsx            # Edge runtime: generates ANAE SVG OG image (1200×630)
     │   └── [locale]/
-    │       ├── layout.tsx          # Locale layout: hasLocale check + NextIntlClientProvider + Header + Footer
+    │       ├── layout.tsx          # Locale layout: hasLocale check + NextIntlClientProvider + Header + Footer + CookieBanner
     │       ├── not-found.tsx       # Locale 404 → <NotFoundSection />
     │       ├── page.tsx            # Home page ("use client", HeroSection + 4 home sections)
     │       ├── about/
@@ -82,18 +85,22 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │       │   ├── page.tsx        # Blog list (Server Component, getAllPosts, BlogCard grid)
     │       │   └── [slug]/page.tsx # Blog post (MDXRemote, generateStaticParams, ReadingProgressBar, Article JSON-LD)
     │       ├── contact/page.tsx    # Contact page (Server Component, ContactSection, ContactPage JSON-LD)
-    │       ├── cookies/page.tsx    # Cookies policy (Server Component, full i18n content)
+    │       ├── cookies/
+    │       │   ├── page.tsx        # Cookies policy (Server Component, full i18n content, cookie inventory table, RevokeConsentButton)
+    │       │   └── RevokeConsentButton.tsx # "use client"; revokes cookie consent from localStorage + calls gtag consent update
     │       ├── faq/page.tsx        # FAQ page (Server Component, FAQSection, FAQ JSON-LD)
     │       ├── privacy/page.tsx    # Privacy policy (Server Component)
      │       └── contribute/page.tsx # Contribute page (Server Component, 4 sections)
     ├── app/api/
-    │   └── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, nodemailer SMTP
+    │   ├── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, consent validation, nodemailer SMTP
+    │   └── github-stars/route.ts   # GET only; proxies GitHub API (stargazers_count); in-memory cache (1h TTL); protects user IPs
     ├── components/
+    │   ├── CookieBanner.tsx        # "use client"; RGPD cookie consent banner; localStorage persistence; Google Consent Mode v2 gtag update; accept/reject buttons
     │   ├── RTLProvider.tsx         # "use client"; useLayoutEffect to set html dir + lang on pathname change
     │   ├── theme-provider.tsx      # next-themes ThemeProvider wrapper (not currently wired into any layout)
     │   ├── Header/
     │   │   ├── Header.tsx          # Composes TopBar + Navigation; accepts is404 prop
-    │   │   ├── TopBar.tsx          # "use client"; fixed dark bar (z-80); hides on scroll; social links; FAQ link; GitHub stars (cached in localStorage 1h)
+    │   │   ├── TopBar.tsx          # "use client"; fixed dark bar (z-80); hides on scroll; social links; FAQ link; GitHub stars (fetched via /api/github-stars proxy, cached in localStorage 1h)
     │   │   ├── Navigation.tsx      # "use client"; fixed nav (z-70); transparent on home hero, white on scroll; mobile hamburger; LanguageSelector; DonateButton
     │        │   └── AssociationDropdown.tsx # Radix DropdownMenu; links: /about, /about/gallery, /contribute
     │   ├── Hero/
@@ -112,7 +119,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   │   ├── BlogLayout.tsx      # prose prose-lg wrapper with RTL support; accepts isRTL prop
     │   │   └── ReadingProgressBar.tsx # "use client"; fixed progress bar; MutationObserver + requestAnimationFrame
     │   ├── Contact/
-    │   │   └── ContactSection.tsx  # "use client"; controlled form + fetch /api/contact; success/error states; auto-reset after 5s
+    │   │   └── ContactSection.tsx  # "use client"; controlled form + fetch /api/contact; privacy consent checkbox; success/error states; auto-reset after 5s
     │   ├── FAQ/
     │   │   └── FAQSection.tsx      # "use client"; accordion via useState; uses t.raw() for categories
     │   ├── Footer/
@@ -314,7 +321,7 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `location` | `city`, `country` |
 | `footer` | `description`, `quickLinks`, `contact`, `legal`, `copyright`, `registration`, `taxId`, `developedBy` |
 | `donation` | `title`, `subtitle`, `methods.{paypal,bizum,sepa}`, `close`, `secure`, `transparency` |
-| `contact` | `title`, `subtitle`, `info.{email,phone,whatsapp,address}`, `social`, `form.{fields,placeholders,submit,sending,success,error}` |
+| `contact` | `title`, `subtitle`, `info.{email,phone,whatsapp,address}`, `social`, `form.{fields,placeholders,consent,submit,sending,success,error}` |
 | `blog` | `title`, `description`, `noPosts`, `minRead` |
 | `notFound` | `title`, `subtitle`, `description`, `actions.home` |
 | `about` | `title`, `intro`, `mission.{title,description,points}`, `values`, `join` |
@@ -322,6 +329,7 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `home.sections` | `whatWeDo`, `culturalEvents`, `ramadanIftar`, `services` |
 | `privacy` | `title`, `lastUpdated`, `intro`, `sections.{controller,dataCollected,purposes,...}` |
 | `cookies` | `title`, `lastUpdated`, `intro`, `sections.{whatAre,types,purpose,...}` |
+| `cookieBanner` | `message`, `accept`, `reject` |
 | `contribute` | `hero`, `mission`, `testimonials`, `donation.{amounts,currency,payment,...}`, `otherWays` |
 | `faq` | `title`, `intro`, `categories.{about,donations,volunteering,beneficiaries,contact}` |
 | `seo.home` | `title`, `description`, `keywords`, `imageAlt` |
@@ -529,7 +537,15 @@ export async function generateStaticParams() {
 - **Method**: POST only
 - **Rate limiting**: 5 requests per 15 minutes per IP
 - **Input sanitization**: `sanitizeHtml()` + `sanitizeEmailContent()` on all fields
+- **Consent validation**: `consent: true` required in request body (RGPD)
 - **Transport**: nodemailer via SMTP (see environment variables)
+
+### GitHub Stars Proxy (`/api/github-stars`)
+
+- **Method**: GET only
+- **Purpose**: Proxies `api.github.com/repos/ATHman3/ANAE` so user IPs never reach GitHub
+- **Caching**: In-memory cache with 1-hour TTL + `Cache-Control: s-maxage=3600`
+- **Fallback**: Returns cached value on error, or `{ stargazers_count: 0 }` if no cache
 
 ### Form Handling Pattern
 
@@ -596,6 +612,9 @@ Defined in `.env.example`:
 ```bash
 # Site
 NEXT_PUBLIC_SITE_URL=https://asociacionanae.org
+
+# Google Analytics / Ads
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX   # Google Analytics 4 Measurement ID
 
 # SMTP (Contact form)
 SMTP_HOST=smtp.gmail.com
@@ -672,6 +691,48 @@ Each entry in `SOCIAL_LINKS` carries its own `hoverColor` field. Use the network
 - [ ] Remove the `<td>` block from `public/email/signature-anae.html`
 - [ ] Delete `{network}.png` and `{network}@2x.png` from `public/images/icons/social/`
 
+## RGPD / GDPR Compliance (Critical)
+
+The site is fully RGPD-compliant (Spanish AEPD regulations). This is a **custom implementation** — no third-party consent platforms (Cookiebot, OneTrust, etc.).
+
+### Architecture
+
+The consent system has 4 layers:
+
+1. **Google Consent Mode v2 default** (`src/app/layout.tsx`): An inline `<script>` in `<head>` sets all consent signals to `denied` before any Google scripts load. This ensures zero tracking before user consent.
+
+2. **GoogleAnalytics component** (`src/app/layout.tsx`): Uses `@next/third-parties/google` `<GoogleAnalytics>` component. The GA scripts load but respect the Consent Mode defaults — no data is collected until consent is granted.
+
+3. **CookieBanner** (`src/components/CookieBanner.tsx`): Shown on first visit (checks `localStorage` for `cookie_consent`). On accept, calls `gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ... })`. On reject, sets all to `denied`. Persists choice in `localStorage`.
+
+4. **RevokeConsentButton** (`src/app/[locale]/cookies/RevokeConsentButton.tsx`): On the cookies policy page, allows users to revoke previously given consent. Clears `localStorage` and calls `gtag('consent', 'update', ...)` with all signals set back to `denied`.
+
+### Content Security Policy
+
+Google Analytics/Ads domains are whitelisted in the CSP in `next.config.ts` (currently in report-only mode):
+- `script-src`: `https://www.googletagmanager.com`, `https://www.google-analytics.com`
+- `connect-src`: `https://www.google-analytics.com`, `https://analytics.google.com`
+- `img-src`: `https://www.google-analytics.com`, `https://www.googletagmanager.com`
+
+### Contact Form Consent
+
+The contact form (`ContactSection.tsx`) includes a mandatory privacy policy consent checkbox (RGPD Article 7). The server-side API route (`/api/contact`) validates that `consent: true` is present in the request body before processing.
+
+### Legal Pages
+
+- **Cookies policy** (`/cookies`): Includes full cookie inventory table (6 cookies: `cookie_consent`, `_ga`, `_ga_*`, `_gid`, `_gcl_au`, `_gac_*`) with owner, type, purpose, and duration for each.
+- **Privacy policy** (`/privacy`): Includes Google LLC as data recipient, EU-US Data Privacy Framework for international transfers, analytics data retention (14 months), right to withdraw consent (Art. 7(3)), and right to file AEPD complaint (Art. 13(2)(d)).
+
+### RGPD Checklist for New Features
+
+When adding any feature that collects, processes, or stores user data:
+- [ ] Identify the legal basis (consent, legitimate interest, legal obligation)
+- [ ] Update the privacy policy (`messages/*.json` under `privacy.sections.*`) in all 4 locales
+- [ ] If cookies are involved, add them to the cookie inventory table (`cookies.sections.cookieTable.cookies.*`) in all 4 locales
+- [ ] If third-party services are involved, add them to the transfers section and update CSP in `next.config.ts`
+- [ ] If consent is required, ensure it is collected **before** data processing begins
+- [ ] Ensure data can be deleted upon user request (right to erasure)
+
 ## Best Practices
 
 1. **RTL First**: Always consider RTL when building new components — test `/ar/*` pages
@@ -691,19 +752,21 @@ Each entry in `SOCIAL_LINKS` carries its own `hoverColor` field. Use the network
 15. **Navigation Styles**: Extract nav style logic to `src/lib/utils/navigationStyles.ts`
 16. **Accessibility**: Include proper ARIA attributes and semantic HTML
 17. **Social Links Sync**: Any social network change MUST be applied everywhere — see the Social Links Sync section above
+18. **AGENTS.md Maintenance**: After any significant change (new feature, new component, new API route, architecture change, new dependency), you MUST update this `AGENTS.md` file to reflect the current state of the project. This includes updating the project structure tree, namespaces table, API routes section, environment variables, key files reference, and any relevant guidelines or checklists
 
 ## Key Files Reference
 
 - `next.config.ts` — Next.js config with MDX and i18n plugins + security headers
 - `tailwind.config.ts` — Tailwind with shadcn/ui theme + safelisted dynamic colors
 - `mdx-components.tsx` — Custom MDX component renderers with RTL support
-- `src/app/layout.tsx` — Root layout: inline RTL script + Organization JSON-LD
+- `src/app/layout.tsx` — Root layout: inline RTL script + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component
 - `src/middleware.ts` — Accept-Language detection + next-intl i18n routing
 - `src/i18n/routing.ts` — Locale configuration (`['ar','es','fr','en']`, default `'es'`)
 - `src/i18n/navigation.ts` — Locale-aware `Link`, `useRouter`, `usePathname`, `redirect`
 - `src/app/robots.ts` — Robots.txt generation
 - `src/app/sitemap.ts` — Sitemap generation
 - `src/app/og/route.tsx` — Dynamic OG image generation (Edge runtime)
+- `src/components/CookieBanner.tsx` — RGPD cookie consent banner with Consent Mode v2
 - `src/components/RTLProvider.tsx` — RTL detection + `html[dir]` management
 - `src/lib/metadata/index.ts` — SEO metadata + JSON-LD utility functions
 - `src/lib/constants/socialLinks.tsx` — Shared social links and contact info
