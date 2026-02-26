@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { generateMetadata as generateSEOMetadata, type Locale } from '@/lib/metadata';
+import RevokeConsentButton from './RevokeConsentButton';
 
 interface CookiesPageProps {
   params: Promise<{ locale: string }>;
@@ -128,7 +129,39 @@ export default async function CookiesPage({ params }: CookiesPageProps) {
                 <p>{t('sections.thirdParty.description')}</p>
               </div>
 
-              {/* Section 6: Management */}
+              {/* Section 6: Cookie Table */}
+              <div>
+                <h2 className="text-2xl font-bold text-foreground mb-4">
+                  {t('sections.cookieTable.title')}
+                </h2>
+                <p className="mb-4">{t('sections.cookieTable.description')}</p>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse text-sm">
+                    <thead>
+                      <tr className="border-b border-border bg-muted/50">
+                        <th className="px-4 py-3 text-start font-semibold text-foreground">{t('sections.cookieTable.headers.name')}</th>
+                        <th className="px-4 py-3 text-start font-semibold text-foreground">{t('sections.cookieTable.headers.owner')}</th>
+                        <th className="px-4 py-3 text-start font-semibold text-foreground">{t('sections.cookieTable.headers.type')}</th>
+                        <th className="px-4 py-3 text-start font-semibold text-foreground">{t('sections.cookieTable.headers.purpose')}</th>
+                        <th className="px-4 py-3 text-start font-semibold text-foreground">{t('sections.cookieTable.headers.duration')}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(['cookieConsent', 'ga', 'gaId', 'gid', 'gclAu', 'gac'] as const).map((key) => (
+                        <tr key={key} className="border-b border-border">
+                          <td className="px-4 py-3 font-mono text-xs">{t(`sections.cookieTable.cookies.${key}.name`)}</td>
+                          <td className="px-4 py-3">{t(`sections.cookieTable.cookies.${key}.owner`)}</td>
+                          <td className="px-4 py-3">{t(`sections.cookieTable.cookies.${key}.type`)}</td>
+                          <td className="px-4 py-3">{t(`sections.cookieTable.cookies.${key}.purpose`)}</td>
+                          <td className="px-4 py-3">{t(`sections.cookieTable.cookies.${key}.duration`)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Section 7: Management */}
               <div>
                 <h2 className="text-2xl font-bold text-foreground mb-4">
                   {t('sections.management.title')}
@@ -152,6 +185,7 @@ export default async function CookiesPage({ params }: CookiesPageProps) {
                 </h2>
                 <p className="mb-3">{t('sections.consent.description')}</p>
                 <p>{t('sections.consent.future')}</p>
+                <RevokeConsentButton />
               </div>
 
               {/* Section 8: Updates */}

@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import CookieBanner from "@/components/CookieBanner";
 import { generateMetadata as generateSEOMetadata, type Locale } from "@/lib/metadata";
 
 interface LayoutProps {
@@ -46,6 +47,7 @@ export default async function RootLayout({
             <Header />
             {children}
             <Footer />
+            <CookieBanner />
         </NextIntlClientProvider>
     );
 }

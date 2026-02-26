@@ -195,6 +195,11 @@
         "subject": "Subject of your message",
         "message": "Describe your inquiry or question..."
       },
+      "consent": {
+        "label": "I have read and accept the",
+        "link": "Privacy Policy",
+        "required": "You must accept the privacy policy to submit the form"
+      },
       "submit": "Send message",
       "sending": "Sending...",
       "success": "Message sent successfully! We'll get back to you soon.",
@@ -311,6 +316,7 @@
         "title": "5. Data Retention Period",
         "description": "We retain your personal data:",
         "contact": "Contact data: 3 years from the last interaction",
+        "analytics": "Analytics data (Google Analytics): 14 months, as per Google Analytics default settings",
         "after": "After these periods, your data is securely deleted or anonymized"
       },
       "recipients": {
@@ -318,7 +324,7 @@
         "description": "Your data may be shared with:",
         "providers": {
           "title": "Service Providers",
-          "list": "email sending services (Zoho Mail)"
+          "list": "Google LLC: email services (Gmail/SMTP), web analytics (Google Analytics), and advertising (Google Ads)"
         },
         "legal": {
           "title": "Legal Authorities",
@@ -328,9 +334,10 @@
       },
       "transfers": {
         "title": "7. International Transfers",
-        "description": "Some of our service providers may be located outside the European Union:",
-        "paypal": "PayPal: may transfer data to the United States (subject to Privacy Shield and standard contractual clauses)",
-        "safeguards": "We ensure that appropriate safeguards are in place to protect your data in these transfers"
+        "description": "Some of our service providers are located outside the European Union. Transfers are carried out with the following safeguards:",
+        "google": "Google LLC (United States): Google is certified under the EU-US Data Privacy Framework, adopted by the European Commission in July 2023, which ensures an adequate level of data protection",
+        "paypal": "PayPal (United States): PayPal is certified under the EU-US Data Privacy Framework and applies standard contractual clauses approved by the European Commission",
+        "safeguards": "We ensure that all providers have adequate safeguards in accordance with Article 46 of the GDPR to protect your data during these transfers"
       },
       "rights": {
         "title": "8. Your Rights",
@@ -341,6 +348,8 @@
         "opposition": "Right to object: object to the processing of your data",
         "portability": "Right to data portability: receive your data in a structured format",
         "restriction": "Right to restriction: limit the processing of your data",
+        "withdrawConsent": "Right to withdraw consent: you may withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal",
+        "complaint": "Right to lodge a complaint: if you believe the processing of your data does not comply with the GDPR, you may lodge a complaint with the Spanish Data Protection Agency (AEPD) at www.aepd.es",
         "exercise": "To exercise these rights, contact us at: contacto@asociacionanae.org"
       },
       "security": {
@@ -402,7 +411,7 @@
       },
       "types": {
         "title": "2. Types of Cookies Used",
-        "description": "Our website uses only essential technical cookies, strictly necessary for the proper functioning of the site. We do not use tracking, advertising, or analytics cookies.",
+        "description": "Our website uses essential technical cookies for its proper functioning, as well as third-party analytics and advertising cookies (Google) that are only activated with your prior consent.",
         "technical": {
           "title": "Technical Cookies (Essential)",
           "description": "These cookies are essential for the site's functionality and do not require consent under GDPR:",
@@ -413,13 +422,13 @@
           }
         },
         "notUsed": {
-          "title": "Cookies Not Used",
-          "description": "We do NOT use the following types of cookies:",
+          "title": "Analytics and Advertising Cookies",
+          "description": "We use third-party cookies (Google Analytics and Google Ads) only if you give your consent. These cookies allow us to:",
           "list": {
-            "analytics": "Analytics cookies (Google Analytics, etc.)",
-            "advertising": "Advertising cookies",
-            "social": "Social media cookies",
-            "tracking": "Behavioral tracking cookies"
+            "analytics": "Understand how you interact with our website to improve it.",
+            "advertising": "Measure the effectiveness of our advertising campaigns (Google Ads).",
+            "social": "We do not use social media cookies for cross-site tracking.",
+            "tracking": "The data collected is anonymous and used for statistical purposes."
           }
         }
       },
@@ -440,10 +449,65 @@
       },
       "thirdParty": {
         "title": "5. Third-Party Cookies",
-        "description": "Our website does not use any third-party cookies. All cookies used are first-party cookies, managed directly by our site."
+        "description": "Our website uses third-party cookies from Google (Google Analytics and Google Ads) that are only activated with your consent. These cookies allow us to analyze site traffic and measure the effectiveness of our campaigns. Google LLC acts as a data processor for this data. You can view Google's privacy policy at: https://policies.google.com/privacy"
+      },
+      "cookieTable": {
+        "title": "6. Detailed Cookie Inventory",
+        "description": "Below is a detailed list of all cookies used on our website:",
+        "headers": {
+          "name": "Name",
+          "owner": "Owner",
+          "type": "Type",
+          "purpose": "Purpose",
+          "duration": "Duration"
+        },
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookie_consent",
+            "owner": "ANAE (first-party)",
+            "type": "Technical",
+            "purpose": "Stores your cookie consent choice",
+            "duration": "Permanent (localStorage)"
+          },
+          "ga": {
+            "name": "_ga",
+            "owner": "Google Analytics",
+            "type": "Analytics",
+            "purpose": "Distinguishes unique users by assigning a randomly generated identifier",
+            "duration": "2 years"
+          },
+          "gaId": {
+            "name": "_ga_*",
+            "owner": "Google Analytics",
+            "type": "Analytics",
+            "purpose": "Maintains the user's session state",
+            "duration": "2 years"
+          },
+          "gid": {
+            "name": "_gid",
+            "owner": "Google Analytics",
+            "type": "Analytics",
+            "purpose": "Distinguishes users over a 24-hour period",
+            "duration": "24 hours"
+          },
+          "gclAu": {
+            "name": "_gcl_au",
+            "owner": "Google Ads",
+            "type": "Advertising",
+            "purpose": "Stores advertising conversion information",
+            "duration": "90 days"
+          },
+          "gac": {
+            "name": "_gac_*",
+            "owner": "Google Ads",
+            "type": "Advertising",
+            "purpose": "Contains information about the user's advertising campaign",
+            "duration": "90 days"
+          }
+        }
       },
       "management": {
-        "title": "6. Cookie Management",
+        "title": "7. Cookie Management",
         "description": "You can manage or delete cookies at any time through your browser settings:",
         "instructions": {
           "chrome": "Chrome: Settings > Privacy and security > Cookies",
@@ -454,16 +518,18 @@
         "note": "Note: Disabling technical cookies may affect the site's functionality."
       },
       "consent": {
-        "title": "7. Consent",
-        "description": "According to GDPR, essential technical cookies do not require prior consent as they are strictly necessary for the site's functioning. Since we only use essential cookies, no consent banner is required.",
-        "future": "If we were to introduce non-essential cookies in the future (analytics cookies, for example), we would implement a GDPR-compliant consent system."
+        "title": "Your Consent and Configuration",
+        "description": "When you visit our site for the first time, a banner is displayed allowing you to accept or reject non-essential cookies (analytics and advertising).",
+        "future": "You can change your mind at any time and revoke your consent by clicking the button below:",
+        "revokeButton": "Revoke my consent",
+        "revokeSuccess": "Your consent has been revoked. Cookies have been disabled."
       },
       "updates": {
-        "title": "8. Changes to this Policy",
+        "title": "9. Changes to this Policy",
         "description": "We may update this cookie policy from time to time. Any changes will be published on this page with a revised update date."
       },
       "contact": {
-        "title": "9. Contact",
+        "title": "10. Contact",
         "description": "For any questions regarding our use of cookies, contact us:",
         "email": "Email: contacto@asociacionanae.org",
         "phone": "Phone: +34 674 748 699"
@@ -646,5 +712,11 @@
         ]
       }
     }
+  },
+  "cookieBanner": {
+    "message": "We use cookies and similar technologies to analyze traffic, personalize content, and improve your experience. By clicking 'Accept', you consent to our use of these technologies.",
+    "accept": "Accept all",
+    "reject": "Reject",
+    "policy": "Cookie Policy"
   }
 }

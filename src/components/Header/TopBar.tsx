@@ -70,18 +70,14 @@ const GitHubLink = () => {
   const [stars, setStars] = useState<number | null>(null)
   
   useEffect(() => {
-    // Charger immédiatement depuis le cache (même expiré)
     const cached = localStorage.getItem('github-stars')
     if (cached) {
       try {
         const { value, timestamp } = JSON.parse(cached)
-        // Afficher la valeur du cache immédiatement
         setStars(value)
         
-        // Vérifier si le cache est encore valide (1 heure)
         if (Date.now() - timestamp < 3600000) {
-          // Cache valide, mais fetch quand même en arrière-plan pour garder à jour
-          fetch('https://api.github.com/repos/ATHman3/ANAE')
+          fetch('/api/github-stars')
             .then(res => res.json())
             .then(data => {
               const count = data.stargazers_count
@@ -101,8 +97,7 @@ const GitHubLink = () => {
       }
     }
     
-    // Pas de cache ou cache expiré, fetch directement
-    fetch('https://api.github.com/repos/ATHman3/ANAE')
+    fetch('/api/github-stars')
       .then(res => res.json())
       .then(data => {
         const count = data.stargazers_count
@@ -113,10 +108,9 @@ const GitHubLink = () => {
         }))
       })
       .catch(() => {
-        // En cas d'erreur, mettre 0 si pas de valeur
         setStars(prevStars => prevStars === null ? 0 : prevStars)
       })
-  }, []) // stars n'est pas nécessaire ici car on utilise prevStars dans le setter
+  }, [])
   
   return (
     <Link

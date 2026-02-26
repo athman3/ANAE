@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "@/i18n/navigation";
 import { SOCIAL_LINKS } from "@/lib/constants/socialLinks";
 
 interface ContactInfo {
@@ -36,6 +37,8 @@ export default function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [consentAccepted, setConsentAccepted] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   
   // En RTL, on inverse l'ordre pour compenser le rtl:space-x-reverse
   const socialLinks = useMemo(
@@ -90,8 +93,15 @@ export default function ContactSection() {
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!consentAccepted) {
+      setConsentError(true);
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
+    setConsentError(false);
 
     try {
       const response = await fetch('/api/contact', {
@@ -99,7 +109,7 @@ export default function ContactSection() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, consent: consentAccepted }),
       });
 
       const data = await response.json();
@@ -115,6 +125,7 @@ export default function ContactSection() {
         subject: "",
         message: "",
       });
+      setConsentAccepted(false);
 
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (err) {
@@ -125,7 +136,7 @@ export default function ContactSection() {
     } finally {
       setIsSubmitting(false);
     }
-  }, [formData]);
+  }, [formData, consentAccepted]);
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-background">
@@ -230,6 +241,35 @@ export default function ContactSection() {
                     className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none resize-none"
                     placeholder={t("form.placeholders.message")}
                   />
+                </div>
+
+                <div>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={consentAccepted}
+                      onChange={(e) => {
+                        setConsentAccepted(e.target.checked);
+                        if (e.target.checked) setConsentError(false);
+                      }}
+                      className="mt-1 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm text-muted-foreground">
+                      {t("form.consent.label")}{" "}
+                      <Link
+                        href="/privacy"
+                        className="text-primary hover:underline font-medium"
+                        target="_blank"
+                      >
+                        {t("form.consent.link")}
+                      </Link>
+                    </span>
+                  </label>
+                  {consentError && (
+                    <p className="mt-1.5 text-sm text-red-600">
+                      {t("form.consent.required")}
+                    </p>
+                  )}
                 </div>
 
                 <Button

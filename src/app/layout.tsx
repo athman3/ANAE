@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import RTLProvider from "@/components/RTLProvider";
 import { generateOrganizationJsonLd } from "@/lib/metadata";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org'),
@@ -61,11 +62,29 @@ export default function RootLayout({
                         __html: JSON.stringify(organizationJsonLd),
                     }}
                 />
+                {/* Google Consent Mode v2 Default Settings */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('consent', 'default', {
+                                'ad_storage': 'denied',
+                                'analytics_storage': 'denied',
+                                'ad_user_data': 'denied',
+                                'ad_personalization': 'denied',
+                            });
+                        `,
+                    }}
+                />
             </head>
             <body>
                 <RTLProvider>
                     {children}
                 </RTLProvider>
+                {process.env.NEXT_PUBLIC_GA_ID && (
+                    <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+                )}
             </body>
         </html>
     );

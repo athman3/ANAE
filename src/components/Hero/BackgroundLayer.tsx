@@ -12,18 +12,7 @@ export type BackgroundLayerProps = {
     className?: string;
 };
 
-const defaultSources: VideoSource[] = [
-    {
-        src: "https://cdn.coverr.co/videos/coverr-community-meeting-3583/1080p.mp4",
-        type: "video/mp4",
-    },
-    {
-        src: "https://cdn.coverr.co/videos/coverr-community-meeting-3583/720p.mp4",
-        type: "video/mp4",
-    },
-];
-
-function BackgroundLayerComponent({ poster, sources = defaultSources, className }: BackgroundLayerProps) {
+function BackgroundLayerComponent({ poster, sources = [], className }: BackgroundLayerProps) {
     return (
         <div className={cn("absolute inset-0", className)} aria-hidden>
             <video

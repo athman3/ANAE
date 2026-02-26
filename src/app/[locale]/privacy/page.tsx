@@ -115,6 +115,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
                 <p className="mb-3">{t('sections.retention.description')}</p>
                 <ul className="list-disc list-inside space-y-2 rtl:list-inside rtl:text-right">
                   <li>{t('sections.retention.contact')}</li>
+                  <li>{t('sections.retention.analytics')}</li>
                 </ul>
                 <p className="mt-4">{t('sections.retention.after')}</p>
               </div>
@@ -136,6 +137,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
                   {t('sections.transfers.title')}
                 </h2>
                 <p className="mb-3">{t('sections.transfers.description')}</p>
+                <p className="mb-3">{t('sections.transfers.google')}</p>
                 <p className="mb-3">{t('sections.transfers.paypal')}</p>
                 <p>{t('sections.transfers.safeguards')}</p>
               </div>
@@ -153,6 +155,8 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
                   <li>{t('sections.rights.opposition')}</li>
                   <li>{t('sections.rights.portability')}</li>
                   <li>{t('sections.rights.restriction')}</li>
+                  <li>{t('sections.rights.withdrawConsent')}</li>
+                  <li>{t('sections.rights.complaint')}</li>
                 </ul>
                 <p className="font-medium text-foreground mt-4">{t('sections.rights.exercise')}</p>
               </div>

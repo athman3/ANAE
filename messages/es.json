@@ -195,6 +195,11 @@
         "subject": "Asunto de tu mensaje",
         "message": "Describe tu consulta o pregunta..."
       },
+      "consent": {
+        "label": "He leído y acepto la",
+        "link": "Política de Privacidad",
+        "required": "Debes aceptar la política de privacidad para enviar el formulario"
+      },
       "submit": "Enviar mensaje",
       "sending": "Enviando...",
       "success": "¡Mensaje enviado con éxito! Te responderemos pronto.",
@@ -311,6 +316,7 @@
         "title": "5. Duración de Conservación",
         "description": "Conservamos sus datos personales:",
         "contact": "Datos de contacto: 3 años desde la última interacción",
+        "analytics": "Datos analíticos (Google Analytics): 14 meses, según la configuración por defecto de Google Analytics",
         "after": "Después de estos períodos, sus datos se eliminan o anonimizan de forma segura"
       },
       "recipients": {
@@ -318,7 +324,7 @@
         "description": "Sus datos pueden ser compartidos con:",
         "providers": {
           "title": "Proveedores de Servicios",
-          "list": "servicios de envío de correo electrónico (Zoho Mail)"
+          "list": "Google LLC: servicios de correo electrónico (Gmail/SMTP), analítica web (Google Analytics) y publicidad (Google Ads)"
         },
         "legal": {
           "title": "Autoridades Legales",
@@ -328,9 +334,10 @@
       },
       "transfers": {
         "title": "7. Transferencias Internacionales",
-        "description": "Algunos de nuestros proveedores de servicios pueden estar ubicados fuera de la Unión Europea:",
-        "paypal": "PayPal: puede transferir datos a Estados Unidos (sujeto a Privacy Shield y cláusulas contractuales estándar)",
-        "safeguards": "Nos aseguramos de que existan salvaguardas apropiadas para proteger sus datos en estas transferencias"
+        "description": "Algunos de nuestros proveedores de servicios están ubicados fuera de la Unión Europea. Las transferencias se realizan con las siguientes garantías:",
+        "google": "Google LLC (Estados Unidos): Google está adherido al Marco de Privacidad de Datos UE-EE.UU. (EU-US Data Privacy Framework), adoptado por la Comisión Europea en julio de 2023, que garantiza un nivel adecuado de protección de datos",
+        "paypal": "PayPal (Estados Unidos): PayPal está adherido al Marco de Privacidad de Datos UE-EE.UU. y aplica cláusulas contractuales tipo aprobadas por la Comisión Europea",
+        "safeguards": "Nos aseguramos de que todos los proveedores dispongan de garantías adecuadas conforme al artículo 46 del RGPD para proteger sus datos en estas transferencias"
       },
       "rights": {
         "title": "8. Sus Derechos",
@@ -341,6 +348,8 @@
         "opposition": "Derecho de oposición: oponerse al tratamiento de sus datos",
         "portability": "Derecho a la portabilidad: recibir sus datos en un formato estructurado",
         "restriction": "Derecho a la limitación: limitar el tratamiento de sus datos",
+        "withdrawConsent": "Derecho a retirar el consentimiento: puede retirar su consentimiento en cualquier momento sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada",
+        "complaint": "Derecho a presentar una reclamación: si considera que el tratamiento de sus datos no es conforme al RGPD, puede presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) en www.aepd.es",
         "exercise": "Para ejercer estos derechos, contáctenos en: contacto@asociacionanae.org"
       },
       "security": {
@@ -402,7 +411,7 @@
       },
       "types": {
         "title": "2. Tipos de Cookies Utilizadas",
-        "description": "Nuestro sitio utiliza únicamente cookies técnicas esenciales, estrictamente necesarias para el correcto funcionamiento del sitio. No utilizamos cookies de seguimiento, publicidad o análisis.",
+        "description": "Nuestro sitio utiliza cookies técnicas esenciales para su correcto funcionamiento, así como cookies analíticas y publicitarias de terceros (Google) que solo se activan con tu consentimiento previo.",
         "technical": {
           "title": "Cookies Técnicas (Esenciales)",
           "description": "Estas cookies son indispensables para el funcionamiento del sitio y no requieren consentimiento según el RGPD:",
@@ -413,13 +422,13 @@
           }
         },
         "notUsed": {
-          "title": "Cookies No Utilizadas",
-          "description": "NO utilizamos los siguientes tipos de cookies:",
+          "title": "Cookies Analíticas y Publicitarias",
+          "description": "Utilizamos cookies de terceros (Google Analytics y Google Ads) solo si nos das tu consentimiento. Estas cookies nos permiten:",
           "list": {
-            "analytics": "Cookies analíticas (Google Analytics, etc.)",
-            "advertising": "Cookies publicitarias",
-            "social": "Cookies de redes sociales",
-            "tracking": "Cookies de seguimiento conductual"
+            "analytics": "Comprender cómo interactúas con nuestro sitio web para mejorarlo.",
+            "advertising": "Medir la efectividad de nuestras campañas publicitarias (Google Ads).",
+            "social": "No utilizamos cookies de redes sociales para rastreo cruzado.",
+            "tracking": "Los datos recopilados son anónimos y se utilizan con fines estadísticos."
           }
         }
       },
@@ -440,10 +449,65 @@
       },
       "thirdParty": {
         "title": "5. Cookies de Terceros",
-        "description": "Nuestro sitio no utiliza ninguna cookie de terceros. Todas las cookies utilizadas son cookies de primera parte, gestionadas directamente por nuestro sitio."
+        "description": "Nuestro sitio utiliza cookies de terceros de Google (Google Analytics y Google Ads) que se activan únicamente con tu consentimiento. Estas cookies permiten analizar el tráfico del sitio y medir la efectividad de nuestras campañas. Google LLC actúa como encargado del tratamiento de estos datos. Puedes consultar la política de privacidad de Google en: https://policies.google.com/privacy"
+      },
+      "cookieTable": {
+        "title": "6. Inventario Detallado de Cookies",
+        "description": "A continuación se detallan todas las cookies utilizadas en nuestro sitio web:",
+        "headers": {
+          "name": "Nombre",
+          "owner": "Propietario",
+          "type": "Tipo",
+          "purpose": "Finalidad",
+          "duration": "Duración"
+        },
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookie_consent",
+            "owner": "ANAE (primera parte)",
+            "type": "Técnica",
+            "purpose": "Almacena tu elección de consentimiento de cookies",
+            "duration": "Permanente (localStorage)"
+          },
+          "ga": {
+            "name": "_ga",
+            "owner": "Google Analytics",
+            "type": "Analítica",
+            "purpose": "Distingue a los usuarios únicos asignando un identificador generado aleatoriamente",
+            "duration": "2 años"
+          },
+          "gaId": {
+            "name": "_ga_*",
+            "owner": "Google Analytics",
+            "type": "Analítica",
+            "purpose": "Mantiene el estado de la sesión del usuario",
+            "duration": "2 años"
+          },
+          "gid": {
+            "name": "_gid",
+            "owner": "Google Analytics",
+            "type": "Analítica",
+            "purpose": "Distingue a los usuarios durante un período de 24 horas",
+            "duration": "24 horas"
+          },
+          "gclAu": {
+            "name": "_gcl_au",
+            "owner": "Google Ads",
+            "type": "Publicitaria",
+            "purpose": "Almacena información de conversiones publicitarias",
+            "duration": "90 días"
+          },
+          "gac": {
+            "name": "_gac_*",
+            "owner": "Google Ads",
+            "type": "Publicitaria",
+            "purpose": "Contiene información de la campaña publicitaria del usuario",
+            "duration": "90 días"
+          }
+        }
       },
       "management": {
-        "title": "6. Gestión de Cookies",
+        "title": "7. Gestión de Cookies",
         "description": "Puede gestionar o eliminar las cookies en cualquier momento a través de la configuración de su navegador:",
         "instructions": {
           "chrome": "Chrome: Configuración > Privacidad y seguridad > Cookies",
@@ -454,16 +518,18 @@
         "note": "Nota: La desactivación de las cookies técnicas puede afectar el funcionamiento del sitio."
       },
       "consent": {
-        "title": "7. Consentimiento",
-        "description": "De acuerdo con el RGPD, las cookies técnicas esenciales no requieren consentimiento previo porque son estrictamente necesarias para el funcionamiento del sitio. Como solo utilizamos cookies esenciales, no se requiere ningún banner de consentimiento.",
-        "future": "Si introdujéramos cookies no esenciales en el futuro (cookies analíticas, por ejemplo), implementaríamos un sistema de consentimiento conforme al RGPD."
+        "title": "Tu Consentimiento y Configuración",
+        "description": "Al visitar nuestro sitio por primera vez, se te mostrará un banner para aceptar o rechazar las cookies no esenciales (analíticas y publicitarias).",
+        "future": "Puedes cambiar de opinión en cualquier momento y revocar tu consentimiento haciendo clic en el botón a continuación:",
+        "revokeButton": "Revocar mi consentimiento",
+        "revokeSuccess": "Tu consentimiento ha sido revocado. Las cookies han sido desactivadas."
       },
       "updates": {
-        "title": "8. Modificaciones de esta Política",
+        "title": "9. Modificaciones de esta Política",
         "description": "Podemos actualizar esta política de cookies ocasionalmente. Cualquier modificación se publicará en esta página con una fecha de actualización revisada."
       },
       "contact": {
-        "title": "9. Contacto",
+        "title": "10. Contacto",
         "description": "Para cualquier pregunta sobre nuestro uso de cookies, contáctenos:",
         "email": "Correo electrónico: contacto@asociacionanae.org",
         "phone": "Teléfono: +34 674 748 699"
@@ -646,5 +712,11 @@
         ]
       }
     }
+  },
+  "cookieBanner": {
+    "message": "Utilizamos cookies y tecnologías similares para analizar el tráfico, personalizar el contenido y mejorar tu experiencia. Al hacer clic en 'Aceptar', aceptas nuestro uso de estas tecnologías.",
+    "accept": "Aceptar todo",
+    "reject": "Rechazar",
+    "policy": "Política de cookies"
   }
 }

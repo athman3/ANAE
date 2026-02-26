@@ -123,12 +123,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message, consent } = body;
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: 'All fields are required' },
+        { status: 400 }
+      );
+    }
+
+    // Validate consent
+    if (consent !== true) {
+      return NextResponse.json(
+        { error: 'Privacy policy consent is required' },
         { status: 400 }
       );
     }
