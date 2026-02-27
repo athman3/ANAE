@@ -244,7 +244,7 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="flex items-start gap-3 cursor-pointer">
+                  <label className="flex items-center gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={consentAccepted}
@@ -252,9 +252,9 @@ export default function ContactSection() {
                         setConsentAccepted(e.target.checked);
                         if (e.target.checked) setConsentError(false);
                       }}
-                      className="mt-1 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary"
+                      className="h-4 w-4 shrink-0 rounded border-border text-foreground focus:ring-foreground accent-foreground"
                     />
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-sm text-muted-foreground pt-0.5">
                       {t("form.consent.label")}{" "}
                       <Link
                         href="/privacy"
@@ -313,7 +313,7 @@ export default function ContactSection() {
                         {info.title}
                       </h4>
                       <div className="mb-1 flex items-center gap-2">
-                        <p className="text-base font-medium text-foreground">
+                        <p className="text-base font-medium text-foreground" dir={info.title === t("info.phone.title") ? "ltr" : undefined}>
                           {info.value}
                         </p>
                         {/* Copy Button for Email and Phone */}
