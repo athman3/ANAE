@@ -47,6 +47,10 @@ export function AssociationDropdown({ is404 = false }: AssociationDropdownProps)
     {
       href: '/contribute',
       label: t('contribute'),
+    },
+    {
+      href: '/resources',
+      label: t('resources'),
     }
   ];
 

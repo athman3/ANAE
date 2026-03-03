@@ -107,6 +107,7 @@ The social icons are served from `public/images/icons/social/` as PNG files (`{n
 - [ ] **Redis for email** - Rate limiting and email queue with Redis
 - [ ] **Gallery page** - Complete gallery implementation
 - [ ] **Interactive Resources Map** - Interactive map with categorized markers (tags) for important addresses for Algerians in Spain (embassies, consulates, administrative offices, cultural centers).
+- [ ] **Roadmaps** - Step-by-step guides for common administrative processes (e.g., what a student arriving in Spain needs to do: enrollment, residence permit, bank account, health insurance, etc.).
 ## Project Structure
 
 ```

@@ -57,6 +57,12 @@
     "notFound": {
       "title": "ANAE - Page Not Found",
       "description": "The page you are looking for does not exist or has been moved. Return to the ANAE homepage to find what you need."
+    },
+    "resources": {
+      "title": "ANAE - Resource Directory for Algerians in Spain",
+      "description": "Directory of useful resources for the Algerian community in Spain: consulates, immigration, health, education, transport and associations.",
+      "keywords": "algerian resources spain, algeria consulate, algeria embassy madrid, immigration procedures, legal aid algerians",
+      "imageAlt": "ANAE Resources"
     }
   },
   "language": {
@@ -69,7 +75,8 @@
       "title": "The Association",
       "about": "About",
       "gallery": "Gallery",
-      "contribute": "Contribute"
+      "contribute": "Contribute",
+      "resources": "Resources"
     },
     "contact": "Contact",
     "blog": "Blog",
@@ -82,6 +89,7 @@
     "subheadline": "Empowering people, fostering integration, and creating lasting change through compassionate action and community support.",
     "primaryCta": "Contribute",
     "secondaryCta": "View gallery",
+    "tertiaryCta": "Resources",
     "summaryCta": "See our impact",
     "scrollHint": "Discover the power of community",
     "stats": {
@@ -109,7 +117,8 @@
       "about": "About us",
       "blog": "Blog",
       "news": "News",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "resources": "Resources"
     },
     "contact": {
       "title": "Contact",
@@ -214,7 +223,8 @@
     "title": "Blog & News",
     "description": "Stay informed with the latest news, events, and stories from our community",
     "noPosts": "No posts available at the moment",
-    "minRead": "min read"
+    "minRead": "min read",
+    "updatedAt": "Updated on"
   },
   "notFound": {
     "title": "Page Not Found",
@@ -720,5 +730,149 @@
     "accept": "Accept all",
     "reject": "Reject",
     "policy": "Cookie Policy"
+  },
+  "directory": {
+    "title": "Resources",
+    "subtitle": "Useful links and information for the Algerian community in Spain",
+    "suggestResource": "Suggest a resource",
+    "suggestDescription": "Do you know of a useful resource that isn't listed?",
+    "filters": {
+      "city": "City",
+      "all": "All",
+      "allCities": "All cities",
+      "searchResults": "Search results",
+      "reset": "Reset filters",
+      "toggle": "Filters"
+    },
+    "categories": {
+      "language-learning": {
+        "title": "Learn Spanish",
+        "description": "Apps, free courses, tips and resources to learn Spanish"
+      },
+      "consulates": {
+        "title": "Consular Services",
+        "description": "Algerian diplomatic representations in Spain"
+      },
+      "immigration": {
+        "title": "Immigration and Residency",
+        "description": "Immigration procedures, NIE, and residency"
+      },
+      "legal-aid": {
+        "title": "Social and Legal Aid",
+        "description": "Legal assistance, rights, and social support"
+      },
+      "health": {
+        "title": "Healthcare",
+        "description": "Access to the healthcare system, hospitals, and pharmacies"
+      },
+      "education": {
+        "title": "Education and Diplomas",
+        "description": "Schools, universities, and degree validation"
+      },
+      "employment": {
+        "title": "Employment",
+        "description": "Job search, labor rights, and entrepreneurship"
+      },
+      "transport": {
+        "title": "Spain-Algeria Transport",
+        "description": "Flights, ferries, and customs"
+      },
+      "made-by-algerians": {
+        "title": "Made by Algerians",
+        "description": "Businesses, restaurants and projects created by Algerians in Spain"
+      },
+      "associations": {
+        "title": "Algerian Associations",
+        "description": "Algerian community associations in Spain"
+      },
+      "banking": {
+        "title": "Banking and Transfers",
+        "description": "Account opening and money transfers"
+      },
+      "housing": {
+        "title": "Housing",
+        "description": "Finding accommodation, rental aid and tenant rights"
+      }
+    },
+    "resources": {
+      "anae": {
+        "name": "ANAE - National Association of Algerians in Spain",
+        "description": "Association based in Zaragoza promoting Algerian culture, sociocultural mediation and support for the Algerian community in Spain."
+      },
+      "duolingo": {
+        "name": "Duolingo",
+        "description": "The world's most popular language learning app. Short, fun lessons to learn Spanish from scratch, completely free."
+      },
+      "embassy-madrid": {
+        "name": "Embassy of Algeria in Madrid",
+        "description": "Consular services for residents of Madrid and assigned regions."
+      },
+      "consulate-barcelona": {
+        "name": "Consulate General in Barcelona",
+        "description": "Consular services for residents of Catalonia, Balearics, and Aragon."
+      },
+      "consulate-alicante": {
+        "name": "Consulate in Alicante",
+        "description": "Consular services for residents of the Valencian Community and Murcia."
+      },
+      "consular-services-guide": {
+        "name": "Algerian Consular Services in Spain",
+        "description": "Complete guide: passport, civil status, consular registration, power of attorney — documents and fees for each consulate."
+      },
+      "hellotalk": {
+        "name": "HelloTalk",
+        "description": "Free app to practice Spanish with native speakers via messages, voice notes and video calls. Great for improving conversational skills."
+      }
+    },
+    "noResults": "No resources found with the selected filters.",
+    "resourceCount": "{count} resources",
+    "readGuide": "Read the guide",
+    "guideComingSoon": "Guide coming soon",
+    "comingSoon": "Coming soon",
+    "searchPlaceholder": "Search resources...",
+    "loadMore": "Load more",
+    "loadMoreCount": "({count} remaining)",
+    "consularMap": {
+      "title": "Algerian Consular Map in Spain",
+      "subtitle": "Hover over a region to see which consulate covers it",
+      "embassy": "Embassy in Madrid",
+      "consulateBarcelona": "Consulate General in Barcelona",
+      "consulateAlicante": "Consulate in Alicante",
+      "canariasNote": "* Canary Islands: handled by the Algerian Embassy in Madrid",
+      "regions": {
+        "galicia": "Galicia",
+        "asturias": "Asturias",
+        "cantabria": "Cantabria",
+        "pais-vasco": "Basque Country",
+        "navarra": "Navarre",
+        "la-rioja": "La Rioja",
+        "castilla-y-leon": "Castile and León",
+        "aragon": "Aragon",
+        "cataluna": "Catalonia",
+        "madrid": "Madrid",
+        "castilla-la-mancha": "Castile-La Mancha",
+        "extremadura": "Extremadura",
+        "comunidad-valenciana": "Valencia",
+        "murcia": "Murcia",
+        "andalucia": "Andalusia",
+        "ceuta": "Ceuta",
+        "melilla": "Melilla",
+        "baleares": "Balearic Islands"
+      },
+      "mission": {
+        "embassy": {
+          "name": "Algerian Embassy in Madrid",
+          "regions": "Madrid, Castile and León, Castile-La Mancha, Extremadura, Galicia, Asturias, Canary Islands"
+        },
+        "barcelona": {
+          "name": "Consulate General in Barcelona",
+          "regions": "Catalonia, Aragon, Balearic Islands, Navarre, Basque Country, Cantabria, La Rioja"
+        },
+        "alicante": {
+          "name": "Consulate in Alicante",
+          "regions": "Valencia, Murcia, Andalusia, Ceuta and Melilla"
+        }
+      }
+    }
   }
 }

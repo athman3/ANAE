@@ -57,6 +57,12 @@
     "notFound": {
       "title": "ANAE - Página No Encontrada",
       "description": "La página que buscas no existe o ha sido movida. Vuelve a la página principal de ANAE para encontrar lo que necesitas."
+    },
+    "resources": {
+      "title": "ANAE - Directorio de Recursos para Argelinos en España",
+      "description": "Directorio de recursos útiles para la comunidad argelina en España: consulados, extranjería, salud, educación, transporte y asociaciones.",
+      "keywords": "recursos argelinos españa, consulado argelia, embajada argelia madrid, trámites extranjería, ayuda legal argelinos",
+      "imageAlt": "Recursos de ANAE"
     }
   },
   "language": {
@@ -69,7 +75,8 @@
       "title": "La Asociación",
       "about": "Acerca de",
       "gallery": "Galería",
-      "contribute": "Contribuir"
+      "contribute": "Contribuir",
+      "resources": "Recursos"
     },
     "contact": "Contacto",
     "blog": "Blog",
@@ -82,6 +89,7 @@
     "subheadline": "Empoderando a las personas, fomentando la integración y creando cambios duraderos a través de la acción compasiva y el apoyo comunitario.",
     "primaryCta": "Contribuir",
     "secondaryCta": "Ver la galería",
+    "tertiaryCta": "Recursos",
     "summaryCta": "Ve nuestro impacto",
     "scrollHint": "Descubre el poder de la comunidad",
     "stats": {
@@ -109,7 +117,8 @@
       "about": "Acerca de nosotros",
       "blog": "Blog",
       "news": "Noticias",
-      "faq": "Preguntas Frecuentes"
+      "faq": "Preguntas Frecuentes",
+      "resources": "Recursos"
     },
     "contact": {
       "title": "Contacto",
@@ -214,7 +223,8 @@
     "title": "Blog y Noticias",
     "description": "Mantente informado con las últimas noticias, eventos y historias de nuestra comunidad",
     "noPosts": "No hay artículos disponibles en este momento",
-    "minRead": "min de lectura"
+    "minRead": "min de lectura",
+    "updatedAt": "Actualizado el"
   },
   "notFound": {
     "title": "Página No Encontrada",
@@ -720,5 +730,149 @@
     "accept": "Aceptar todo",
     "reject": "Rechazar",
     "policy": "Política de cookies"
+  },
+  "directory": {
+    "title": "Recursos",
+    "subtitle": "Enlaces e información útil para la comunidad argelina en España",
+    "suggestResource": "Sugerir un recurso",
+    "suggestDescription": "¿Conoce algún recurso útil que no esté en la lista?",
+    "filters": {
+      "city": "Ciudad",
+      "all": "Todos",
+      "allCities": "Todas las ciudades",
+      "searchResults": "Resultados de búsqueda",
+      "reset": "Restablecer filtros",
+      "toggle": "Filtros"
+    },
+    "categories": {
+      "language-learning": {
+        "title": "Aprender Español",
+        "description": "Aplicaciones, cursos gratuitos, consejos y recursos para aprender español"
+      },
+      "consulates": {
+        "title": "Servicios Consulares",
+        "description": "Representaciones diplomáticas de Argelia en España"
+      },
+      "immigration": {
+        "title": "Inmigración y Residencia",
+        "description": "Trámites de extranjería, NIE, y residencia"
+      },
+      "legal-aid": {
+        "title": "Ayuda Social y Jurídica",
+        "description": "Asistencia legal, derechos y apoyo social"
+      },
+      "health": {
+        "title": "Salud",
+        "description": "Acceso al sistema sanitario, hospitales y farmacias"
+      },
+      "education": {
+        "title": "Educación y Diplomas",
+        "description": "Escuelas, universidades y homologación de títulos"
+      },
+      "employment": {
+        "title": "Empleo",
+        "description": "Búsqueda de trabajo, derechos laborales y emprendimiento"
+      },
+      "transport": {
+        "title": "Transporte España-Argelia",
+        "description": "Vuelos, ferrys y aduanas"
+      },
+      "made-by-algerians": {
+        "title": "Hecho por Argelinos",
+        "description": "Negocios, restaurantes y proyectos creados por argelinos en España"
+      },
+      "associations": {
+        "title": "Asociaciones Argelinas",
+        "description": "Asociaciones de la comunidad argelina en España"
+      },
+      "banking": {
+        "title": "Banca y Transferencias",
+        "description": "Apertura de cuentas y envío de dinero"
+      },
+      "housing": {
+        "title": "Vivienda",
+        "description": "Encontrar alojamiento, ayudas al alquiler y derechos del inquilino"
+      }
+    },
+    "resources": {
+      "anae": {
+        "name": "ANAE - Asociación Nacional de Argelinos en España",
+        "description": "Asociación con sede en Zaragoza que promueve la cultura argelina, la mediación sociocultural y el apoyo a la comunidad argelina en España."
+      },
+      "duolingo": {
+        "name": "Duolingo",
+        "description": "La app más popular del mundo para aprender idiomas. Lecciones cortas y gamificadas para aprender español desde cero, gratis."
+      },
+      "embassy-madrid": {
+        "name": "Embajada de Argelia en Madrid",
+        "description": "Servicios consulares para residentes en Madrid y regiones asignadas."
+      },
+      "consulate-barcelona": {
+        "name": "Consulado General en Barcelona",
+        "description": "Servicios consulares para residentes en Cataluña, Baleares y Aragón."
+      },
+      "consulate-alicante": {
+        "name": "Consulado en Alicante",
+        "description": "Servicios consulares para residentes en la Comunidad Valenciana y Murcia."
+      },
+      "consular-services-guide": {
+        "name": "Servicios consulares argelinos en España",
+        "description": "Guía completa: pasaporte, estado civil, inscripción consular, poderes notariales — documentos y tarifas para cada consulado."
+      },
+      "hellotalk": {
+        "name": "HelloTalk",
+        "description": "App gratuita para practicar español con hablantes nativos mediante mensajes, notas de voz y videollamadas. Ideal para mejorar la expresión oral."
+      }
+    },
+    "noResults": "No se encontraron recursos con los filtros seleccionados.",
+    "resourceCount": "{count} recursos",
+    "readGuide": "Leer la guía",
+    "guideComingSoon": "Guía próximamente",
+    "comingSoon": "Próximamente",
+    "searchPlaceholder": "Buscar recursos...",
+    "loadMore": "Ver más",
+    "loadMoreCount": "({count} restantes)",
+    "consularMap": {
+      "title": "Mapa Consular de Argelia en España",
+      "subtitle": "Pasa el cursor sobre una región para ver a qué consulado pertenece",
+      "embassy": "Embajada en Madrid",
+      "consulateBarcelona": "Consulado General en Barcelona",
+      "consulateAlicante": "Consulado en Alicante",
+      "canariasNote": "* Islas Canarias: gestionadas por la Embajada de Argelia en Madrid",
+      "regions": {
+        "galicia": "Galicia",
+        "asturias": "Asturias",
+        "cantabria": "Cantabria",
+        "pais-vasco": "País Vasco",
+        "navarra": "Navarra",
+        "la-rioja": "La Rioja",
+        "castilla-y-leon": "Castilla y León",
+        "aragon": "Aragón",
+        "cataluna": "Cataluña",
+        "madrid": "Madrid",
+        "castilla-la-mancha": "Castilla-La Mancha",
+        "extremadura": "Extremadura",
+        "comunidad-valenciana": "C. Valenciana",
+        "murcia": "Murcia",
+        "andalucia": "Andalucía",
+        "ceuta": "Ceuta",
+        "melilla": "Melilla",
+        "baleares": "Baleares"
+      },
+      "mission": {
+        "embassy": {
+          "name": "Embajada de Argelia en Madrid",
+          "regions": "Madrid, Castilla y León, Castilla-La Mancha, Extremadura, Galicia, Asturias, Canarias"
+        },
+        "barcelona": {
+          "name": "Consulado General en Barcelona",
+          "regions": "Cataluña, Aragón, Baleares, Navarra, País Vasco, Cantabria, La Rioja"
+        },
+        "alicante": {
+          "name": "Consulado en Alicante",
+          "regions": "Comunidad Valenciana, Murcia, Andalucía, Ceuta y Melilla"
+        }
+      }
+    }
   }
 }

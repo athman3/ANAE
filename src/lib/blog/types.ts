@@ -5,11 +5,12 @@ export interface BlogPostMetadata {
   title: string;
   description: string;
   date: string;
+  updatedAt?: string;
   author: string;
   image?: string;
   tags?: string[];
   draft?: boolean;
-  locale: string;
+  locale?: string;
 }
 
 /**
@@ -29,9 +30,10 @@ export interface BlogPostSummary {
   title: string;
   description: string;
   date: string;
+  updatedAt?: string;
   author: string;
   image?: string;
   tags?: string[];
-  locale: string;
+  locale?: string;
   readingTime: number;
 }

@@ -1,10 +1,8 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export default function CulturalEventsSection() {
-  const t = useTranslations("home.sections.culturalEvents");
+export default async function CulturalEventsSection() {
+  const t = await getTranslations("home.sections.culturalEvents");
 
   return (
     <div className="mb-8 md:mb-10">
@@ -25,12 +23,13 @@ export default function CulturalEventsSection() {
           <div className="md:col-span-2">
             <div className="relative w-full h-full min-h-[300px] md:min-h-[450px] rounded-lg overflow-hidden bg-muted/30">
               <Image
-                src="/images/home/cultural-events/cultural-events-1.png"
+                src="/images/home/cultural-events/cultural-events-1.webp"
                 alt={`${t("title")} - Image principale`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 66vw"
-                priority
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1280px) 55vw, 700px"
+                loading="lazy"
+                quality={75}
               />
             </div>
           </div>
@@ -39,11 +38,13 @@ export default function CulturalEventsSection() {
           <div className="md:col-span-1">
             <div className="relative w-full h-full min-h-[200px] md:min-h-[220px] rounded-lg overflow-hidden bg-muted/30">
               <Image
-                src="/images/home/cultural-events/cultural-events-2.png"
+                src="/images/home/cultural-events/cultural-events-2.webp"
                 alt={`${t("title")} - Image 2`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1280px) 30vw, 380px"
+                loading="lazy"
+                quality={75}
               />
             </div>
           </div>

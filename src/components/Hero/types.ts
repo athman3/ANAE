@@ -6,7 +6,7 @@ export type HeroStat = {
     key: string;
     label: string;
     value: string;
-    icon: IconType;
+    icon?: IconType;
 };
 
 export type HeroCta = {
@@ -19,6 +19,7 @@ export type HeroCopy = {
     subheadline: string;
     primaryCta: HeroCta;
     secondaryCta: HeroCta;
+    tertiaryCta?: HeroCta;
     scrollHint: string;
     badge?: string;
 };

@@ -4,17 +4,23 @@ import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
  
 const nextConfig: NextConfig = {
   // Configure pageExtensions to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+
+  // Optimize production builds
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   
   // Image Optimization - Modern formats and responsive sizes
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 2592000,
   },
   
   async redirects() {
@@ -81,8 +87,8 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy-Report-Only',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com", // unsafe-inline needed for Next.js, googletagmanager for analytics
-              "style-src 'self' 'unsafe-inline'", // unsafe-inline needed for Tailwind
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+              "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https: blob: https://www.googletagmanager.com https://www.google-analytics.com",
               "font-src 'self' data:",
               "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
@@ -91,8 +97,7 @@ const nextConfig: NextConfig = {
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
-              "frame-ancestors 'self'",
-              "upgrade-insecure-requests"
+              "frame-ancestors 'self'"
             ].join('; ')
           }
         ],
@@ -111,6 +116,7 @@ const withMDX = createMDX({
     rehypePlugins: [
       rehypeSlug, // Add IDs to headings
       [rehypeAutolinkHeadings, { behavior: 'wrap' }], // Add links to headings
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }], // Open external links in new tab
     ],
   },
 });

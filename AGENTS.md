@@ -18,6 +18,38 @@ This document provides guidelines for AI coding agents working on the ANAE (Asoc
 - **Analytics**: Google Analytics 4 + Google Ads via `@next/third-parties` (RGPD-compliant with Consent Mode v2)
 - **Theme**: next-themes (ThemeProvider exists, dark mode CSS vars defined, theme switching not wired up)
 
+## Playwright CLI — Screenshots
+
+All screenshots taken with `playwright-cli` (or `npx playwright-cli`) **MUST** be saved inside the `.playwright-cli/` folder at the project root. Always use the `--filename=.playwright-cli/<name>.png` flag:
+
+```bash
+npx playwright-cli screenshot --filename=.playwright-cli/screen-xl.png
+```
+
+### Standard breakpoints for responsive checks
+
+When verifying responsive layout, take one screenshot per Tailwind breakpoint:
+
+| Breakpoint | Width | Height | Filename convention |
+|---|---|---|---|
+| mobile | 375px | 812px | `screen-mobile.png` |
+| sm | 640px | 900px | `screen-sm.png` |
+| md | 768px | 1024px | `screen-md.png` |
+| lg | 1024px | 768px | `screen-lg.png` |
+| xl | 1280px | 800px | `screen-xl.png` |
+| 2xl | 1536px | 864px | `screen-2xl.png` |
+
+```bash
+npx playwright-cli open http://localhost:3000/en/resources
+npx playwright-cli resize 375 812   && npx playwright-cli screenshot --filename=.playwright-cli/screen-mobile.png
+npx playwright-cli resize 640 900   && npx playwright-cli screenshot --filename=.playwright-cli/screen-sm.png
+npx playwright-cli resize 768 1024  && npx playwright-cli screenshot --filename=.playwright-cli/screen-md.png
+npx playwright-cli resize 1024 768  && npx playwright-cli screenshot --filename=.playwright-cli/screen-lg.png
+npx playwright-cli resize 1280 800  && npx playwright-cli screenshot --filename=.playwright-cli/screen-xl.png
+npx playwright-cli resize 1536 864  && npx playwright-cli screenshot --filename=.playwright-cli/screen-2xl.png
+npx playwright-cli close
+```
+
 ## Build/Lint/Test Commands
 
 **Important for AI Agents:** Do not run `npm run build` after every single code modification. Only run a build at the very end of your task to verify everything compiles correctly, or if you specifically need to debug a complex type/build issue. Running builds constantly slows down the development process.
@@ -90,7 +122,8 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │       │   └── RevokeConsentButton.tsx # "use client"; revokes cookie consent from localStorage + calls gtag consent update
     │       ├── faq/page.tsx        # FAQ page (Server Component, FAQSection, FAQ JSON-LD)
     │       ├── privacy/page.tsx    # Privacy policy (Server Component)
-     │       └── contribute/page.tsx # Contribute page (Server Component, 4 sections)
+    │   ├── resources/page.tsx  # Resources Directory page (Server Component); builds search index across all 4 locales; generates JSON-LD ItemList (schema.org types per category: GovernmentOffice, LegalService, MedicalOrganization, etc.); passes ssrContent (all resources grouped by category as <section>/<article>) to DirectorySection for Google indexing; hash-based category sync via DirectorySection
+    │       └── contribute/page.tsx # Contribute page (Server Component, 4 sections)
     ├── app/api/
     │   ├── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, consent validation, nodemailer SMTP
     │   └── github-stars/route.ts   # GET only; proxies GitHub API (stargazers_count); in-memory cache (1h TTL); protects user IPs
@@ -117,9 +150,16 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   ├── Blog/
     │   │   ├── BlogCard.tsx        # Card with image, tags (Badge), title, description, meta; RTL-aware
     │   │   ├── BlogLayout.tsx      # prose prose-lg wrapper with RTL support; accepts isRTL prop
+    │   │   ├── BlogConsularMap.tsx # "use client"; lazy wrapper (next/dynamic, ssr:false) for SpainConsularMap; skeleton loading state; wrapped in not-prose div; used in MDX via <BlogConsularMap />
     │   │   └── ReadingProgressBar.tsx # "use client"; fixed progress bar; MutationObserver + requestAnimationFrame
     │   ├── Contact/
     │   │   └── ContactSection.tsx  # "use client"; controlled form + fetch /api/contact; privacy consent checkbox; success/error states; auto-reset after 5s
+    │   ├── Directory/
+    │   │   ├── DirectorySection.tsx # "use client"; main layout for resources; accepts ssrContent?: ReactNode (hidden via JS at mount for SEO); initialises activeCategory from window.location.hash; syncs hash on category change; handles popstate for browser back/forward; renders SpainConsularMap when activeCategory === 'consulates' and no search query
+│   │   ├── DirectorySectionClient.tsx # Thin "use client" wrapper that imports DirectorySection; allows resources/page.tsx (Server Component) to pass ssrContent ReactNode across the server/client boundary
+    │   │   ├── CategorySidebar.tsx # "use client"; sidebar with active state and counts; no "all" filter — first category is 'consulates'; ICON_MAP includes FileCheck, HandHeart, Languages, Landmark, FileText, Scale, HeartPulse, GraduationCap, Briefcase, Plane, Users, Building2, Home
+    │   │   ├── SpainConsularMap.tsx # "use client"; interactive SVG map of Spain's 3 Algerian consular zones (Madrid/Barcelona/Alicante); hover tooltips; legend with source links; i18n via directory.consularMap; SVG paths generated from es-atlas IGN TopoJSON; viewBox 0 0 750 600; includes Baleares inset, Ceuta, Melilla; uses usePathname from next/navigation (not @/i18n/navigation) for RTL detection
+    │   │   └── ResourceCard.tsx    # "use client"; card displaying individual resource
     │   ├── FAQ/
     │   │   └── FAQSection.tsx      # "use client"; accordion via useState; uses t.raw() for categories
     │   ├── Footer/
@@ -147,6 +187,8 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   ├── DonationModal.tsx       # "use client"; createPortal to body (z-100); PayPal/Bizum/SEPA; copy-to-clipboard
     │   └── LanguageSelector.tsx    # "use client"; Globe icon; reads language name+flag from messages JSON; handles 404 case
     ├── data/
+    │   ├── directory.ts            # Static resource directory data (categories and resources)
+    │   ├── spainMapData.ts         # SVG path data for Spain's autonomous communities used by SpainConsularMap; consular zone assignments (embassy/barcelona/alicante)
     │   └── testimonials.ts         # Static testimonials data with lang + dir fields (fr/ar/es)
     ├── i18n/
     │   ├── routing.ts              # defineRouting: locales ['ar','es','fr','en'], defaultLocale 'es'
@@ -294,6 +336,18 @@ Use CSS logical properties in `mdx-components.tsx` for RTL-compatible spacing:
 - `ps-6` instead of `pl-6`
 - `border-s-4` instead of `border-l-4`
 
+### Phone Numbers and LTR Strings in Arabic Content (Critical)
+
+In RTL context, the Unicode bidi algorithm reverses LTR sequences like phone numbers, causing `+34 915 629 705` to render as `705 629 915 34+`. **Always wrap phone numbers (and any LTR-only string) in Unicode LTR embedding markers** in Arabic MDX/text content:
+
+```
+‪+34 915 629 705‬
+```
+
+The invisible characters are `U+202A` (LEFT-TO-RIGHT EMBEDDING) before and `U+202C` (POP DIRECTIONAL FORMATTING) after the number. This applies to:
+- Phone numbers (`+34 ...`)
+- Any numeric sequence that must read left-to-right inside RTL text
+
 Test all components with Arabic locale (`/ar/*`) to verify RTL layout.
 
 ## Internationalization (i18n)
@@ -308,7 +362,7 @@ return <h1>{t('key')}</h1>;
 
 // Server components / metadata
 import { getTranslations } from 'next-intl/server';
-const t = await getTranslations({ locale, namespace: 'seo.homepage' });
+const t = await getTranslations({ locale, namespace: 'seo.home' });
 
 // Raw structured data (arrays/objects)
 const categories = t.raw('faq.categories');
@@ -332,11 +386,12 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `about` | `title`, `intro`, `mission.{title,description,points}`, `values`, `join` |
 | `gallery` | `title`, `description`, `comingSoon.{title,description,photos,videos,events}` |
 | `home.sections` | `whatWeDo`, `culturalEvents`, `ramadanIftar`, `services` |
-| `privacy` | `title`, `lastUpdated`, `intro`, `sections.{controller,dataCollected,purposes,...}` |
-| `cookies` | `title`, `lastUpdated`, `intro`, `sections.{whatAre,types,purpose,...}` |
+| `privacy` | `title`, `intro`, `sections.{controller,dataCollected,purposes,...}` |
+| `cookies` | `title`, `intro`, `sections.{whatAre,types,purpose,...}` |
 | `cookieBanner` | `message`, `accept`, `reject` |
 | `contribute` | `hero`, `mission`, `testimonials`, `donation.{amounts,currency,payment,...}`, `otherWays` |
 | `faq` | `title`, `intro`, `categories.{about,donations,volunteering,beneficiaries,contact}` |
+| `directory` | `title`, `subtitle`, `suggestResource`, `suggestDescription`, `searchPlaceholder`, `loadMore`, `loadMoreCount`, `readGuide`, `guideComingSoon`, `comingSoon`, `filters.*`, `categories.*`, `resources.*`, `noResults`, `resourceCount`, `consularMap.{title,subtitle,embassy,consulateBarcelona,consulateAlicante,canariasNote,regions.*,mission.{embassy,barcelona,alicante}.{name,regions}}` |
 | `seo.home` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.about` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.contact` | `title`, `description`, `keywords`, `imageAlt` |
@@ -346,6 +401,18 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `seo.cookies` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.gallery` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.contribute` | `title`, `description`, `keywords`, `imageAlt` |
+| `seo.resources` | `title`, `description`, `keywords`, `imageAlt` |
+
+### Translation Quality — Research Before Translating (IMPORTANT)
+
+Before translating any content into Arabic, French, Spanish, or English — especially domain-specific terms (administrative, legal, medical, consular) — you MUST first do a web search to verify the correct, officially used terminology in the target language. Never rely on generic or literal translations.
+
+Examples of what to verify:
+- **Administrative/consular terms**: Search for how official Algerian consulates or government sites phrase the term (e.g. `"مستخرج رسم الولادة" site:interieur.gov.dz` vs `"شهادة الميلاد"`)
+- **Legal terms**: Look up the term on official Spanish/French/Algerian government portals
+- **Medical/social terms**: Verify against official terminology used by health authorities in the target country
+
+Use `tavily_tavily_search`, `google_search`, or `context7_query-docs` to confirm the correct term before writing it. If multiple terms are in common use, prefer the one used by the official authority (embassy, consulate, ministry).
 
 ### Cleanup and Maintenance (IMPORTANT)
 **Whenever you delete code, components, or entire features**, you MUST proactively search the project to check if the removed code was using any translation keys. If it was, you must immediately delete those unused keys from ALL locale JSON files (`messages/*.json`) to keep the codebase clean.
@@ -492,13 +559,27 @@ content/blog/
 
 The same slug is used across all locales; language is determined by the subdirectory.
 
+### Blog Article Edits — All Locales (Critical)
+
+**Any content modification requested for a blog article must be applied to all 4 locale versions** (`ar/`, `es/`, `fr/`, `en/`) — even if the user only mentions one language. The 4 locale files must always stay in sync in terms of structure, data accuracy, and content. Translate the change appropriately for each locale. For Arabic, remember to apply LTR embedding markers to phone numbers and other LTR-only strings (see RTL section above).
+
+### Blog Article Consistency — Cross-Article Coherence (Critical)
+
+Before writing or editing any blog article, **read the existing articles in the same domain** to ensure consistency of terminology, phrasing, and document naming across all content. For example:
+
+- If an existing article uses "certificat de domicile" for the empadronamiento, all new/edited articles must use the same term
+- If an existing article uses "récépissé de renouvellement" for the resguardo de renovación, all new/edited articles must use the same term
+- Spanish administrative terms (NIE, empadronamiento, resguardo de renovación, DNI, etc.) must be translated consistently and must **not appear untranslated** in FR, EN, or AR versions
+- Document lists, case structures, and section patterns established in existing articles should be reused as templates when creating new articles of the same type
+
 ### Frontmatter Fields
 
 ```yaml
 ---
 title: "Article title"
 description: "Article description"
-date: "2024-01-15"
+date: "2024-01-15"          # Publication date — set once, never change
+updatedAt: "2024-06-10"     # Last meaningful update — optional, add when content changes
 author: "Author Name"
 image: "/images/blog/article-image.jpg"  # optional
 tags: ["tag1", "tag2"]                   # optional
@@ -506,6 +587,25 @@ draft: false                              # optional, defaults to false
 locale: "es"                             # must match directory
 ---
 ```
+
+### Updating Articles (`updatedAt` workflow)
+
+Articles that evolve over time (e.g., consular guides, administrative info) use the `updatedAt` frontmatter field to signal content freshness to both readers and search engines.
+
+**Rules:**
+- `date` — the original publication date. **Never change it.** It is used as `datePublished` in the Article JSON-LD.
+- `updatedAt` — set or update **manually** when making a meaningful content change (new fees, new documents required, corrected information, etc.). It is used as `dateModified` in the Article JSON-LD and displayed in the UI with a `RefreshCw` icon.
+- Do **not** update `updatedAt` for typo fixes, style tweaks, or minor rephrasing — this would send a false freshness signal to Google.
+
+**Workflow (with Dokploy):**
+1. Modify the MDX content in all relevant locale files
+2. Update `updatedAt: "YYYY-MM-DD"` in the frontmatter of all 4 locale files
+3. Commit and push → Dokploy triggers a new build → Next.js regenerates the static page with the new date
+
+**What gets updated automatically on rebuild:**
+- `dateModified` in the Article JSON-LD (`<script type="application/ld+json">`)
+- `article:modified_time` in Open Graph meta tags
+- The "Updated on" badge displayed in the article header UI
 
 ### Blog Utilities (`src/lib/blog/mdx.ts`)
 

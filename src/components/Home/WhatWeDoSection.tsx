@@ -1,9 +1,7 @@
-"use client";
+import { getTranslations } from "next-intl/server";
 
-import { useTranslations } from "next-intl";
-
-export default function WhatWeDoSection() {
-  const t = useTranslations("home.sections.whatWeDo");
+export default async function WhatWeDoSection() {
+  const t = await getTranslations("home.sections.whatWeDo");
 
   return (
     <div className="mb-8 md:mb-10">

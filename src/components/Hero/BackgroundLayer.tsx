@@ -22,7 +22,7 @@ function BackgroundLayerComponent({ poster, sources = [], className }: Backgroun
                 loop
                 playsInline
                 poster={poster}
-                preload="metadata"
+                preload="none"
             >
                 {sources.map((source) => (
                     <source key={source.src} src={source.src} type={source.type} />

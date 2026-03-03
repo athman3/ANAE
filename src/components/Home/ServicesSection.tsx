@@ -1,10 +1,8 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export default function ServicesSection() {
-  const t = useTranslations("home.sections.services");
+export default async function ServicesSection() {
+  const t = await getTranslations("home.sections.services");
 
   return (
     <div className="mb-8 md:mb-10">
@@ -24,12 +22,13 @@ export default function ServicesSection() {
           <div className="order-2 lg:order-1">
             <div className="relative w-full h-full min-h-[300px] md:min-h-[400px] rounded-lg overflow-hidden bg-muted/30">
               <Image
-                src="/images/home/services/services.png"
+                src="/images/home/services/services.webp"
                 alt={t("title")}
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 45vw, 580px"
+                loading="lazy"
+                quality={75}
               />
             </div>
           </div>

@@ -177,6 +177,8 @@ export function useMDXComponents(components: MDXComponents = {}): MDXComponents 
     a: ({ children, className, href, ...props }) => (
       <a
         href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         className={cn(
           'font-medium underline underline-offset-4',
           'text-primary hover:text-primary/80',

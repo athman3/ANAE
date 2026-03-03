@@ -57,6 +57,12 @@
     "notFound": {
       "title": "ANAE - Page Non Trouvée",
       "description": "La page que vous recherchez n'existe pas ou a été déplacée. Retournez à la page d'accueil d'ANAE pour trouver ce que vous cherchez."
+    },
+    "resources": {
+      "title": "ANAE - Annuaire de Ressources pour Algériens en Espagne",
+      "description": "Annuaire de ressources utiles pour la communauté algérienne en Espagne : consulats, immigration, santé, éducation, transport et associations.",
+      "keywords": "ressources algériens espagne, consulat algérie, ambassade algérie madrid, démarches immigration, aide juridique algériens",
+      "imageAlt": "Ressources de l'ANAE"
     }
   },
   "language": {
@@ -69,7 +75,8 @@
       "title": "L'Association",
       "about": "À propos",
       "gallery": "Galerie",
-      "contribute": "Contribuer"
+      "contribute": "Contribuer",
+      "resources": "Ressources"
     },
     "contact": "Contact",
     "blog": "Blog",
@@ -82,6 +89,7 @@
     "subheadline": "Autonomiser les personnes, favoriser l'intégration et créer des changements durables grâce à l'action compassionnelle et au soutien communautaire.",
     "primaryCta": "Contribuer",
     "secondaryCta": "Voir la galerie",
+    "tertiaryCta": "Ressources",
     "summaryCta": "Voir notre impact",
     "scrollHint": "Découvrez le pouvoir de la communauté",
     "stats": {
@@ -109,7 +117,8 @@
       "about": "À propos de nous",
       "blog": "Blog",
       "news": "Actualités",
-      "faq": "Questions Fréquentes"
+      "faq": "Questions Fréquentes",
+      "resources": "Ressources"
     },
     "contact": {
       "title": "Contact",
@@ -214,7 +223,8 @@
     "title": "Blog et Actualités",
     "description": "Restez informé avec les dernières nouvelles, événements et histoires de notre communauté",
     "noPosts": "Aucun article disponible pour le moment",
-    "minRead": "min de lecture"
+    "minRead": "min de lecture",
+    "updatedAt": "Mis à jour le"
   },
   "notFound": {
     "title": "Page Non Trouvée",
@@ -720,5 +730,149 @@
     "accept": "Tout accepter",
     "reject": "Refuser",
     "policy": "Politique de cookies"
+  },
+  "directory": {
+    "title": "Ressources",
+    "subtitle": "Liens et informations utiles pour la communauté algérienne en Espagne",
+    "suggestResource": "Suggérer une ressource",
+    "suggestDescription": "Connaissez-vous une ressource utile qui n'est pas dans la liste ?",
+    "filters": {
+      "city": "Ville",
+      "all": "Tous",
+      "allCities": "Toutes les villes",
+      "searchResults": "Résultats de recherche",
+      "reset": "Réinitialiser les filtres",
+      "toggle": "Filtres"
+    },
+    "categories": {
+      "language-learning": {
+        "title": "Apprendre l'Espagnol",
+        "description": "Applications, cours gratuits, conseils et ressources pour apprendre l'espagnol"
+      },
+      "consulates": {
+        "title": "Services Consulaires",
+        "description": "Représentations diplomatiques de l'Algérie en Espagne"
+      },
+      "immigration": {
+        "title": "Immigration et Séjour",
+        "description": "Démarches d'immigration, NIE, et résidence"
+      },
+      "legal-aid": {
+        "title": "Aide Sociale et Juridique",
+        "description": "Assistance juridique, droits et soutien social"
+      },
+      "health": {
+        "title": "Santé",
+        "description": "Accès au système de santé, hôpitaux et pharmacies"
+      },
+      "education": {
+        "title": "Éducation et Diplômes",
+        "description": "Écoles, universités et équivalence de diplômes"
+      },
+      "employment": {
+        "title": "Emploi",
+        "description": "Recherche d'emploi, droits du travail et entrepreneuriat"
+      },
+      "transport": {
+        "title": "Transport Espagne-Algérie",
+        "description": "Vols, ferrys et douanes"
+      },
+      "made-by-algerians": {
+        "title": "Fait par des Algériens",
+        "description": "Commerces, restaurants et projets créés par des Algériens en Espagne"
+      },
+      "associations": {
+        "title": "Associations Algériennes",
+        "description": "Associations de la communauté algérienne en Espagne"
+      },
+      "banking": {
+        "title": "Banque et Transferts",
+        "description": "Ouverture de compte et transfert d'argent"
+      },
+      "housing": {
+        "title": "Logement",
+        "description": "Trouver un logement, aides au loyer et droits des locataires"
+      }
+    },
+    "resources": {
+      "anae": {
+        "name": "ANAE - Association Nationale des Algériens en Espagne",
+        "description": "Association basée à Saragosse qui promeut la culture algérienne, la médiation socioculturelle et le soutien à la communauté algérienne en Espagne."
+      },
+      "duolingo": {
+        "name": "Duolingo",
+        "description": "L'app la plus populaire au monde pour apprendre les langues. Leçons courtes et ludiques pour apprendre l'espagnol depuis zéro, gratuitement."
+      },
+      "embassy-madrid": {
+        "name": "Ambassade d'Algérie à Madrid",
+        "description": "Services consulaires pour les résidents de Madrid et régions affectées."
+      },
+      "consulate-barcelona": {
+        "name": "Consulat Général à Barcelone",
+        "description": "Services consulaires pour la Catalogne, les Baléares et l'Aragon."
+      },
+      "consulate-alicante": {
+        "name": "Consulat à Alicante",
+        "description": "Services consulaires pour la Communauté Valencienne et la Murcie."
+      },
+      "consular-services-guide": {
+        "name": "Services consulaires algériens en Espagne",
+        "description": "Guide complet : passeport, état civil, inscription consulaire, procuration — documents et tarifs pour chaque consulat."
+      },
+      "hellotalk": {
+        "name": "HelloTalk",
+        "description": "App gratuite pour pratiquer l'espagnol avec des locuteurs natifs par messages, vocaux et appels vidéo. Idéal pour l'expression orale."
+      }
+    },
+    "noResults": "Aucune ressource trouvée avec les filtres sélectionnés.",
+    "resourceCount": "{count} ressources",
+    "readGuide": "Lire le guide",
+    "guideComingSoon": "Guide bientôt disponible",
+    "comingSoon": "Bientôt",
+    "searchPlaceholder": "Rechercher des ressources...",
+    "loadMore": "Voir plus",
+    "loadMoreCount": "({count} restantes)",
+    "consularMap": {
+      "title": "Carte consulaire de l'Algérie en Espagne",
+      "subtitle": "Passez la souris sur une région pour voir le consulat compétent",
+      "embassy": "Ambassade à Madrid",
+      "consulateBarcelona": "Consulat Général à Barcelone",
+      "consulateAlicante": "Consulat à Alicante",
+      "canariasNote": "* Îles Canaries : gérées par l'Ambassade d'Algérie à Madrid",
+      "regions": {
+        "galicia": "Galice",
+        "asturias": "Asturies",
+        "cantabria": "Cantabrie",
+        "pais-vasco": "Pays Basque",
+        "navarra": "Navarre",
+        "la-rioja": "La Rioja",
+        "castilla-y-leon": "Castille-et-León",
+        "aragon": "Aragon",
+        "cataluna": "Catalogne",
+        "madrid": "Madrid",
+        "castilla-la-mancha": "Castille-La Manche",
+        "extremadura": "Estrémadure",
+        "comunidad-valenciana": "C. Valencienne",
+        "murcia": "Murcie",
+        "andalucia": "Andalousie",
+        "ceuta": "Ceuta",
+        "melilla": "Melilla",
+        "baleares": "Baléares"
+      },
+      "mission": {
+        "embassy": {
+          "name": "Ambassade d'Algérie à Madrid",
+          "regions": "Madrid, Castille-et-León, Castille-La Manche, Estrémadure, Galice, Asturies, Canaries"
+        },
+        "barcelona": {
+          "name": "Consulat Général à Barcelone",
+          "regions": "Catalogne, Aragon, Baléares, Navarre, Pays Basque, Cantabrie, La Rioja"
+        },
+        "alicante": {
+          "name": "Consulat à Alicante",
+          "regions": "Communauté valencienne, Murcie, Andalousie, Ceuta et Melilla"
+        }
+      }
+    }
   }
 }

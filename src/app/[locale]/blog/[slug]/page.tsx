@@ -1,15 +1,16 @@
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog/mdx';
 import { getTranslations } from 'next-intl/server';
-import { Calendar, Clock, User } from 'lucide-react';
+import { Calendar, Clock, RefreshCw, User } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
 import Image from 'next/image';
 import ReadingProgressBar from '@/components/Blog/ReadingProgressBar';
+import BlogConsularMap from '@/components/Blog/BlogConsularMap';
 import { generateArticleJsonLd, generateMetadata as generateSEOMetadata, type Locale } from '@/lib/metadata';
 
 interface PageProps {
@@ -64,6 +65,7 @@ export async function generateMetadata({ params }: PageProps) {
     type: 'article',
     author: post.author,
     publishedTime: post.date,
+    modifiedTime: post.updatedAt,
   });
 }
 
@@ -92,6 +94,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     description: post.description,
     author: post.author,
     publishedTime: post.date,
+    modifiedTime: post.updatedAt,
     image: post.image,
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org'}/${locale}/blog/${slug}`,
   });
@@ -101,7 +104,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleJsonLd),
+          __html: JSON.stringify(articleJsonLd).replace(/</g, '\\u003c'),
         }}
       />
       <main className="min-h-screen pt-24 md:pt-28">
@@ -168,6 +171,21 @@ export default async function BlogPostPage({ params }: PageProps) {
                   })}
                 </time>
               </div>
+              {post.updatedAt && (
+                <div className={cn('flex items-center gap-2', isRTL && 'flex-row-reverse')}>
+                  <RefreshCw className="h-4 w-4" />
+                  <span>
+                    {t('updatedAt')}{' '}
+                    <time dateTime={post.updatedAt}>
+                      {new Date(post.updatedAt).toLocaleDateString(locale, {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                  </span>
+                </div>
+              )}
               <div className={cn('flex items-center gap-2', isRTL && 'flex-row-reverse')}>
                 <Clock className="h-4 w-4" />
                 <span>{post.readingTime} {t('minRead')}</span>
@@ -187,12 +205,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           >
             <MDXRemote
               source={post.content}
+              components={{ BlogConsularMap }}
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],
                   rehypePlugins: [
                     rehypeSlug,
-                    [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+                    [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
                   ],
                 },
               }}

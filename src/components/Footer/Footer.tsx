@@ -70,6 +70,11 @@ export default function Footer() {
                                     {t("quickLinks.faq")}
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/resources" className="text-gray-300 hover:text-white transition-colors text-sm">
+                                    {t("quickLinks.resources")}
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Image } from "lucide-react";
+import { ArrowRight, Image, Library } from "lucide-react";
 import { Link as LocaleLink } from "@/i18n/navigation";
 import BackgroundLayer, { type VideoSource } from "@/components/Hero/BackgroundLayer";
 import ScrollHint from "@/components/Hero/ScrollHint";
@@ -13,7 +13,7 @@ const HERO_VIDEO_SOURCES: VideoSource[] = [
     },
 ];
 
-const HERO_POSTER = "/images/hero/hero.jpg";
+const HERO_POSTER = "/images/hero/hero.webp";
 
 type HeroSectionProps = {
     copy: HeroCopy;
@@ -64,7 +64,7 @@ function HeroContent({ copy, stats }: { copy: HeroCopy; stats: HeroStat[] }) {
                 {copy.subheadline}
             </p>
 
-            <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:items-center sm:justify-center">
+            <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
                 <LocaleLink
                     href={copy.primaryCta.href}
                     className="group inline-flex items-center justify-center rounded-full bg-amber-300 px-4 py-2.5 text-sm font-semibold text-amber-950 shadow-lg shadow-amber-400/40 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200 sm:px-6 sm:py-3"
@@ -80,6 +80,15 @@ function HeroContent({ copy, stats }: { copy: HeroCopy; stats: HeroStat[] }) {
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image className="ml-2 h-4 w-4 rtl:ml-0 rtl:mr-2 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
                 </LocaleLink>
+                {copy.tertiaryCta && (
+                    <LocaleLink
+                        href={copy.tertiaryCta.href}
+                        className="group inline-flex items-center justify-center rounded-full border border-amber-100/40 bg-white/15 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur transition-transform duration-300 hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60 sm:px-6 sm:py-3"
+                    >
+                        {copy.tertiaryCta.label}
+                        <Library className="ml-2 h-4 w-4 rtl:ml-0 rtl:mr-2 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+                    </LocaleLink>
+                )}
             </div>
 
             <div className="grid gap-4 pt-6 sm:gap-4 sm:pt-6 sm:grid-cols-2 lg:grid-cols-3">
