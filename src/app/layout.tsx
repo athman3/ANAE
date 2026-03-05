@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import RTLProvider from "@/components/RTLProvider";
 import { generateOrganizationJsonLd } from "@/lib/metadata";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org'),
@@ -36,6 +35,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     const organizationJsonLd = generateOrganizationJsonLd();
+    const gtId = process.env.NEXT_PUBLIC_GT_ID;
+    const gaId = process.env.NEXT_PUBLIC_GA_ID;
+    const gadsId = process.env.NEXT_PUBLIC_GADS_ID;
 
     return (
         <html suppressHydrationWarning>
@@ -69,7 +71,13 @@ export default function RootLayout({
                         __html: JSON.stringify(organizationJsonLd),
                     }}
                 />
-                {/* Google Consent Mode v2 Default Settings */}
+                {/* Google Tag loader (GT- container) + Consent Mode v2 + GA4/Ads config */}
+                {gtId && (
+                    <script
+                        async
+                        src={`https://www.googletagmanager.com/gtag/js?id=${gtId}`}
+                    />
+                )}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -80,7 +88,11 @@ export default function RootLayout({
                                 'analytics_storage': 'denied',
                                 'ad_user_data': 'denied',
                                 'ad_personalization': 'denied',
+                                'wait_for_update': 500,
                             });
+                            gtag('js', new Date());
+                            ${gaId ? `gtag('config', '${gaId}');` : ''}
+                            ${gadsId ? `gtag('config', '${gadsId}');` : ''}
                         `,
                     }}
                 />
@@ -89,16 +101,6 @@ export default function RootLayout({
                 <RTLProvider>
                     {children}
                 </RTLProvider>
-                {process.env.NEXT_PUBLIC_GA_ID && (
-                    <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-                )}
-                {process.env.NEXT_PUBLIC_GADS_ID && (
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `gtag('config', '${process.env.NEXT_PUBLIC_GADS_ID}');`,
-                        }}
-                    />
-                )}
             </body>
         </html>
     );

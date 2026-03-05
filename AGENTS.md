@@ -15,7 +15,7 @@ This document provides guidelines for AI coding agents working on the ANAE (Asoc
 - **UI Components**: Radix UI primitives, Lucide icons
 - **Content**: MDX for blog posts (gray-matter, next-mdx-remote, remark-gfm, rehype-slug, rehype-autolink-headings)
 - **Email**: nodemailer via SMTP for contact form
-- **Analytics**: Google Analytics 4 + Google Ads via `@next/third-parties` (RGPD-compliant with Consent Mode v2)
+- **Analytics**: Google Analytics 4 + Google Ads via Google Tag (`GT-` container) loaded with `<script async>` in `<head>` (RGPD-compliant with Consent Mode v2)
 - **Theme**: next-themes (ThemeProvider exists, dark mode CSS vars defined, theme switching not wired up)
 
 ## Playwright CLI — Screenshots
@@ -100,7 +100,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
 │       └── screenshots/
 └── src/
     ├── app/
-    │   ├── layout.tsx              # Root layout: RTLProvider + inline script (RTL flash prevention) + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component + Google Ads gtag config
+    │   ├── layout.tsx              # Root layout: RTLProvider + inline script (RTL flash prevention) + Organization JSON-LD + Google Consent Mode v2 default script + Google Tag (GT-) async loader for GA4/Google Ads
     │   ├── globals.css             # Tailwind + shadcn CSS vars (light + dark) + [dir="rtl"] { direction: rtl }
     │   ├── not-found.tsx           # Global 404 (NextIntlClientProvider + Header is404 + Footer)
     │   ├── robots.ts               # Disallows /api/, /_next/, /admin/, /private/
@@ -718,6 +718,9 @@ Defined in `.env.example`:
 # Site
 NEXT_PUBLIC_SITE_URL=https://asociacionanae.org
 
+# Google Tag (gtag.js loader — the container that serves both GA4 and Ads)
+NEXT_PUBLIC_GT_ID=GT-XXXXXXXXXXXX    # Google Tag ID (starts with GT-)
+
 # Google Analytics 4
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX        # GA4 Measurement ID (starts with G-)
 
@@ -807,9 +810,9 @@ The site is fully RGPD-compliant (Spanish AEPD regulations). This is a **custom 
 
 The consent system has 4 layers:
 
-1. **Google Consent Mode v2 default** (`src/app/layout.tsx`): An inline `<script>` in `<head>` sets all consent signals to `denied` before any Google scripts load. This ensures zero tracking before user consent.
+1. **Google Consent Mode v2 default** (`src/app/layout.tsx`): A single inline `<script>` in `<head>` initializes `dataLayer` and `gtag`, sets all consent signals to `denied` (with `wait_for_update: 500`), then calls `gtag('js', new Date())` and `gtag('config', ...)` for both GA4 and Google Ads. This ensures consent defaults are set before any config commands.
 
-2. **GoogleAnalytics component** (`src/app/layout.tsx`): Uses `@next/third-parties/google` `<GoogleAnalytics>` component. The GA scripts load but respect the Consent Mode defaults — no data is collected until consent is granted.
+2. **gtag.js loader** (`src/app/layout.tsx`): A `<script async>` tag loads `gtag.js` from Google's CDN using the Google Tag container ID (`GT-`). This only loads the library — all configuration is done in the `<head>` inline script above.
 
 3. **CookieBanner** (`src/components/CookieBanner.tsx`): Shown on first visit (checks `localStorage` for `cookie_consent`). On accept, calls `gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ... })`. On reject, sets all to `denied`. Persists choice in `localStorage`.
 
@@ -867,7 +870,7 @@ When adding any feature that collects, processes, or stores user data:
 - `next.config.ts` — Next.js config with MDX and i18n plugins + security headers
 - `tailwind.config.ts` — Tailwind with shadcn/ui theme + safelisted dynamic colors
 - `mdx-components.tsx` — Custom MDX component renderers with RTL support
-- `src/app/layout.tsx` — Root layout: inline RTL script + Organization JSON-LD + Google Consent Mode v2 default script + GoogleAnalytics component + Google Ads gtag config
+- `src/app/layout.tsx` — Root layout: inline RTL script + Organization JSON-LD + Google Consent Mode v2 default script + Google Tag (GT-) async loader for GA4/Google Ads
 - `src/middleware.ts` — Accept-Language detection + next-intl i18n routing
 - `src/i18n/routing.ts` — Locale configuration (`['ar','es','fr','en']`, default `'es'`)
 - `src/i18n/navigation.ts` — Locale-aware `Link`, `useRouter`, `usePathname`, `redirect`
