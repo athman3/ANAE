@@ -820,10 +820,11 @@ The consent system has 4 layers:
 
 ### Content Security Policy
 
-Google Analytics/Ads domains are whitelisted in the CSP in `next.config.ts` (currently in report-only mode):
-- `script-src`: `https://www.googletagmanager.com`, `https://www.google-analytics.com`
-- `connect-src`: `https://www.google-analytics.com`, `https://analytics.google.com`
-- `img-src`: `https://www.google-analytics.com`, `https://www.googletagmanager.com`
+Google Analytics 4, Google Ads, and Google Tag Manager domains are whitelisted in the CSP in `next.config.ts` (currently in report-only mode). Source: [Google's official CSP guide](https://developers.google.com/tag-platform/tag-manager/csp):
+- `script-src`: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, `https://googleads.g.doubleclick.net`, `https://www.googleadservices.com`, `https://www.google.com`
+- `connect-src`: `https://www.google-analytics.com`, `https://analytics.google.com`, `https://region1.google-analytics.com`, `https://www.googletagmanager.com`, `https://www.google.com`, `https://googleads.g.doubleclick.net`, `https://www.googleadservices.com`, `https://pagead2.googlesyndication.com`
+- `img-src`: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, `https://googleads.g.doubleclick.net`, `https://www.google.com`, `https://google.com`
+- `frame-src`: `https://bid.g.doubleclick.net`, `https://www.googleadservices.com`
 
 ### Contact Form Consent
 
