@@ -792,6 +792,10 @@
       "housing": {
         "title": "Logement",
         "description": "Trouver un logement, aides au loyer et droits des locataires"
+      },
+      "visas": {
+        "title": "Venir en Espagne",
+        "description": "Visas, démarches et formalités pour les personnes en Algérie souhaitant venir en Espagne"
       }
     },
     "resources": {

@@ -155,9 +155,9 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   ├── Contact/
     │   │   └── ContactSection.tsx  # "use client"; controlled form + fetch /api/contact; privacy consent checkbox; success/error states; auto-reset after 5s
     │   ├── Directory/
-    │   │   ├── DirectorySection.tsx # "use client"; main layout for resources; accepts ssrContent?: ReactNode (hidden via JS at mount for SEO); initialises activeCategory from window.location.hash; syncs hash on category change; handles popstate for browser back/forward; renders SpainConsularMap when activeCategory === 'consulates' and no search query
+     │   │   ├── DirectorySection.tsx # "use client"; main layout for resources; accepts ssrContent?: ReactNode (hidden via JS at mount for SEO); initialises activeCategory from window.location.hash; syncs hash on category change; handles popstate for browser back/forward; renders SpainConsularMap when activeCategory === 'consulates' and no search query
 │   │   ├── DirectorySectionClient.tsx # Thin "use client" wrapper that imports DirectorySection; allows resources/page.tsx (Server Component) to pass ssrContent ReactNode across the server/client boundary
-    │   │   ├── CategorySidebar.tsx # "use client"; sidebar with active state and counts; no "all" filter — first category is 'consulates'; ICON_MAP includes FileCheck, HandHeart, Languages, Landmark, FileText, Scale, HeartPulse, GraduationCap, Briefcase, Plane, Users, Building2, Home
+     │   │   ├── CategorySidebar.tsx # "use client"; sidebar with active state and counts; no "all" filter — first category is 'consulates'; ICON_MAP includes FileCheck, HandHeart, Languages, Landmark, FileText, Scale, HeartPulse, GraduationCap, Briefcase, Plane, Users, Building2, Home, Stamp
     │   │   ├── SpainConsularMap.tsx # "use client"; interactive SVG map of Spain's 3 Algerian consular zones (Madrid/Barcelona/Alicante); hover tooltips; legend with source links; i18n via directory.consularMap; SVG paths generated from es-atlas IGN TopoJSON; viewBox 0 0 750 600; includes Baleares inset, Ceuta, Melilla; uses usePathname from next/navigation (not @/i18n/navigation) for RTL detection
     │   │   └── ResourceCard.tsx    # "use client"; card displaying individual resource
     │   ├── FAQ/

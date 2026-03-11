@@ -55,8 +55,6 @@ export default function DirectorySection({ existingBlogSlugs = [], searchIndex =
     });
   }, [activeCategory, cityFilter, searchQuery, searchIndex]);
 
-  const hasActiveFilters = cityFilter !== 'all' || searchQuery !== '';
-
   useEffect(() => {
     setVisibleCount(ITEMS_PER_PAGE);
   }, [activeCategory, cityFilter, searchQuery]);
@@ -100,6 +98,7 @@ export default function DirectorySection({ existingBlogSlugs = [], searchIndex =
   }
 
   const activeFilterCount = cityFilter !== 'all' ? 1 : 0;
+  const hasActiveFilters = cityFilter !== 'all' || searchQuery !== '';
 
   return (
     <>
@@ -246,7 +245,7 @@ export default function DirectorySection({ existingBlogSlugs = [], searchIndex =
             <SpainConsularMap />
           )}
 
-          {/* Resource grid */}
+          {/* Resource grid / empty states */}
           {filteredResources.length > 0 ? (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

@@ -69,6 +69,7 @@ function getSchemaType(categoryId: string): string {
     case 'associations': return 'Organization';
     case 'language-learning': return 'WebApplication';
     case 'immigration': return 'GovernmentService';
+    case 'visas': return 'GovernmentService';
     case 'legal-aid': return 'LegalService';
     case 'health': return 'MedicalOrganization';
     case 'education': return 'EducationalOrganization';

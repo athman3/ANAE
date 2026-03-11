@@ -792,6 +792,10 @@
       "housing": {
         "title": "Vivienda",
         "description": "Encontrar alojamiento, ayudas al alquiler y derechos del inquilino"
+      },
+      "visas": {
+        "title": "Venir a España",
+        "description": "Visados, trámites y gestiones para quienes están en Argelia y quieren venir a España"
       }
     },
     "resources": {

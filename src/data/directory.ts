@@ -31,6 +31,7 @@ export const CATEGORIES: DirectoryCategory[] = [
   { id: 'associations',      icon: 'HandHeart' },
   { id: 'made-by-algerians', icon: 'Users' },
   { id: 'banking',           icon: 'Building2' },
+  { id: 'visas',             icon: 'Stamp' },
 ];
 
 export const RESOURCES: DirectoryResource[] = [

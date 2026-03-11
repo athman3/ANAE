@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import {
   Landmark, FileText, Scale, HeartPulse,
   GraduationCap, Briefcase, Plane, Users, Building2,
-  FileCheck, HandHeart, Languages, Home
+  FileCheck, HandHeart, Languages, Home, Stamp
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CATEGORIES } from '@/data/directory';
@@ -19,7 +19,7 @@ interface CategorySidebarProps {
 
 const ICON_MAP: Record<string, React.ElementType> = {
   FileCheck, HandHeart, Languages, Landmark, FileText, Scale, HeartPulse,
-  GraduationCap, Briefcase, Plane, Users, Building2, Home,
+  GraduationCap, Briefcase, Plane, Users, Building2, Home, Stamp,
 };
 
 function CategorySidebar({ activeCategory, onSelectCategory, resources }: CategorySidebarProps) {

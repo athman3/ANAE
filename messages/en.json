@@ -792,6 +792,10 @@
       "housing": {
         "title": "Housing",
         "description": "Finding accommodation, rental aid and tenant rights"
+      },
+      "visas": {
+        "title": "Coming to Spain",
+        "description": "Visas, procedures and formalities for people in Algeria planning to come to Spain"
       }
     },
     "resources": {
