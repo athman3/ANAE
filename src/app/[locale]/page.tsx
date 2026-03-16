@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description: t("description"),
         keywords: t("keywords"),
         path: "",
-        image: "/images/og/og-logo.png",
+        image: "/og",
         imageAlt: t("imageAlt"),
         type: "website",
     });
