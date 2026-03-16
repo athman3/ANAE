@@ -125,15 +125,14 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   ├── resources/page.tsx  # Resources Directory page (Server Component); builds search index across all 4 locales; generates JSON-LD ItemList (schema.org types per category: GovernmentOffice, LegalService, MedicalOrganization, etc.); passes ssrContent (all resources grouped by category as <section>/<article>) to DirectorySection for Google indexing; hash-based category sync via DirectorySection
     │       └── contribute/page.tsx # Contribute page (Server Component, 4 sections)
     ├── app/api/
-    │   ├── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, consent validation, nodemailer SMTP
-    │   └── github-stars/route.ts   # GET only; proxies GitHub API (stargazers_count); in-memory cache (1h TTL); protects user IPs
+    │   └── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, consent validation, nodemailer SMTP
     ├── components/
     │   ├── CookieBanner.tsx        # "use client"; RGPD cookie consent banner; localStorage persistence; Google Consent Mode v2 gtag update; accept/reject buttons
     │   ├── RTLProvider.tsx         # "use client"; useLayoutEffect to set html dir + lang on pathname change
     │   ├── theme-provider.tsx      # next-themes ThemeProvider wrapper (not currently wired into any layout)
     │   ├── Header/
     │   │   ├── Header.tsx          # Composes TopBar + Navigation; accepts is404 prop
-    │   │   ├── TopBar.tsx          # "use client"; fixed dark bar (z-80); hides on scroll; social links; FAQ link; GitHub stars (fetched via /api/github-stars proxy, cached in localStorage 1h)
+    │   │   ├── TopBar.tsx          # "use client"; fixed dark bar (z-80); hides on scroll; social links; FAQ link; LanguageFlags (4 flag buttons, active flag full opacity, inactive dimmed — clic direct change de langue sans dropdown)
     │   │   ├── Navigation.tsx      # "use client"; fixed nav (z-70); transparent on home hero, white on scroll; mobile hamburger; LanguageSelector; DonateButton
     │        │   └── AssociationDropdown.tsx # Radix DropdownMenu; links: /about, /about/gallery, /contribute
     │   ├── Hero/
@@ -644,13 +643,6 @@ export async function generateStaticParams() {
 - **Input sanitization**: `sanitizeHtml()` + `sanitizeEmailContent()` on all fields
 - **Consent validation**: `consent: true` required in request body (RGPD)
 - **Transport**: nodemailer via SMTP (see environment variables)
-
-### GitHub Stars Proxy (`/api/github-stars`)
-
-- **Method**: GET only
-- **Purpose**: Proxies `api.github.com/repos/ATHman3/ANAE` so user IPs never reach GitHub
-- **Caching**: In-memory cache with 1-hour TTL + `Cache-Control: s-maxage=3600`
-- **Fallback**: Returns cached value on error, or `{ stargazers_count: 0 }` if no cache
 
 ### Form Handling Pattern
 

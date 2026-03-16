@@ -1,18 +1,30 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { usePathname } from "next/navigation"
-import { Link } from "@/i18n/navigation"
-import { IconPhone, IconMail, IconMapPin, IconBrandGithubFilled, IconStarFilled } from "@tabler/icons-react"
+import { usePathname, useParams } from "next/navigation"
+import { Link, useRouter } from "@/i18n/navigation"
+import { IconPhone, IconMail, IconMapPin } from "@tabler/icons-react"
 import { useTranslations } from "next-intl"
 import { SOCIAL_LINKS } from "@/lib/constants/socialLinks"
+
+import arMessages from "../../../messages/ar.json"
+import esMessages from "../../../messages/es.json"
+import frMessages from "../../../messages/fr.json"
+import enMessages from "../../../messages/en.json"
+
+const languages = [
+  { code: 'ar', name: arMessages.language.name, flag: arMessages.language.flag },
+  { code: 'es', name: esMessages.language.name, flag: esMessages.language.flag },
+  { code: 'fr', name: frMessages.language.name, flag: frMessages.language.flag },
+  { code: 'en', name: enMessages.language.name, flag: enMessages.language.flag },
+]
 
 const SocialLinks = () => {
   const pathname = usePathname()
   const isRTL = pathname.startsWith('/ar')
-  
+
   const socialLinks = isRTL ? [...SOCIAL_LINKS].reverse() : SOCIAL_LINKS
-  
+
   return (
     <div className="flex items-center space-x-3 rtl:space-x-reverse">
       {socialLinks.map(({ href, icon: Icon, label, hoverColor }) => (
@@ -33,23 +45,9 @@ const SocialLinks = () => {
 
 const ContactInfo = ({ t }: { t: (key: string) => string }) => {
   const contactItems = [
-    {
-      icon: IconPhone,
-      text: "+34 674 748 699",
-      className: "hidden sm:flex",
-      dir: "ltr"
-    },
-    {
-      icon: IconMail,
-      text: "contacto@asociacionanae.org",
-      className: "hidden lg:flex",
-      dir: "ltr"
-    },
-    {
-      icon: IconMapPin,
-      text: `${t("city")}, ${t("country")}`,
-      className: "hidden md:flex"
-    }
+    { icon: IconPhone, text: "+34 674 748 699", className: "hidden sm:flex", dir: "ltr" },
+    { icon: IconMail, text: "contacto@asociacionanae.org", className: "hidden lg:flex", dir: "ltr" },
+    { icon: IconMapPin, text: `${t("city")}, ${t("country")}`, className: "hidden md:flex" },
   ]
 
   return (
@@ -64,91 +62,41 @@ const ContactInfo = ({ t }: { t: (key: string) => string }) => {
   )
 }
 
-const GitHubLink = () => {
+const LanguageFlags = () => {
   const pathname = usePathname()
-  const isRTL = pathname.startsWith('/ar')
-  const [stars, setStars] = useState<number | null>(null)
-  
-  useEffect(() => {
-    const cached = localStorage.getItem('github-stars')
-    if (cached) {
-      try {
-        const { value, timestamp } = JSON.parse(cached)
-        setStars(value)
-        
-        if (Date.now() - timestamp < 3600000) {
-          fetch('/api/github-stars')
-            .then(res => res.json())
-            .then(data => {
-              const count = data.stargazers_count
-              if (count !== value) {
-                setStars(count)
-              }
-              localStorage.setItem('github-stars', JSON.stringify({
-                value: count,
-                timestamp: Date.now()
-              }))
-            })
-            .catch(() => {})
-          return
-        }
-      } catch {
-        // Cache invalide, continuer avec fetch
-      }
-    }
-    
-    fetch('/api/github-stars')
-      .then(res => res.json())
-      .then(data => {
-        const count = data.stargazers_count
-        setStars(count)
-        localStorage.setItem('github-stars', JSON.stringify({
-          value: count,
-          timestamp: Date.now()
-        }))
-      })
-      .catch(() => {
-        setStars(prevStars => prevStars === null ? 0 : prevStars)
-      })
-  }, [])
-  
+  const params = useParams()
+  const router = useRouter()
+
+  let currentLocale = params.locale as string
+  if (!currentLocale) {
+    const segments = pathname.split('/')
+    const possible = segments[1]
+    currentLocale = languages.some(l => l.code === possible) ? possible : 'es'
+  }
+
+  const handleLanguageChange = (locale: string) => {
+    if (locale === currentLocale) return
+    const segments = pathname.split('/')
+    const pathWithoutLocale = segments.slice(2).join('/')
+    router.push(`/${pathWithoutLocale}`, { locale })
+  }
+
   return (
-    <Link
-      href="https://github.com/ATHman3/ANAE"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center space-x-2 rtl:space-x-reverse px-3 my-1"
-    >
-          {isRTL ? (
-        <>
-          {/* Stars section - first in RTL */}
-          <div className="flex items-center space-x-2 rtl:space-x-reverse">
-            
-            <span className="text-xs font-medium mt-0.5">{stars ?? ''}</span>
-            <IconStarFilled className="h-3 w-3 text-yellow-400" />
-          </div>
-          {/* GitHub section - second in RTL, icon always left of text */}
-          <div className="flex items-center space-x-2 rtl:space-x-reverse">
-            
-            <span className="text-xs font-medium mt-0.5">GitHub</span>
-            <IconBrandGithubFilled className="h-5 w-5" />
-          </div>
-        </>
-      ) : (
-        <>
-          {/* GitHub section - first in LTR, icon always left of text */}
-          <div className="flex items-center space-x-2">
-            <IconBrandGithubFilled className="h-5 w-5" />
-            <span className="text-xs font-medium mt-0.5">GitHub</span>
-          </div>
-          {/* Stars section - second in LTR */}
-          <div className="flex items-center space-x-2 rtl:space-x-reverse">
-            <IconStarFilled className="h-3 w-3 text-yellow-400" />
-            <span className="text-xs font-medium mt-0.5">{stars ?? ''}</span>
-          </div>
-        </>
-      )}
-    </Link>
+    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+      {languages.map(({ code, flag, name }) => (
+        <button
+          key={code}
+          onClick={() => handleLanguageChange(code)}
+          aria-label={name}
+          title={name}
+          className={`text-base leading-none transition-all duration-200 cursor-pointer hover:scale-110 ${
+            currentLocale === code ? 'scale-110' : ''
+          }`}
+        >
+          {flag}
+        </button>
+      ))}
+    </div>
   )
 }
 
@@ -171,7 +119,7 @@ export default function TopBar() {
   }, [scrolled])
 
   return (
-    <div id="topbar" className={`bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-slate-100 py-1 px-6 text-sm fixed top-0 left-0 right-0 z-[80] transition-all duration-300 ${
+    <div id="topbar" className={`bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-slate-100 py-1.5 px-6 text-sm fixed top-0 left-0 right-0 z-[80] transition-all duration-300 ${
       scrolled ? "transform -translate-y-full opacity-0" : "transform translate-y-0 opacity-100"
     }`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -186,7 +134,7 @@ export default function TopBar() {
             FAQ
           </Link>
           <span className="hidden sm:inline">|</span>
-          <GitHubLink />
+          <LanguageFlags />
         </div>
       </div>
     </div>
