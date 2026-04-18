@@ -148,12 +148,12 @@ export default function Footer() {
                             <span>
                                 {t("developedBy")}{" "}
                                 <a 
-                                    href="https://github.com/ATHman3" 
+                                    href="https://athman3.com"
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="text-green-500 hover:text-green-400 transition-colors"
                                 >
-                                    ATHman3
+                                    Athman3
                                 </a>
                             </span>
                         </div>
