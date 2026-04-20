@@ -10,8 +10,8 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
-    // Classes pour les icônes de réseaux sociaux dans TopBar
     'hover:text-blue-500',
+    'hover:text-blue-600',
     'hover:text-red-400',
     'hover:text-pink-500',
     'hover:text-emerald-400',

@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { useTranslations } from 'next-intl';
-import { MapPin, Phone, Mail, ExternalLink, BookOpen, Clock, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, ExternalLink, BookOpen, Clock, Facebook, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
@@ -88,6 +88,15 @@ function ResourceCard({ resource, existingBlogSlugs = [] }: ResourceCardProps) {
               <Facebook className="h-4 w-4 shrink-0" />
               <a href={resource.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline line-clamp-1">
                 Facebook
+              </a>
+            </div>
+          )}
+
+          {resource.linkedin && (
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Linkedin className="h-4 w-4 shrink-0" />
+              <a href={resource.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline line-clamp-1">
+                LinkedIn
               </a>
             </div>
           )}

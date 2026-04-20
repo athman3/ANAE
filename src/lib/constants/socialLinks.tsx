@@ -5,6 +5,7 @@ import {
   IconBrandInstagram,
   IconBrandWhatsapp,
   IconBrandTiktok,
+  IconBrandLinkedin,
 } from "@tabler/icons-react";
 
 export interface SocialLink {
@@ -38,6 +39,12 @@ export const SOCIAL_LINKS: SocialLink[] = [
     icon: IconBrandTiktok,
     hoverColor: "hover:text-[#69C9D0]",
     label: "TikTok"
+  },
+  {
+    href: "https://www.linkedin.com/company/anae-asociacion/",
+    icon: IconBrandLinkedin,
+    hoverColor: "hover:text-blue-600",
+    label: "LinkedIn"
   },
   {
     href: "https://wa.me/34674748699",

@@ -11,6 +11,7 @@ export interface DirectoryResource {
   city?: string;
   blogSlug?: string;
   facebook?: string;
+  linkedin?: string;
 }
 
 export interface DirectoryCategory {
@@ -97,6 +98,7 @@ export const RESOURCES: DirectoryResource[] = [
     email: 'contacto@asociacionanae.org',
     phone: '+34 674 748 699',
     facebook: 'https://www.facebook.com/profile.php?id=100069908903496',
+    linkedin: 'https://www.linkedin.com/company/anae-asociacion/',
   },
 
 ];
