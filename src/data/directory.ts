@@ -89,6 +89,14 @@ export const RESOURCES: DirectoryResource[] = [
     url: 'https://www.hellotalk.com',
   },
 
+  // ── Banking ───────────────────────────────────────────────────────────────
+  {
+    id: 'bizum-guide',
+    categoryId: 'banking',
+    type: 'article',
+    blogSlug: 'bizum-guide',
+  },
+
   // ── Associations algériennes en Espagne ───────────────────────────────────
   {
     id: 'anae',

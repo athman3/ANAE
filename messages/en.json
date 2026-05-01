@@ -826,6 +826,10 @@
       "hellotalk": {
         "name": "HelloTalk",
         "description": "Free app to practice Spanish with native speakers via messages, voice notes and video calls. Great for improving conversational skills."
+      },
+      "bizum-guide": {
+        "name": "Bizum: The Complete Guide",
+        "description": "The most widely used payment system among young people in Spain. Send and receive money in seconds directly from your banking app."
       }
     },
     "noResults": "No resources found with the selected filters.",

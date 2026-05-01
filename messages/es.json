@@ -826,6 +826,10 @@
       "hellotalk": {
         "name": "HelloTalk",
         "description": "App gratuita para practicar español con hablantes nativos mediante mensajes, notas de voz y videollamadas. Ideal para mejorar la expresión oral."
+      },
+      "bizum-guide": {
+        "name": "Bizum: La Guía Completa",
+        "description": "El sistema de pago más utilizado entre los jóvenes en España. Envía y recibe dinero en segundos directamente desde tu app bancaria."
       }
     },
     "noResults": "No se encontraron recursos con los filtros seleccionados.",
