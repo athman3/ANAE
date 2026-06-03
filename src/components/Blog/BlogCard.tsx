@@ -44,7 +44,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
           {/* Title */}
           <CardTitle className="text-xl line-clamp-2">
             <Link 
-              href={`/blog/${post.slug}`}
+              href={`/article/${post.slug}`}
               className="hover:text-primary transition-colors"
             >
               {post.title}
@@ -84,7 +84,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
           {/* Read More Link */}
           <div className="mt-2">
             <Link 
-              href={`/blog/${post.slug}`}
+              href={`/article/${post.slug}`}
               className={cn(
                 'inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline',
                 isRTL && 'flex-row-reverse'

@@ -23,7 +23,7 @@ interface NavigationProps {
 
 export default function Navigation({ is404 = false }: NavigationProps) {
   const navigationLinks = ['home'];
-  const navigationLinksAfter = ['contact', 'blog'];
+  const navigationLinksAfter = ['contact', 'resources'];
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -151,15 +151,8 @@ export default function Navigation({ is404 = false }: NavigationProps) {
             >
               {t('association.contribute')}
             </Link>
-            <Link
-              href="/resources"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block text-base font-medium px-3 py-2 rounded-md transition-all duration-300 hover:scale-[1.02] sm:text-lg sm:px-4 sm:py-3 ${getMobileMenuItemClasses(styleOptions)}`}
-            >
-              {t('association.resources')}
-            </Link>
 
-            {/* Contact & Blog */}
+            {/* Contact & Resources */}
             {navigationLinksAfter.map((link) => (
               <Link
                 key={link}

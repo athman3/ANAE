@@ -18,12 +18,6 @@
       "keywords": "contact anae, anae email, anae phone, contact algerian association, zaragoza, contact form",
       "imageAlt": "Contact ANAE"
     },
-    "blog": {
-      "title": "ANAE - Blog, News and Events from the Algerian Community",
-      "description": "Stay informed with the latest news, cultural events and stories from the Algerian community in Spain. Read articles from the official ANAE association blog.",
-      "keywords": "anae blog, algerian community news, cultural events, anae news, algerian community spain articles",
-      "imageAlt": "ANAE Blog and News"
-    },
     "faq": {
       "title": "ANAE - Frequently Asked Questions About the Association",
       "description": "Find answers to the most common questions about ANAE: donations, volunteering, our community actions and how you can get involved with our association.",
@@ -75,11 +69,10 @@
       "title": "The Association",
       "about": "About",
       "gallery": "Gallery",
-      "contribute": "Contribute",
-      "resources": "Resources"
+      "contribute": "Contribute"
     },
     "contact": "Contact",
-    "blog": "Blog",
+    "resources": "Resources",
     "donate": "Donate",
     "contribute": "More information"
   },

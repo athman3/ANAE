@@ -113,8 +113,7 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │       ├── about/
      │       │   ├── page.tsx        # About page (Server Component, HeroSection + MissionSection + ValuesSection + JoinSection)
     │       │   └── gallery/page.tsx # Gallery - "Coming Soon" page
-    │       ├── blog/
-    │       │   ├── page.tsx        # Blog list (Server Component, getAllPosts, BlogCard grid)
+    │       ├── article/
     │       │   └── [slug]/page.tsx # Blog post (MDXRemote, generateStaticParams, ReadingProgressBar, Article JSON-LD)
     │       ├── contact/page.tsx    # Contact page (Server Component, ContactSection, ContactPage JSON-LD)
     │       ├── cookies/
@@ -374,7 +373,7 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | Namespace | Contents |
 |---|---|
 | `language` | `name`, `flag` emoji |
-| `nav` | `home`, `association.{title,about,gallery,contribute}`, `contact`, `blog`, `donate`, `contribute` |
+| `nav` | `home`, `association.{title,about,gallery,contribute}`, `contact`, `resources`, `donate`, `contribute` |
 | `hero` | `badge`, `headline`, `subheadline`, `primaryCta`, `secondaryCta`, `summaryCta`, `scrollHint`, `stats.{years,initiatives,volunteers}` |
 | `location` | `city`, `country` |
 | `footer` | `description`, `quickLinks`, `contact`, `legal`, `copyright`, `registration`, `taxId`, `developedBy` |
@@ -394,7 +393,6 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `seo.home` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.about` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.contact` | `title`, `description`, `keywords`, `imageAlt` |
-| `seo.blog` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.faq` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.privacy` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.cookies` | `title`, `description`, `keywords`, `imageAlt` |
@@ -453,7 +451,7 @@ return generateSEOMetadata({
   locale: locale as Locale,
   title: post.title,
   description: post.description,
-  path: `/blog/${slug}`,
+  path: `/article/${slug}`,
   image: post.image,
   imageAlt: post.title,
   type: 'article',
@@ -843,7 +841,7 @@ When adding any feature that collects, processes, or stores user data:
 2. **SEO Mandatory**: Every new page MUST have complete metadata + SEO translations in 4 languages
 3. **Title Convention**: Every page title MUST follow `ANAE - {Page Name}` format in all 4 locales — never `Page - ANAE`, never with pipes
 4. **i18n Navigation**: Always use `Link`, `useRouter`, `redirect` from `@/i18n/navigation`
-5. **Routes in English**: All route paths (URL segments) MUST be in English regardless of locale — e.g., `/contribute`, `/about`, `/blog`, `/contact`. Never translate URL slugs into other languages
+5. **Routes in English**: All route paths (URL segments) MUST be in English regardless of locale — e.g., `/contribute`, `/about`, `/article`, `/contact`. Never translate URL slugs into other languages
 6. **No Startup/Tech Design**: Avoid startup-like or tech-style aesthetics
 7. **Consistent RTL Spacing**: Use `rtl:space-x-reverse` for all horizontal spacing
 8. **Translation Cleanup**: Delete unused translation keys from all 4 locale files when removing code

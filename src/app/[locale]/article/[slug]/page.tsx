@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: PageProps) {
     title: `ANAE - ${post.title}`,
     description: post.description,
     keywords: post.tags ? post.tags.join(', ') : undefined,
-    path: `/blog/${encodeURIComponent(slug)}`,
+    path: `/article/${encodeURIComponent(slug)}`,
     image: post.image || '/og',
     imageAlt: post.title,
     type: 'article',
@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     publishedTime: post.date,
     modifiedTime: post.updatedAt,
     image: post.image,
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org'}/${locale}/blog/${slug}`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org'}/${locale}/article/${slug}`,
   });
 
   return (

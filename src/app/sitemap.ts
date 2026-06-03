@@ -8,16 +8,15 @@ import path from 'path';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://asociacionanae.org';
 
 const STATIC_PAGE_CONFIG: Record<string, { changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number; lastModified: string }> = {
-  '':               { changeFrequency: 'daily',   priority: 1.0, lastModified: '2025-01-01' },
-  '/blog':          { changeFrequency: 'daily',   priority: 0.9, lastModified: '2025-01-01' },
-  '/resources':     { changeFrequency: 'daily',   priority: 0.9, lastModified: '2025-01-01' },
-  '/about':         { changeFrequency: 'monthly', priority: 0.7, lastModified: '2025-01-01' },
-  '/contact':       { changeFrequency: 'monthly', priority: 0.7, lastModified: '2025-01-01' },
-  '/faq':           { changeFrequency: 'monthly', priority: 0.7, lastModified: '2025-01-01' },
-  '/contribute':    { changeFrequency: 'monthly', priority: 0.7, lastModified: '2025-01-01' },
-  '/about/gallery': { changeFrequency: 'yearly',  priority: 0.4, lastModified: '2025-01-01' },
-  '/privacy':       { changeFrequency: 'yearly',  priority: 0.3, lastModified: '2025-01-01' },
-  '/cookies':       { changeFrequency: 'yearly',  priority: 0.3, lastModified: '2025-01-01' },
+  '':               { changeFrequency: 'daily',   priority: 1.0, lastModified: '2026-06-03' },
+  '/resources':     { changeFrequency: 'daily',   priority: 0.9, lastModified: '2026-06-03' },
+  '/about':         { changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-06-03' },
+  '/contact':       { changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-06-03' },
+  '/faq':           { changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-06-03' },
+  '/contribute':    { changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-06-03' },
+  '/about/gallery': { changeFrequency: 'yearly',  priority: 0.4, lastModified: '2026-06-03' },
+  '/privacy':       { changeFrequency: 'yearly',  priority: 0.3, lastModified: '2026-06-03' },
+  '/cookies':       { changeFrequency: 'yearly',  priority: 0.3, lastModified: '2026-06-03' },
 };
 
 function findPages(dir: string, basePath: string = ''): string[] {
@@ -66,7 +65,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   for (const route of staticRoutes) {
     const languages = await buildAlternates(route);
-    const config = STATIC_PAGE_CONFIG[route] ?? { changeFrequency: 'monthly' as const, priority: 0.6, lastModified: '2025-01-01' };
+    const config = STATIC_PAGE_CONFIG[route] ?? { changeFrequency: 'monthly' as const, priority: 0.6, lastModified: '2026-06-03' };
 
     for (const locale of locales) {
       const pathname = await getPathname({ locale, href: route || '/' });
@@ -85,7 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const slugs = allPosts.map((p) => p.slug);
 
   for (const slug of slugs) {
-    const blogRoute = `/blog/${slug}`;
+    const blogRoute = `/article/${slug}`;
 
     const blogLanguages: Record<string, string> = {};
     for (const locale of locales) {

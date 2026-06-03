@@ -18,11 +18,11 @@
       "keywords": "contacto anae, email anae, teléfono anae, contactar asociación argelina, zaragoza, formulario contacto",
       "imageAlt": "Contacta con ANAE"
     },
-    "blog": {
-      "title": "ANAE - Blog, Noticias y Eventos de la Comunidad Argelina",
-      "description": "Mantente informado con las últimas noticias, eventos culturales e historias de la comunidad argelina en España. Lee el blog oficial de la asociación ANAE.",
-      "keywords": "blog anae, noticias comunidad argelina, eventos culturales, noticias anae, artículos comunidad argelina españa",
-      "imageAlt": "Blog y Noticias ANAE"
+    "resources": {
+      "title": "ANAE - Directorio de Recursos para Argelinos en España",
+      "description": "Directorio de recursos útiles para la comunidad argelina en España: consulados, extranjería, salud, educación, transporte y asociaciones.",
+      "keywords": "recursos argelinos españa, consulado argelia, embajada argelia madrid, trámites extranjería, ayuda legal argelinos",
+      "imageAlt": "Recursos de ANAE"
     },
     "faq": {
       "title": "ANAE - Preguntas Frecuentes sobre la Asociación",
@@ -57,12 +57,6 @@
     "notFound": {
       "title": "ANAE - Página No Encontrada",
       "description": "La página que buscas no existe o ha sido movida. Vuelve a la página principal de ANAE para encontrar lo que necesitas."
-    },
-    "resources": {
-      "title": "ANAE - Directorio de Recursos para Argelinos en España",
-      "description": "Directorio de recursos útiles para la comunidad argelina en España: consulados, extranjería, salud, educación, transporte y asociaciones.",
-      "keywords": "recursos argelinos españa, consulado argelia, embajada argelia madrid, trámites extranjería, ayuda legal argelinos",
-      "imageAlt": "Recursos de ANAE"
     }
   },
   "language": {
@@ -75,11 +69,10 @@
       "title": "La Asociación",
       "about": "Acerca de",
       "gallery": "Galería",
-      "contribute": "Contribuir",
-      "resources": "Recursos"
+      "contribute": "Contribuir"
     },
     "contact": "Contacto",
-    "blog": "Blog",
+    "resources": "Recursos",
     "donate": "Donar",
     "contribute": "Más información"
   },

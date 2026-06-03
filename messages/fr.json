@@ -18,12 +18,6 @@
       "keywords": "contact anae, email anae, téléphone anae, contacter association algérienne, saragosse, formulaire contact",
       "imageAlt": "Contactez ANAE"
     },
-    "blog": {
-      "title": "ANAE - Blog, Actualités et Événements Communautaires",
-      "description": "Restez informé avec les dernières nouvelles, événements culturels et histoires de la communauté algérienne en Espagne. Lisez le blog officiel de l'association ANAE.",
-      "keywords": "blog anae, actualités communauté algérienne, événements culturels, nouvelles anae, articles communauté algérienne espagne",
-      "imageAlt": "Blog et Actualités ANAE"
-    },
     "faq": {
       "title": "ANAE - Questions Fréquentes sur l'Association",
       "description": "Trouvez des réponses aux questions les plus courantes sur ANAE : dons, bénévolat, nos actions communautaires et comment participer à notre association.",
@@ -75,11 +69,10 @@
       "title": "L'Association",
       "about": "À propos",
       "gallery": "Galerie",
-      "contribute": "Contribuer",
-      "resources": "Ressources"
+      "contribute": "Contribuer"
     },
     "contact": "Contact",
-    "blog": "Blog",
+    "resources": "Ressources",
     "donate": "Faire un don",
     "contribute": "Plus d'informations"
   },

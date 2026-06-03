@@ -106,7 +106,7 @@ function ResourceCard({ resource, existingBlogSlugs = [] }: ResourceCardProps) {
           <div className="mt-auto pt-4">
             {blogArticleExists ? (
               <Button asChild className="w-full justify-center">
-                <Link href={`/blog/${resource.blogSlug}`}>
+                <Link href={`/article/${resource.blogSlug}`}>
                   <BookOpen className="h-4 w-4 mr-1.5 rtl:ml-1.5 rtl:mr-0" />
                   <span>{t('readGuide')}</span>
                 </Link>
