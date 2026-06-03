@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PrivacyPageProps): Promise<Me
   });
 }
 
-export default async function PrivacyPage({ params: _params }: PrivacyPageProps) {
+export default async function PrivacyPage() {
   const t = await getTranslations('privacy');
 
   return (

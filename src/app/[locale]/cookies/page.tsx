@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: CookiesPageProps): Promise<Me
   });
 }
 
-export default async function CookiesPage({ params: _params }: CookiesPageProps) {
+export default async function CookiesPage() {
   const t = await getTranslations('cookies');
 
   return (
