@@ -1,6 +1,6 @@
 ---
 name: blog-article-creation
-description: Guides the creation of a new multilingual blog article for the ANAE website. Use when the user wants to write a new blog post, create an article, or add content to the blog. Follows a strict step-by-step validation workflow: titles → optional table of contents → section by section → MDX file assembly. Never skip a validation step. Never do web research unless explicitly asked by the user.
+description: Guides the creation of a new multilingual blog article for the ANAE website. Use when the user wants to write a new blog post, create an article, or add content to the blog. Follows a strict step-by-step validation workflow: titles → intro paragraph → optional table of contents → section by section → MDX file assembly → resource card → image prompt. Never skip a validation step. Never do web research unless explicitly asked by the user.
 ---
 
 # Blog Article Creation — ANAE
@@ -185,6 +185,75 @@ After creating the MDX files, add the article as a resource card in the `/resour
 - `description` must match exactly the validated article description (150–160 chars) for that locale.
 - `categoryId` must match one of the existing categories in `CATEGORIES` array in `directory.ts`: `consulates`, `immigration`, `language-learning`, `employment`, `housing`, `legal-aid`, `health`, `education`, `transport`, `associations`, `made-by-algerians`, `banking`, `visas`.
 
+### Step 7 — Image Prompt
+
+After all MDX files are created and the resource card is added, generate an **image prompt** for the article's illustration.
+
+The target tool is **Imagen 3** (Google — formerly "Nano Banana 2"), available via Google AI Studio or Gemini. No special flags or parameters — the ratio (16:9 recommended for blog images) is set in the interface, not in the prompt.
+
+#### Step 7a — Suggest and ask for reference photos
+
+**Before generating the prompt, proactively suggest what reference photos would help**, based on the article subject. Then ask the user to share them.
+
+For example:
+- Article about a health card → suggest: *"A photo of the tarjeta sanitaria (the physical card) would help reproduce it accurately in the illustration."*
+- Article about the NIE → suggest: *"A photo of the NIE document (the green A4 certificate) would help."*
+- Article about the Algerian consulate → suggest: *"A photo of the consulate building facade would help set the scene."*
+- Article about Bizum → suggest: *"A screenshot of the Bizum app or the Bizum logo would help."*
+
+**Always suggest at least 2–3 concrete photo ideas** relevant to the article, then ask:
+
+> "Do you have any of these photos (or others) to share? If yes, please share them now — it will help make the prompt more accurate."
+
+**Wait for the user's response:**
+- If the user shares photos: **analyse them carefully** to extract precise visual details (colors, shape, format, distinctive graphic elements, typography style, material texture). Incorporate these details into the prompt as specific descriptors.
+- If the user has no reference photos: proceed with generic visual elements based on the article subject.
+
+**Example:** If the article is about the Algerian passport and the user shares a photo of it — extract: "burgundy/dark red cover, gold embossed Algerian coat of arms (crescent and star), booklet format" and integrate into the prompt: *"holding a dark red Algerian passport with gold embossed crescent and star on the cover"*.
+
+#### Step 7b — Generate the prompt
+
+**Prompt formula:**
+
+```
+[Subject] + [Action/moment] + [Location/context] + [Composition detail] + [Style]
+```
+
+**Fixed style elements** to always include at the end of every prompt:
+
+```
+realistic photography, warm natural light, soft focus background, human moment, no text, no logos, documentary style
+```
+
+**Rules:**
+- The scene must be **human and concrete**: show a real person doing something related to the article subject (e.g. receiving a document, speaking at a counter, filling a form).
+- The context must be **administrative, institutional, or everyday life** — not abstract, not symbolic.
+- Avoid tech/startup aesthetics, floating icons, infographic-style compositions.
+- Always include an **Algerian cultural touch** in the scene: the person should be of North African appearance AND carry a recognisable Algerian visual element (e.g. hijab, traditional clothing, henna, an Algerian passport, a djellaba, a haik, or other culturally identifiable detail). The goal is that a viewer can intuitively feel the Algerian connection without relying on text.
+- Never describe text, labels, or signs in the scene.
+- If reference photos were provided, integrate the specific visual details extracted from them.
+
+**Always propose 3 different prompt approaches**, each with a distinct visual angle, so the user can choose the one that best fits. Label each approach clearly (e.g. **Option 1**, **Option 2**, **Option 3**) and ask the user to pick one before finalising.
+
+**Output format:**
+
+Present each option as a ready-to-copy block, then suggest the image path for the frontmatter:
+
+```
+**Option 1:**
+{prompt}
+
+**Option 2:**
+{prompt}
+
+**Option 3:**
+{prompt}
+
+**Suggested image path:** `/images/blog/{slug}.jpg`
+```
+
+**Wait for the user to choose an option** before considering Step 7 complete.
+
 ---
 
 ## Summary Table
@@ -204,3 +273,5 @@ After creating the MDX files, add the article as a resource card in the `/resour
 | 4 | Gather frontmatter + descriptions | ✅ Validate |
 | 5 | Assemble 4 MDX files | ✅ Final check |
 | 6 | Add resource card to /resources directory | — (automatic) |
+| 7a | Ask user for reference photos | ✅ Wait for response |
+| 7b | Propose 3 prompt approaches | ✅ User chooses one |
