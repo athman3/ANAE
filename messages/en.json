@@ -823,6 +823,10 @@
       "bizum-guide": {
         "name": "Bizum: The Complete Guide",
         "description": "The most widely used payment system among young people in Spain. Send and receive money in seconds directly from your banking app."
+      },
+      "health-card-spain": {
+        "name": "The health card in Spain: your access to free healthcare",
+        "description": "Complete guide to getting a health card in Spain (tarjeta sanitaria): who is eligible, required documents, how to apply, timelines and European health card."
       }
     },
     "noResults": "No resources found with the selected filters.",

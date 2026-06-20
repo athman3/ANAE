@@ -822,7 +822,11 @@
       },
       "bizum-guide": {
         "name": "Bizum : Le Guide Complet",
-        "description": "Le système de paiement le plus utilisé par les jeunes en Espagne. Envoyez et recevez de l’argent en quelques secondes depuis votre app bancaire."
+        "description": "Le système de paiement le plus utilisé par les jeunes en Espagne. Envoyez et recevez de l'argent en quelques secondes depuis votre app bancaire."
+      },
+      "health-card-spain": {
+        "name": "La tarjeta sanitaria : votre accès aux soins gratuits en Espagne",
+        "description": "Guide complet pour obtenir la carte de santé en Espagne (tarjeta sanitaria) : qui y a droit, documents nécessaires, démarches, délais et carte européenne."
       }
     },
     "noResults": "Aucune ressource trouvée avec les filtres sélectionnés.",

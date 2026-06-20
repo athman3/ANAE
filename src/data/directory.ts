@@ -89,6 +89,14 @@ export const RESOURCES: DirectoryResource[] = [
     url: 'https://www.hellotalk.com',
   },
 
+  // ── Health ────────────────────────────────────────────────────────────────
+  {
+    id: 'health-card-spain',
+    categoryId: 'health',
+    type: 'article',
+    blogSlug: 'health-card-spain',
+  },
+
   // ── Banking ───────────────────────────────────────────────────────────────
   {
     id: 'bizum-guide',
