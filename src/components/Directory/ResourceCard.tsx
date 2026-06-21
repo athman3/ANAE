@@ -1,6 +1,7 @@
 "use client";
 
 import { memo } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { MapPin, Phone, Mail, ExternalLink, BookOpen, Clock, Facebook, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -19,15 +20,31 @@ function ResourceCard({ resource, existingBlogSlugs = [] }: ResourceCardProps) {
   const isBlogGuide = !!resource.blogSlug;
   const blogArticleExists = isBlogGuide && existingBlogSlugs.includes(resource.blogSlug!);
 
+  const coverImage = blogArticleExists && resource.blogSlug
+    ? `/images/blog/${resource.blogSlug}/cover.webp`
+    : null;
+
   return (
     <div className={cn(
-      "group relative flex flex-col p-6 rounded-lg border border-border bg-card overflow-hidden",
+      "group relative flex flex-col rounded-lg border border-border bg-card overflow-hidden",
       "shadow-sm hover:shadow-md hover:border-border/60 transition-all duration-300",
       "text-left rtl:text-right h-full"
     )}>
+      {coverImage && (
+        <Link href={`/article/${resource.blogSlug}`} className="group/cover relative w-full h-44 shrink-0 block overflow-hidden">
+          <Image
+            src={coverImage}
+            alt={t(`resources.${resource.id}.name`)}
+            fill
+            className="object-cover transition-transform duration-300 group-hover/cover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </Link>
+      )}
+
       <div className="absolute top-0 right-0 rtl:left-0 rtl:right-auto -mt-6 -mr-6 rtl:-ml-6 w-32 h-32 bg-primary/5 rounded-full blur-3xl transition-opacity duration-300 group-hover:opacity-80" />
 
-      <div className="relative z-10 flex flex-col h-full">
+      <div className="relative z-10 flex flex-col h-full p-6">
         <div className="mb-4">
           <div className="flex items-start justify-between gap-3 mb-2">
             <h3 className="text-xl font-bold text-foreground line-clamp-2">
