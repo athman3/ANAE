@@ -22,7 +22,7 @@ function ResourceCard({ resource, existingBlogSlugs = [] }: ResourceCardProps) {
 
   const coverImage = blogArticleExists && resource.blogSlug
     ? `/images/blog/${resource.blogSlug}/cover.webp`
-    : null;
+    : (resource.image ?? null);
 
   return (
     <div className={cn(
@@ -31,15 +31,27 @@ function ResourceCard({ resource, existingBlogSlugs = [] }: ResourceCardProps) {
       "text-left rtl:text-right h-full"
     )}>
       {coverImage && (
-        <Link href={`/article/${resource.blogSlug}`} className="group/cover relative w-full h-44 shrink-0 block overflow-hidden">
-          <Image
-            src={coverImage}
-            alt={t(`resources.${resource.id}.name`)}
-            fill
-            className="object-cover transition-transform duration-300 group-hover/cover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </Link>
+        blogArticleExists && resource.blogSlug ? (
+          <Link href={`/article/${resource.blogSlug}`} className="group/cover relative w-full h-44 shrink-0 block overflow-hidden">
+            <Image
+              src={coverImage}
+              alt={t(`resources.${resource.id}.name`)}
+              fill
+              className="object-cover transition-transform duration-300 group-hover/cover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </Link>
+        ) : (
+          <a href={resource.url} target="_blank" rel="noopener noreferrer" className="group/cover relative w-full h-44 shrink-0 block overflow-hidden">
+            <Image
+              src={coverImage}
+              alt={t(`resources.${resource.id}.name`)}
+              fill
+              className="object-cover transition-transform duration-300 group-hover/cover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </a>
+        )
       )}
 
       <div className="absolute top-0 right-0 rtl:left-0 rtl:right-auto -mt-6 -mr-6 rtl:-ml-6 w-32 h-32 bg-primary/5 rounded-full blur-3xl transition-opacity duration-300 group-hover:opacity-80" />

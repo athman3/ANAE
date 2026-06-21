@@ -12,6 +12,7 @@ export interface DirectoryResource {
   blogSlug?: string;
   facebook?: string;
   linkedin?: string;
+  image?: string;
 }
 
 export interface DirectoryCategory {
@@ -81,12 +82,14 @@ export const RESOURCES: DirectoryResource[] = [
     categoryId: 'language-learning',
     type: 'app',
     url: 'https://www.duolingo.com',
+    image: '/images/resources/duolingo.webp',
   },
   {
     id: 'hellotalk',
     categoryId: 'language-learning',
     type: 'app',
     url: 'https://www.hellotalk.com',
+    image: '/images/resources/hellotalk.webp',
   },
 
   // ── Health ────────────────────────────────────────────────────────────────
