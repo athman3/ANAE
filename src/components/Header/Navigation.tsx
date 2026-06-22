@@ -57,7 +57,7 @@ export default function Navigation({ is404 = false }: NavigationProps) {
 
   return (
     <nav 
-      className={`left-0 right-0 transition-all duration-300 z-[70] fixed ${getNavBackgroundClasses(styleOptions)}`}
+      className={`left-0 right-0 transition-all duration-300 z-[70] fixed ${scrolled || is404 ? 'top-0' : 'top-8'} ${getNavBackgroundClasses(styleOptions)}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 sm:px-5 sm:py-4">
         <div className="flex items-center justify-center">
