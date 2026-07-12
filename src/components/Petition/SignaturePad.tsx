@@ -41,21 +41,24 @@ const SignaturePad = forwardRef<SignaturePadHandle, SignaturePadProps>(
       const wrapper = wrapperRef.current;
       if (!canvas || !wrapper) return;
 
-      const cssWidth = wrapper.clientWidth;
-      if (cssWidth === 0) return; // layout not ready yet, skip
+      // Use the wrapper's rendered width, not the canvas's — the canvas may have a
+      // stale style.width that clamps getBoundingClientRect and causes a feedback loop.
+      const cssWidth = wrapper.getBoundingClientRect().width;
+      if (cssWidth === 0) return;
 
       const dpr = window.devicePixelRatio || 1;
       const cssHeight = Math.round(cssWidth / CANVAS_ASPECT_RATIO);
 
-      // Only resize if dimensions actually changed to avoid unnecessary clears
-      const newPhysicalWidth = cssWidth * dpr;
-      const newPhysicalHeight = cssHeight * dpr;
+      const newPhysicalWidth = Math.round(cssWidth * dpr);
+      const newPhysicalHeight = Math.round(cssHeight * dpr);
       if (canvas.width === newPhysicalWidth && canvas.height === newPhysicalHeight) return;
 
+      // Update only the internal pixel buffer — do NOT set style.width/height.
+      // CSS `w-full` on the canvas element handles displayed size responsively.
+      // Setting style.width to a fixed px value would override w-full and break
+      // responsive behaviour when resizing from desktop to mobile.
       canvas.width = newPhysicalWidth;
       canvas.height = newPhysicalHeight;
-      canvas.style.width = `${cssWidth}px`;
-      canvas.style.height = `${cssHeight}px`;
 
       hasStrokes.current = false;
     }, []);
