@@ -1,8 +1,3 @@
-/**
- * Simple in-memory rate limiter based on IP address
- * Limits requests per IP to prevent spam and abuse
- */
-
 interface RateLimitEntry {
   count: number;
   resetTime: number;
@@ -10,37 +5,31 @@ interface RateLimitEntry {
 
 const rateLimitStore = new Map<string, RateLimitEntry>();
 
-// Configuration
 const RATE_LIMIT_MAX_REQUESTS = 5;
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 
-/**
- * Clean up expired entries periodically
- */
 setInterval(() => {
   const now = Date.now();
-  for (const [ip, entry] of rateLimitStore.entries()) {
+  for (const [key, entry] of rateLimitStore.entries()) {
     if (entry.resetTime < now) {
-      rateLimitStore.delete(ip);
+      rateLimitStore.delete(key);
     }
   }
-}, 5 * 60 * 1000); // Clean up every 5 minutes
+}, 5 * 60 * 1000);
 
-/**
- * Check if an IP address has exceeded the rate limit
- * @param ip - IP address to check
- * @returns Object with allowed status and remaining time
- */
-export function checkRateLimit(ip: string): {
+export function checkRateLimit(
+  ip: string,
+  namespace?: string
+): {
   allowed: boolean;
   remainingTime?: number;
 } {
   const now = Date.now();
-  const entry = rateLimitStore.get(ip);
+  const key = namespace ? `${namespace}:${ip}` : ip;
+  const entry = rateLimitStore.get(key);
 
   if (!entry) {
-    // First request from this IP
-    rateLimitStore.set(ip, {
+    rateLimitStore.set(key, {
       count: 1,
       resetTime: now + RATE_LIMIT_WINDOW_MS,
     });
@@ -48,8 +37,7 @@ export function checkRateLimit(ip: string): {
   }
 
   if (entry.resetTime < now) {
-    // Window expired, reset
-    rateLimitStore.set(ip, {
+    rateLimitStore.set(key, {
       count: 1,
       resetTime: now + RATE_LIMIT_WINDOW_MS,
     });
@@ -57,24 +45,17 @@ export function checkRateLimit(ip: string): {
   }
 
   if (entry.count >= RATE_LIMIT_MAX_REQUESTS) {
-    // Rate limit exceeded
     return {
       allowed: false,
-      remainingTime: Math.ceil((entry.resetTime - now) / 1000), // seconds
+      remainingTime: Math.ceil((entry.resetTime - now) / 1000),
     };
   }
 
-  // Increment count
   entry.count += 1;
   return { allowed: true };
 }
 
-/**
- * Get client IP address from request
- * Handles Next.js request headers for IP detection
- */
 export function getClientIP(request: Request): string {
-  // Try to get IP from various headers (handles proxies, load balancers, etc.)
   const forwarded = request.headers.get('x-forwarded-for');
   if (forwarded) {
     const ips = forwarded.split(',');
@@ -88,4 +69,3 @@ export function getClientIP(request: Request): string {
 
   return 'unknown';
 }
-

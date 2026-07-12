@@ -57,6 +57,12 @@
     "notFound": {
       "title": "ANAE - Página No Encontrada",
       "description": "La página que buscas no existe o ha sido movida. Vuelve a la página principal de ANAE para encontrar lo que necesitas."
+    },
+    "petition": {
+      "title": "ANAE - Petición Línea Zaragoza-Argelia",
+      "description": "Firma la petición de ANAE para una línea aérea directa entre Zaragoza y Argelia. Apoya a los 10.000 argelinos en Aragón.",
+      "keywords": "petición, línea aérea, Zaragoza, Argelia, Argel, Orán, vuelo directo, ANAE, Aragón",
+      "imageAlt": "Petición ANAE: Línea aérea Zaragoza-Argelia"
     }
   },
   "language": {
@@ -877,6 +883,46 @@
           "name": "Consulado en Alicante",
           "regions": "Comunidad Valenciana, Murcia, Andalucía, Ceuta y Melilla"
         }
+      }
+    }
+  },
+  "petition": {
+    "title": "Recogida de firmas — Línea Zaragoza-Argelia",
+    "subtitle": "Apoya la demanda de una conexión aérea directa entre Zaragoza y Argelia",
+    "context": {
+      "title": "¿Por qué esta petición?",
+      "p1": "Más de 10.000 argelinos residen en Aragón. Actualmente, viajar a Argelia desde Zaragoza obliga a hacer escala en Madrid o Barcelona, añadiendo horas de desplazamiento y coste al viaje.",
+      "p2": "Una línea directa Zaragoza-Argel u Orán permitiría a las familias reunirse con mayor facilidad, facilitaría los intercambios económicos y culturales entre ambos países, y contribuiría al desarrollo del aeropuerto de Zaragoza.",
+      "p3": "Con tu firma, respaldas nuestra solicitud ante las autoridades argelinas, las autoridades aeroportuarias, la Diputación General de Aragón y las compañías aéreas competentes."
+    },
+    "form": {
+      "fields": {
+        "nombre": "Nombre",
+        "apellidos": "Apellidos",
+        "nie": "NIE / DNI",
+        "signature": "Firma"
+      },
+      "placeholders": {
+        "nombre": "Tu nombre",
+        "apellidos": "Tus apellidos",
+        "nie": "X1234567A"
+      },
+      "signatureHint": "Dibuja tu firma con el dedo o el ratón en el recuadro de abajo",
+      "signatureLabel": "Zona de firma",
+      "clearSignature": "Borrar firma",
+      "consent": "Acepto que mis datos (nombre, apellidos, NIE/DNI y firma) sean utilizados por ANAE para la presentación de esta petición ante las autoridades competentes, de conformidad con la <privacy>política de privacidad</privacy>.",
+      "submit": "Firmar la petición",
+      "sending": "Enviando...",
+      "error": "Error al enviar tu firma. Por favor, inténtalo de nuevo.",
+      "success": {
+        "title": "¡Gracias por tu firma!",
+        "message": "Tu firma ha sido registrada correctamente. Juntos apoyamos una mejor conexión entre Zaragoza y Argelia."
+      },
+      "errors": {
+        "required": "Este campo es obligatorio",
+        "invalidNie": "Formato NIE/DNI inválido (ej: X1234567A o 12345678Z)",
+        "signatureRequired": "Por favor, dibuja tu firma",
+        "consentRequired": "Debes aceptar el tratamiento de datos"
       }
     }
   }

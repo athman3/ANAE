@@ -122,9 +122,11 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │       ├── faq/page.tsx        # FAQ page (Server Component, FAQSection, FAQ JSON-LD)
     │       ├── privacy/page.tsx    # Privacy policy (Server Component)
     │   ├── resources/page.tsx  # Resources Directory page (Server Component); builds search index across all 4 locales; generates JSON-LD ItemList (schema.org types per category: GovernmentOffice, LegalService, MedicalOrganization, etc.); passes ssrContent (all resources grouped by category as <section>/<article>) to DirectorySection for Google indexing; hash-based category sync via DirectorySection
-    │       └── contribute/page.tsx # Contribute page (Server Component, 4 sections)
+    │       ├── contribute/page.tsx # Contribute page (Server Component, 4 sections)
+    │       └── petition/page.tsx   # Petition page (Server Component, 2-column layout: context + form)
     ├── app/api/
-    │   └── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, consent validation, nodemailer SMTP
+    │   ├── contact/route.ts        # POST only; rate limiting (5 req/15min), sanitization, consent validation, nodemailer SMTP
+    │   └── petition/route.ts       # POST only; rate limiting (5 req/15min, 'petition' namespace), Content-Type check, NIE/DNI checksum validation, base64 size cap (500KB), nodemailer SMTP + Google Drive upload (signature PNG → public URL) + Google Sheets append with =IMAGE() formula (both non-blocking)
     ├── components/
     │   ├── CookieBanner.tsx        # "use client"; RGPD cookie consent banner; localStorage persistence; Google Consent Mode v2 gtag update; accept/reject buttons
     │   ├── RTLProvider.tsx         # "use client"; useLayoutEffect to set html dir + lang on pathname change
@@ -175,6 +177,9 @@ Note: This project does not have a test suite configured. If adding tests, use V
      │       ├── MissionSection.tsx
      │       ├── OtherWaysToHelpSection.tsx
      │       └── TestimonialsSection.tsx # "use client"; infinite auto-scroll carousel with scale effect; data from src/data/testimonials.ts
+    ├── components/Petition/
+    │   ├── PetitionForm.tsx        # "use client"; controlled form (nombre/apellidos/NIE/signature/consent); client-side NIE format validation; calls POST /api/petition; success/error states
+    │   └── SignaturePad.tsx        # "use client"; canvas + pointer events (touch + mouse); forwardRef exposing isEmpty()/toDataURL()/clear(); clearCanvas button
     ├── components/ui/
     │   ├── badge.tsx               # shadcn Badge
     │   ├── button.tsx              # shadcn Button
@@ -206,8 +211,9 @@ Note: This project does not have a test suite configured. If adding tests, use V
     │   │   └── index.ts            # generateMetadata(), generateOrganizationJsonLd(), generateArticleJsonLd(), generateFAQJsonLd(), generateContactPageJsonLd()
     │   └── utils/
     │       ├── navigationStyles.ts # getNavBackgroundClasses, TextClasses, LinkClasses, etc. — all take {is404, isHomePage, scrolled}
-    │       ├── rateLimit.ts        # In-memory IP rate limiter: 5 req/15min; getClientIP() checks x-forwarded-for + x-real-ip
-    │       └── sanitizeHtml.ts     # sanitizeHtml() (escapes &<>"') + sanitizeEmailContent() (trim + maxLength)
+    │       ├── rateLimit.ts        # In-memory IP rate limiter: 5 req/15min; getClientIP() checks x-forwarded-for + x-real-ip; optional namespace param for per-route isolation
+    │       ├── sanitizeHtml.ts     # sanitizeHtml() (escapes &<>"') + sanitizeEmailContent() (trim + maxLength)
+    │       └── validateNie.ts      # validateNie() checksum validation (modulo-23); NIE_OR_DNI_FORMAT_REGEX; used by /api/petition
     └── middleware.ts               # Custom Accept-Language detection for root '/'; falls back to next-intl middleware
 ```
 
@@ -399,6 +405,8 @@ All 4 locale files (`messages/{ar,es,fr,en}.json`) contain these namespaces:
 | `seo.gallery` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.contribute` | `title`, `description`, `keywords`, `imageAlt` |
 | `seo.resources` | `title`, `description`, `keywords`, `imageAlt` |
+| `petition` | `title`, `subtitle`, `context.{title,p1,p2,p3}`, `form.{fields,placeholders,signatureHint,signatureLabel,clearSignature,consent,submit,sending,error,success,errors}`, `counter.{signed,goal}` |
+| `seo.petition` | `title`, `description`, `keywords`, `imageAlt` |
 
 ### Translation Quality — Research Before Translating (IMPORTANT)
 
@@ -642,6 +650,18 @@ export async function generateStaticParams() {
 - **Consent validation**: `consent: true` required in request body (RGPD)
 - **Transport**: nodemailer via SMTP (see environment variables)
 
+### Petition Signatures (`/api/petition`)
+
+- **Method**: POST only
+- **Rate limiting**: 5 requests per 15 minutes per IP (isolated `petition` namespace)
+- **Content-Type check**: 415 if not `application/json`
+- **Fields**: `nombre`, `apellidos`, `nie`, `signatureDataUrl`, `consent`
+- **NIE/DNI validation**: format regex (client) + checksum modulo-23 (server-side)
+- **Signature size cap**: 500 KB max base64 length
+- **Signature format**: must start with `data:image/png;base64,`
+- **Google Sheets**: non-blocking `appendSignatureRow()` — email is the primary record; signature image uploaded to Google Drive via `uploadSignatureToDrive()`, public URL written as `=IMAGE("url")` in column F of the sheet
+- **Transport**: nodemailer SMTP with signature PNG inline via `cid:signature`
+
 ### Form Handling Pattern
 
 ```typescript
@@ -722,10 +742,25 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465              # 465 = SSL, 587 = TLS
 SMTP_USER=your@email.com   # Sender email / Gmail account
 SMTP_PASS=your-app-password # Gmail App Password (not account password)
-CONTACT_TO_EMAIL=recipient@email.com # Where contact emails are delivered
+CONTACT_TO_EMAIL=recipient@email.com # Where contact form emails are delivered
+PETITION_TO_EMAIL=petition-recipient@example.com  # Where petition signature emails are delivered (e.g., firmas@yourdomain.org)
 
 # SEO (optional)
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
+
+# Google Sheets (Petition signatures)
+# Full service account JSON key, minified to one line: cat key.json | jq -c .
+GOOGLE_SERVICE_ACCOUNT_JSON={"type":"service_account","project_id":"..."}
+# Sheet ID from the Google Sheets URL: /spreadsheets/d/{SHEET_ID}/edit
+GOOGLE_SHEET_ID=your-google-sheet-id-here
+
+# Cloudflare R2 (Signature image storage)
+R2_ACCOUNT_ID=your-cloudflare-account-id
+R2_ACCESS_KEY_ID=your-r2-access-key-id
+R2_SECRET_ACCESS_KEY=your-r2-secret-access-key
+R2_BUCKET_NAME=anae-signatures
+# Public base URL for the bucket (enable "Public access" in Cloudflare dashboard)
+R2_PUBLIC_URL=https://pub-XXXX.r2.dev
 ```
 
 ## Z-Index Architecture
@@ -875,5 +910,6 @@ When adding any feature that collects, processes, or stores user data:
 - `src/lib/utils/navigationStyles.ts` — Navigation color/style logic
 - `src/lib/utils/rateLimit.ts` — In-memory rate limiter
 - `src/lib/utils/sanitizeHtml.ts` — Input sanitization utilities
+- `src/lib/utils/validateNie.ts` — NIE/DNI format regex + checksum validator
 - `src/lib/blog/mdx.ts` — Blog content utilities
 - `components.json` — shadcn/ui configuration

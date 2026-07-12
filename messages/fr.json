@@ -57,6 +57,12 @@
       "description": "Annuaire de ressources utiles pour la communauté algérienne en Espagne : consulats, immigration, santé, éducation, transport et associations.",
       "keywords": "ressources algériens espagne, consulat algérie, ambassade algérie madrid, démarches immigration, aide juridique algériens",
       "imageAlt": "Ressources de l'ANAE"
+    },
+    "petition": {
+      "title": "ANAE - Pétition Ligne Zaragoza-Algérie",
+      "description": "Signez la pétition de l'ANAE pour une ligne aérienne directe entre Zaragoza et l'Algérie. Soutenez les 10 000 Algériens en Aragon.",
+      "keywords": "pétition, ligne aérienne, Zaragoza, Algérie, Alger, Oran, vol direct, ANAE, Aragon",
+      "imageAlt": "Pétition ANAE : ligne aérienne Zaragoza-Algérie"
     }
   },
   "language": {
@@ -877,6 +883,46 @@
           "name": "Consulat à Alicante",
           "regions": "Communauté valencienne, Murcie, Andalousie, Ceuta et Melilla"
         }
+      }
+    }
+  },
+  "petition": {
+    "title": "Recueil de signatures — Ligne Zaragoza-Algérie",
+    "subtitle": "Soutenez la demande d'une liaison aérienne directe entre Zaragoza et l'Algérie",
+    "context": {
+      "title": "Pourquoi cette pétition ?",
+      "p1": "Plus de 10 000 Algériens résident en Aragon. Aujourd'hui, voyager en Algérie depuis Zaragoza oblige à faire escale à Madrid ou Barcelone, ajoutant des heures de trajet et de coût supplémentaires.",
+      "p2": "Une ligne directe Zaragoza-Alger ou Oran permettrait aux familles de se retrouver plus facilement, faciliterait les échanges économiques et culturels entre les deux pays, et contribuerait au développement de l'aéroport de Zaragoza.",
+      "p3": "En signant, vous soutenez notre demande auprès des autorités algériennes, des autorités aéroportuaires, du gouvernement d'Aragon et des compagnies aériennes concernées."
+    },
+    "form": {
+      "fields": {
+        "nombre": "Prénom",
+        "apellidos": "Nom de famille",
+        "nie": "NIE / DNI",
+        "signature": "Signature"
+      },
+      "placeholders": {
+        "nombre": "Votre prénom",
+        "apellidos": "Votre nom de famille",
+        "nie": "X1234567A"
+      },
+      "signatureHint": "Dessinez votre signature avec le doigt ou la souris dans le cadre ci-dessous",
+      "signatureLabel": "Zone de signature",
+      "clearSignature": "Effacer la signature",
+      "consent": "J'accepte que mes données (prénom, nom, NIE/DNI et signature) soient utilisées par l'ANAE pour la présentation de cette pétition auprès des autorités compétentes, conformément à la <privacy>politique de confidentialité</privacy>.",
+      "submit": "Signer la pétition",
+      "sending": "Envoi en cours...",
+      "error": "Erreur lors de l'envoi de votre signature. Veuillez réessayer.",
+      "success": {
+        "title": "Merci pour votre signature !",
+        "message": "Votre signature a bien été enregistrée. Ensemble, nous soutenons une meilleure connexion entre Zaragoza et l'Algérie."
+      },
+      "errors": {
+        "required": "Ce champ est obligatoire",
+        "invalidNie": "Format NIE/DNI invalide (ex : X1234567A ou 12345678Z)",
+        "signatureRequired": "Veuillez dessiner votre signature",
+        "consentRequired": "Vous devez accepter le traitement des données"
       }
     }
   }
